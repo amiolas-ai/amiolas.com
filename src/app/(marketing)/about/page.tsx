@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "소개",
   description:
-    "Amiolas는 흩어지고 단절된 사내 지식의 의미를 복원해 기업이 자기 자신을 이해하도록 만드는 AI 회사입니다.",
+    "Amiolas는 흩어지고 단절된 사내 지식의 의미를 복원해 기업이 자기 자신을 이해하도록 만드는 AI Studio입니다.",
 };
 
 const lore = [
@@ -34,7 +34,7 @@ export default function AboutPage() {
           <span className="text-muted-foreground">아미올라스</span>
         </h1>
         <p className="mt-6 max-w-xl text-pretty text-lg leading-[1.6] text-muted-foreground">
-          AI / IT 회사. 자체 AI 제품군과 엔터프라이즈 엔지니어링을 병행합니다.
+          AI Studio. 자체 AI 제품군과 엔터프라이즈 엔지니어링을 병행합니다.
         </p>
       </header>
 
