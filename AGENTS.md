@@ -1,8 +1,10 @@
-<!-- BEGIN:nextjs-agent-rules -->
+
+
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+
+
 
 ---
 
@@ -12,7 +14,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · next-themes (dark default) · Vercel
 
-**브랜드**: violet `#693AD4` (`oklch(50% 0.22 290)`), black bg 기본. 전체 가이드는 `../amiolas-ai/brand`.
+**브랜드**: violet `#693AD4` (`oklch(50% 0.22 290)`), black bg 기본. 전체 가이드는 `BRAND.md`.
 
 > ⚠ Next.js 16은 v15에서 다수 breaking change. AI 어시스턴트가 v15 패턴(특히 sync `params`, `middleware.ts`, single-arg `revalidateTag`)을 자동 생성할 수 있으니 본 문서의 §10을 먼저 확인.
 
@@ -68,7 +70,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
   // app/@modal/default.tsx
   export default function Default() { return null; }
   ```
-- 미들웨어가 필요하면 `middleware.ts`가 아니라 **`proxy.ts`** (Next 16에서 이름 변경, runtime은 node only)
+- 미들웨어가 필요하면 `middleware.ts`가 아니라 `**proxy.ts**` (Next 16에서 이름 변경, runtime은 node only)
 
 ### 비동기 Request APIs (v16 강제)
 
@@ -90,25 +92,28 @@ export default async function Page(props: PageProps<'/blog/[slug]'>) {
 ## 3. Server vs Client Components
 
 기본 = **Server Component**. `"use client"`는 다음 경우에만:
+
 - State / effects / refs
 - Browser APIs
 - Event handlers
 - Client-only libraries (Framer Motion 등)
 
-**`"use client"`는 잎 컴포넌트에만**. 페이지는 Server Component이고 작은 `<ThemeToggle />`을 client island로 import. 반대 방향 금지.
+`**"use client"`는 잎 컴포넌트에만**. 페이지는 Server Component이고 작은 `<ThemeToggle />`을 client island로 import. 반대 방향 금지.
 
-서버 데이터는 **props로 내려보냄**. Client에서 server module을 import하지 말 것. `lib/data/*`는 `import "server-only"`로 가드.
+서버 데이터는 **props로 내려보냄**. Client에서 server module을 import하지 말 것. `lib/data/`*는 `import "server-only"`로 가드.
 
 ---
 
 ## 4. 데이터 페칭과 캐싱 (v16)
 
 Next 16의 `fetch`는 **기본 uncached**. 명시적 opt-in:
+
 ```ts
 fetch(url, { next: { revalidate: 3600, tags: ['posts'] } });
 ```
 
 또는 `"use cache"` 디렉티브 + **stable** `cacheLife()` / `cacheTag()`:
+
 ```ts
 "use cache";
 import { cacheLife, cacheTag } from "next/cache";
@@ -116,15 +121,18 @@ import { cacheLife, cacheTag } from "next/cache";
 cacheLife("hours");
 cacheTag("posts");
 ```
+
 > v15의 `unstable_cacheLife`/`unstable_cacheTag` import는 더 이상 사용하지 말 것. v16에서 stable.
 
 ### Cache 무효화 (v16 필수 변경)
 
-| 함수 | 사용처 | 시그니처 |
-| --- | --- | --- |
-| `revalidateTag(tag, profile)` | 일반 / 백그라운드 갱신. 사용자는 stale 보다가 fresh로 전환 | **2번째 인자 필수** (`'max'`, `'days'` 등) |
-| `updateTag(tag)` | **Server Action 전용**. read-your-writes — 같은 요청에서 즉시 fresh | Server Action 안에서만 |
-| `refresh()` | Server Action 후 클라이언트 라우터만 새로고침 | `import { refresh } from 'next/cache'` |
+
+| 함수                            | 사용처                                                       | 시그니처                                   |
+| ----------------------------- | --------------------------------------------------------- | -------------------------------------- |
+| `revalidateTag(tag, profile)` | 일반 / 백그라운드 갱신. 사용자는 stale 보다가 fresh로 전환                   | **2번째 인자 필수** (`'max'`, `'days'` 등)    |
+| `updateTag(tag)`              | **Server Action 전용**. read-your-writes — 같은 요청에서 즉시 fresh | Server Action 안에서만                     |
+| `refresh()`                   | Server Action 후 클라이언트 라우터만 새로고침                           | `import { refresh } from 'next/cache'` |
+
 
 ```ts
 // v15 → v16 마이그레이션
@@ -135,6 +143,7 @@ revalidateTag('posts', 'max')   // ✅
 ### PPR (Partial Prerendering)
 
 `experimental.ppr`, `experimental_ppr` segment config는 v16에서 제거됨. 대신:
+
 ```ts
 // next.config.ts
 const nextConfig: NextConfig = {
@@ -176,7 +185,7 @@ export async function submitContact(prev: unknown, formData: FormData) {
 
 ## 6. 스타일링 (Tailwind v4)
 
-**`tailwind.config.ts` 없음**. 토큰은 `app/globals.css`의 `@theme` 안에:
+`**tailwind.config.ts` 없음**. 토큰은 `app/globals.css`의 `@theme` 안에:
 
 ```css
 @import "tailwindcss";
@@ -202,6 +211,7 @@ export async function submitContact(prev: unknown, formData: FormData) {
 ## 7. TypeScript
 
 `tsconfig.json`:
+
 ```json
 {
   "compilerOptions": {
@@ -235,13 +245,15 @@ export async function submitContact(prev: unknown, formData: FormData) {
 
 ## 9. 네이밍
 
-| 대상 | 컨벤션 | 예 |
-| --- | --- | --- |
-| 파일 | `kebab-case` | `hero-section.tsx` |
-| 컴포넌트 | `PascalCase` | `HeroSection` |
-| 훅 | `use-*.ts` | `use-scroll.ts` |
-| 함수 | `camelCase` | `formatPrice()` |
-| 상수 | `UPPER_SNAKE_CASE` | `MAX_LENGTH` |
+
+| 대상   | 컨벤션                | 예                  |
+| ---- | ------------------ | ------------------ |
+| 파일   | `kebab-case`       | `hero-section.tsx` |
+| 컴포넌트 | `PascalCase`       | `HeroSection`      |
+| 훅    | `use-*.ts`         | `use-scroll.ts`    |
+| 함수   | `camelCase`        | `formatPrice()`    |
+| 상수   | `UPPER_SNAKE_CASE` | `MAX_LENGTH`       |
+
 
 ---
 
@@ -286,3 +298,4 @@ export async function submitContact(prev: unknown, formData: FormData) {
 - Vercel Analytics + Speed Insights 활성화
 - `vercel.json`은 redirects/headers가 필요할 때만
 - 환경 변수는 빌드 시 번들되는 게 기본 → 런타임 읽기가 필요하면 `import { connection } from 'next/server'` 후 `await connection()` 다음에 `process.env` 접근
+
