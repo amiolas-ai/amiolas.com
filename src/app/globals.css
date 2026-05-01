@@ -8,6 +8,31 @@
   --color-brand: #693ad4;
   --color-brand-light: oklch(0.65 0.22 295);
   --color-brand-dark: oklch(0.4 0.22 295);
+  --color-brand-glow: oklch(0.55 0.22 295 / 0.45);
+  --color-brand-glow-soft: oklch(0.55 0.22 295 / 0.18);
+  --color-border-strong: oklch(0.4 0 0);
+  --color-fg-muted: var(--muted-foreground);
+  --color-fg-subtle: oklch(0.45 0 0);
+
+  --tracking-eyebrow: 0.16em;
+  --shadow-glow:
+    0 0 0 1px oklch(0.55 0.22 295 / 0.5),
+    0 8px 32px -4px oklch(0.55 0.22 295 / 0.45);
+  --shadow-hairline: inset 0 0 0 1px oklch(1 0 0 / 0.04);
+  --shadow-inner-sheen: inset 0 1px 0 0 oklch(1 0 0 / 0.06);
+
+  --animate-aura-pulse: aura-pulse 8s ease-in-out infinite;
+  @keyframes aura-pulse {
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+  }
 
   /* shadcn semantic tokens */
   --color-background: var(--background);

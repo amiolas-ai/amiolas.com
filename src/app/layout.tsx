@@ -30,14 +30,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://amiolas.com"),
   title: {
-    default: "Amiolas — Restore the continuity of meaning",
+    default: "Amiolas — 의미의 연속성을 회복합니다",
     template: "%s — Amiolas",
   },
   description:
-    "Ontology-driven AI agents that restore the continuity of meaning across your fragmented enterprise data.",
+    "파편화된 사내 데이터의 언어를 해독하는 온톨로지 기반 AI 에이전트.",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "ko_KR",
     url: "https://amiolas.com",
     siteName: "Amiolas",
   },
@@ -51,7 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="ko"
       suppressHydrationWarning
       className={`${scDream.variable} ${geistMono.variable} h-full antialiased`}
     >
