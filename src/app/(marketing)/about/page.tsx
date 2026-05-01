@@ -20,10 +20,6 @@ const lore = [
     term: "장인의 통찰",
     desc: "이종 언어의 통합이 곧 이질적 영혼의 통합을 요구한다는 형이상학적 통찰",
   },
-  {
-    term: "부작용",
-    desc: "착용자 정체성의 깊은 변형 — 누군가의 영혼은 메말라가고, 누군가는 깊어진다",
-  },
 ] as const;
 
 export default function AboutPage() {
@@ -106,7 +102,7 @@ export default function AboutPage() {
               key={item.term}
               className="grid grid-cols-[110px_1fr] gap-6 py-4"
             >
-              <dt className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-fg-subtle">
+              <dt className="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground">
                 {item.term}
               </dt>
               <dd className="text-pretty leading-[1.6]">{item.desc}</dd>
@@ -154,8 +150,8 @@ export default function AboutPage() {
               엔터프라이즈 엔지니어링
             </h3>
             <p className="mt-4 text-[0.9375rem] leading-[1.55] text-muted-foreground">
-              클라이언트 의뢰 기반 맞춤형 IT 시스템 설계·구축·운영. 제품팀이
-              흔들리지 않도록 별도 라인으로 운영합니다.
+              클라이언트 의뢰 기반 맞춤형 IT 시스템 설계·구축·운영. AI 제품
+              라인과 자원·인력·의사결정 흐름을 분리해 독립적으로 운영합니다.
             </p>
           </article>
         </div>
