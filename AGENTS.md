@@ -14,7 +14,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · next-themes (dark default) · Vercel
 
-**브랜드**: violet `#693AD4` (`oklch(50% 0.22 290)`), black bg 기본. 전체 가이드는 `BRAND.md`.
+**브랜드 / 디자인 캐논**: violet `#693AD4` (`oklch(50% 0.22 290)`), black bg 기본. 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+
+**한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치.
 
 > ⚠ Next.js 16은 v15에서 다수 breaking change. AI 어시스턴트가 v15 패턴(특히 sync `params`, `middleware.ts`, single-arg `revalidateTag`)을 자동 생성할 수 있으니 본 문서의 §10을 먼저 확인.
 
@@ -183,28 +185,59 @@ export async function submitContact(prev: unknown, formData: FormData) {
 
 ---
 
-## 6. 스타일링 (Tailwind v4)
+## 6. 스타일링 (Tailwind v4) & 디자인 시스템
 
-`**tailwind.config.ts` 없음**. 토큰은 `app/globals.css`의 `@theme` 안에:
+`**tailwind.config.ts` 없음**. 모든 토큰은 `src/app/globals.css`의 `@theme inline` 블록이 단일 진실 원천. 새 토큰 추가 시 그곳에서.
+
+### 등록된 토큰 (확장 포함)
 
 ```css
-@import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
+@theme inline {
+  /* Brand */
+  --color-brand:            #693AD4;                        /* primary */
+  --color-brand-light:      oklch(0.65 0.22 295);           /* hover · accents */
+  --color-brand-dark:       oklch(0.40 0.22 295);           /* pressed · depth */
+  --color-brand-glow:       oklch(0.55 0.22 295 / 0.45);    /* hero aura center */
+  --color-brand-glow-soft:  oklch(0.55 0.22 295 / 0.18);    /* subtle radial halos */
 
-@theme {
-  --color-brand:       #693AD4;             /* primary */
-  --color-brand-light: oklch(0.65 0.22 295);
-  --color-brand-dark:  oklch(0.40 0.22 295);
-  --font-sans: "Geist", ui-sans-serif, system-ui;
+  /* shadcn semantic */
+  --color-background · --color-foreground · --color-card · --color-popover
+  --color-primary · --color-secondary · --color-muted · --color-accent
+  --color-destructive · --color-border · --color-input · --color-ring
+
+  /* Surface 확장 */
+  --color-border-strong: oklch(0.40 0 0);
+  --color-fg-muted: var(--muted-foreground);
+  --color-fg-subtle: oklch(0.45 0 0);
+
+  /* Type */
+  --font-sans:  var(--font-sc-dream);    /* SCDream (KR + Latin 단일 스택) */
+  --font-mono:  var(--font-geist-mono);
+  --tracking-eyebrow: 0.16em;
+
+  /* Shadow */
+  --shadow-glow:        브랜드-틴티드 ring + drop (CTA · hero mark 전용)
+  --shadow-hairline:    inset 0 0 0 1px oklch(1 0 0 / 0.04)   /* 카드 표면 sheen */
+  --shadow-inner-sheen: inset 0 1px 0 0 oklch(1 0 0 / 0.06)   /* 상단 1px highlight */
+
+  /* Motion */
+  --animate-aura-pulse: aura-pulse 8s ease-in-out infinite (brand glow 전용)
 }
-
-:root { --background: #ffffff; --foreground: #0a0a0a; }
-.dark { --background: #000000; --foreground: #ffffff; }
 ```
 
-- **shadcn/ui** primitives만 (`Button`, `Dialog`, `NavigationMenu`, `Sheet`, `Toast`)
-- 마케팅 섹션은 hand-built
-- **next-themes**: `attribute="class"`, `defaultTheme="dark"`, `enableSystem`
+### 사용 규약
+
+- **Primitive**: `src/components/ui/` 안의 shadcn 패턴만 (`Button` CVA primary/ghost pill 이미 존재). 새 primitive 필요 시 `/add-shadcn` 또는 동일 패턴으로
+- **마케팅 섹션**: hand-built (`src/components/marketing/`). primitive를 조합해 제작, 새 primitive 함부로 만들지 말 것
+- **테마**: `next-themes` · `attribute="class"` · `defaultTheme="dark"` · `enableSystem`. light는 legal 페이지 한정
+- **폰트**: `next/font/local`로 SCDream 9 weights self-host (`public/fonts/SCDream{1..9}.otf`). Latin도 SCDream 사용 (Geist Sans는 사용 안 함, Geist Mono는 코드 블록용)
+- **로고/이미지**: `public/logos/` (logo.png · logo-light.png), `public/images/` (specify.webp). 검정 배경 PNG 로고는 `mix-blend-mode: screen`으로 블렌딩
+- **Aura 사용**: hero · CTA 한정. `--color-brand-glow` + `blur(40px)` + `animate-aura-pulse`. 그 외 영역에서 남용 금지
+
+### 디자인 토큰 변경 시
+1. 위 §6 표 갱신
+2. `BRAND.md` 영향이면 거기도 동기화
+3. 새 토큰은 `@theme inline` 안에서 `--color-*` / `--shadow-*` / `--animate-*` prefix로 — Tailwind 유틸리티 자동 생성
 
 ---
 
