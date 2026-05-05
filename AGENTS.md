@@ -12,9 +12,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 회사 마케팅 사이트 (`amiolas.com`) 개발 가이드라인. 모든 PR·커밋·코드는 이 문서를 우선 참조합니다.
 
-**스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · next-themes (dark default) · Vercel
+**스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · Vercel
 
-**브랜드 / 디자인 캐논**: violet `#693AD4` (`oklch(50% 0.22 290)`), brand-tinted slate bg 기본 (`oklch(0.18 0.012 290)` — 보라 hue 미세 틴팅, 순검정 아님). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+**브랜드 / 디자인 캐논**: violet `#693AD4` (`oklch(50% 0.22 290)`), warm off-white bg 기본 (`oklch(0.985 0.005 290)` — Anthropic 톤, 보라 hue 미세 틴팅), 라이트 단일 테마. 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
 
 **한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치.
 
@@ -195,24 +195,24 @@ export async function submitContact(prev: unknown, formData: FormData) {
 @theme inline {
   /* Brand */
   --color-brand:            #693AD4;                        /* primary */
-  --color-brand-light:      oklch(0.65 0.22 295);           /* hover · accents */
+  --color-brand-light:      oklch(0.55 0.22 295);           /* hover · accents (light bg 가독성) */
   --color-brand-dark:       oklch(0.40 0.22 295);           /* pressed · depth */
-  --color-brand-glow:       oklch(0.55 0.22 295 / 0.45);    /* hero aura center */
-  --color-brand-glow-soft:  oklch(0.55 0.22 295 / 0.18);    /* subtle radial halos */
+  --color-brand-glow:       oklch(0.55 0.22 295 / 0.18);    /* radial halo */
+  --color-brand-glow-soft:  oklch(0.55 0.22 295 / 0.06);    /* faint atmospheric */
 
   /* Accent */
-  --color-spark:            oklch(0.82 0.07 225);           /* name reveal — "Ai" in Amiolas */
+  --color-spark:            oklch(0.45 0.10 60);            /* name reveal — "Ai" in Amiolas (deep bronze) */
 
-  /* shadcn semantic */
+  /* shadcn semantic (라이트 단일) */
   --color-background · --color-foreground · --color-card · --color-popover
   --color-primary · --color-secondary · --color-muted · --color-accent
   --color-destructive · --color-border · --color-input · --color-ring
-  /* .dark surfaces: brand-tinted slate (hue 290, chroma 0.012) — bg 0.18 → card 0.22 → muted 0.26 → border 0.32 */
+  /* :root surfaces — bg 0.985 → muted 0.94 → border 0.90 → border-strong 0.82 (hue 290) */
 
   /* Surface 확장 */
-  --color-border-strong: oklch(0.42 0.012 290);
+  --color-border-strong: oklch(0.82 0.008 290);
   --color-fg-muted: var(--muted-foreground);
-  --color-fg-subtle: oklch(0.58 0.008 290);
+  --color-fg-subtle: oklch(0.50 0.008 290);
 
   /* Type */
   --font-sans:  var(--font-sc-dream);    /* SCDream (KR + Latin 단일 스택) */
@@ -220,9 +220,8 @@ export async function submitContact(prev: unknown, formData: FormData) {
   --tracking-eyebrow: 0.16em;
 
   /* Shadow */
-  --shadow-glow:        브랜드-틴티드 ring + drop (CTA · hero mark 전용)
-  --shadow-hairline:    inset 0 0 0 1px oklch(1 0 0 / 0.04)   /* 카드 표면 sheen */
-  --shadow-inner-sheen: inset 0 1px 0 0 oklch(1 0 0 / 0.06)   /* 상단 1px highlight */
+  --shadow-hairline:    inset 0 0 0 1px oklch(0 0 0 / 0.04)   /* 카드 미세 윤곽 */
+  --shadow-inner-sheen: inset 0 1px 0 0 oklch(1 0 0 / 0.6)    /* 상단 highlight */
 
   /* Motion */
   --animate-aura-pulse: aura-pulse 8s ease-in-out infinite (brand glow 전용)
@@ -233,7 +232,7 @@ export async function submitContact(prev: unknown, formData: FormData) {
 
 - **Primitive**: `src/components/ui/` 안의 shadcn 패턴만 (`Button` CVA primary/ghost pill 이미 존재). 새 primitive 필요 시 `/add-shadcn` 또는 동일 패턴으로
 - **마케팅 섹션**: hand-built (`src/components/marketing/`). primitive를 조합해 제작, 새 primitive 함부로 만들지 말 것
-- **테마**: `next-themes` · `attribute="class"` · `defaultTheme="dark"` · `enableSystem`. light는 legal 페이지 한정
+- **테마**: 라이트 단일 — `:root` 토큰만 사용. `next-themes` · 다크 모드 미운영
 - **폰트**: `next/font/local`로 SCDream 9 weights self-host (`public/fonts/SCDream{1..9}.otf`). Latin도 SCDream 사용 (Geist Sans는 사용 안 함, Geist Mono는 코드 블록용)
 - **로고/이미지**: `public/logos/` (logo.png · logo-light.png), `public/images/` (specify.webp). 검정 배경 PNG 로고는 `mix-blend-mode: screen`으로 블렌딩
 - **Aura 사용**: hero · CTA 한정. `--color-brand-glow` + `blur(40px)` + `animate-aura-pulse`. 그 외 영역에서 남용 금지

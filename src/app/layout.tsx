@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import { Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ThemeProvider } from "@/components/layout/theme-provider";
 import "./globals.css";
 
 const scDream = localFont({
@@ -52,18 +51,10 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      suppressHydrationWarning
       className={`${scDream.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>
