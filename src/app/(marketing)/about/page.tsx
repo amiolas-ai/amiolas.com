@@ -30,7 +30,8 @@ export default function AboutPage() {
           About
         </span>
         <h1 className="mt-3 text-balance text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.035em]">
-          Amiolas{" "}
+          <span className="text-[oklch(0.82_0.07_225)]">A</span>m
+          <span className="text-[oklch(0.82_0.07_225)]">i</span>olas{" "}
           <span className="text-muted-foreground">아미올라스</span>
         </h1>
         <p className="mt-6 text-pretty text-lg leading-[1.6] text-muted-foreground">
