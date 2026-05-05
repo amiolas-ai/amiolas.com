@@ -10,9 +10,13 @@
   --color-brand-dark: oklch(0.4 0.22 295);
   --color-brand-glow: oklch(0.55 0.22 295 / 0.45);
   --color-brand-glow-soft: oklch(0.55 0.22 295 / 0.18);
-  --color-border-strong: oklch(0.4 0 0);
+
+  /* Accent — name reveal ("Ai" in Amiolas) */
+  --color-spark: oklch(0.82 0.07 225);
+
+  --color-border-strong: oklch(0.42 0.012 290);
   --color-fg-muted: var(--muted-foreground);
-  --color-fg-subtle: oklch(0.45 0 0);
+  --color-fg-subtle: oklch(0.58 0.008 290);
 
   --tracking-eyebrow: 0.16em;
   --shadow-glow:
@@ -94,29 +98,29 @@
 }
 
 .dark {
-  --background: #000000;
+  --background: oklch(0.18 0.012 290);
   --foreground: #fafafa;
 
-  --card: oklch(0.13 0 0);
+  --card: oklch(0.22 0.012 290);
   --card-foreground: #fafafa;
-  --popover: oklch(0.13 0 0);
+  --popover: oklch(0.22 0.012 290);
   --popover-foreground: #fafafa;
 
   --primary: #693ad4;
   --primary-foreground: #ffffff;
 
-  --secondary: oklch(0.21 0 0);
+  --secondary: oklch(0.26 0.012 290);
   --secondary-foreground: #fafafa;
-  --muted: oklch(0.21 0 0);
-  --muted-foreground: oklch(0.685 0 0);
-  --accent: oklch(0.21 0 0);
+  --muted: oklch(0.26 0.012 290);
+  --muted-foreground: oklch(0.72 0.005 290);
+  --accent: oklch(0.26 0.012 290);
   --accent-foreground: #fafafa;
 
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: #fafafa;
 
-  --border: oklch(0.27 0 0);
-  --input: oklch(0.27 0 0);
+  --border: oklch(0.32 0.012 290);
+  --input: oklch(0.32 0.012 290);
   --ring: #693ad4;
 }
 

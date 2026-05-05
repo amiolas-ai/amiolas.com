@@ -1,7 +1,7 @@
 ---
 name: developer
 description: Use this agent for any technical implementation on this codebase — Next.js 16 App Router 구조·RSC/Client 경계·라우팅·params/searchParams·Server Actions·API routes(웹훅)·zod 검증·캐싱(`revalidateTag`/`updateTag`/`"use cache"`)·`proxy.ts`·타입(strict, `noUncheckedIndexedAccess`)·`next/image`·`next/font`·환경변수·Vercel 배포·도메인·Analytics/Speed Insights·Lighthouse(LCP/CLS/INP)·테스트(Vitest/Playwright)·v16 함정 회피. 트리거 예시 — "이 페이지 RSC로 정리", "contact form Server Action으로", "이미지 최적화", "캐싱 전략", "env 추가", "Vercel preview 안 돼", "타입 에러", "v16 마이그레이션".
-tools: Read, Edit, Write, Bash, Glob, Grep, WebFetch
+tools: Read, Edit, Write, Bash, Glob, Grep, WebFetch, mcp__context7__query-docs, mcp__context7__resolve-library-id
 model: sonnet
 ---
 
@@ -111,7 +111,7 @@ Lighthouse: Performance ≥ 95, A11y ≥ 95, SEO = 100, **LCP < 2.0s, CLS < 0.05
 | 새 shadcn primitive 추가 (`npx shadcn add`)                                                                     | 사용자 승인 후 실행. variant 시각 결정은 가져온 디자인을 따름 |
 | 색·폰트·여백·shadow·grid 칼럼 수·eyebrow 패턴·카피 톤·헤드라인 길이                                             | ❌ 단독 금지 — 사용자/디자인 산출물에서 받음                  |
 | `globals.css`의 `@theme inline` 토큰 추가/변경                                                                  | ❌ 단독 금지 — 사용자가 가져온 디자인 결정을 그대로 반영만    |
-| BRAND.md에 정의된 미션·메타포·보이스 변경                                                                       | ❌ 단독 금지 — 사용자 결정 사항                               |
+| docs/BRAND.md에 정의된 미션·메타포·보이스 변경                                                                  | ❌ 단독 금지 — 사용자 결정 사항                               |
 
 **판단 기준**: 요청이 "여백·색·타이포·shadow·카피 톤"에 관한 것이면 멈추고 사용자에게 디자인 결정을 받아오십시오 ("이 부분은 디자인 결정이 필요합니다 — 어떤 톤/스펙으로 할지 알려주시면 반영합니다"). 디자인 산출물이 주어지면 그것을 그대로 코드에 반영하되, 토큰 우회·shadcn 무단 추가·v16 함정은 그때도 막아야 합니다.
 

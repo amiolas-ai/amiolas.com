@@ -14,7 +14,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · next-themes (dark default) · Vercel
 
-**브랜드 / 디자인 캐논**: violet `#693AD4` (`oklch(50% 0.22 290)`), black bg 기본. 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+**브랜드 / 디자인 캐논**: violet `#693AD4` (`oklch(50% 0.22 290)`), brand-tinted slate bg 기본 (`oklch(0.18 0.012 290)` — 보라 hue 미세 틴팅, 순검정 아님). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
 
 **한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치.
 
@@ -200,15 +200,19 @@ export async function submitContact(prev: unknown, formData: FormData) {
   --color-brand-glow:       oklch(0.55 0.22 295 / 0.45);    /* hero aura center */
   --color-brand-glow-soft:  oklch(0.55 0.22 295 / 0.18);    /* subtle radial halos */
 
+  /* Accent */
+  --color-spark:            oklch(0.82 0.07 225);           /* name reveal — "Ai" in Amiolas */
+
   /* shadcn semantic */
   --color-background · --color-foreground · --color-card · --color-popover
   --color-primary · --color-secondary · --color-muted · --color-accent
   --color-destructive · --color-border · --color-input · --color-ring
+  /* .dark surfaces: brand-tinted slate (hue 290, chroma 0.012) — bg 0.18 → card 0.22 → muted 0.26 → border 0.32 */
 
   /* Surface 확장 */
-  --color-border-strong: oklch(0.40 0 0);
+  --color-border-strong: oklch(0.42 0.012 290);
   --color-fg-muted: var(--muted-foreground);
-  --color-fg-subtle: oklch(0.45 0 0);
+  --color-fg-subtle: oklch(0.58 0.008 290);
 
   /* Type */
   --font-sans:  var(--font-sc-dream);    /* SCDream (KR + Latin 단일 스택) */
@@ -236,7 +240,7 @@ export async function submitContact(prev: unknown, formData: FormData) {
 
 ### 디자인 토큰 변경 시
 1. 위 §6 표 갱신
-2. `BRAND.md` 영향이면 거기도 동기화
+2. `docs/BRAND.md` 영향이면 거기도 동기화
 3. 새 토큰은 `@theme inline` 안에서 `--color-*` / `--shadow-*` / `--animate-*` prefix로 — Tailwind 유틸리티 자동 생성
 
 ---

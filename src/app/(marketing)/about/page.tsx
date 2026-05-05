@@ -26,12 +26,12 @@ export default function AboutPage() {
   return (
     <article className="mx-auto max-w-3xl px-6 py-24 sm:py-32">
       <header className="mb-20">
-        <span className="text-[11.5px] font-medium uppercase tracking-[0.16em] text-brand-light">
+        <span className="text-[11.5px] font-medium uppercase tracking-eyebrow text-brand-light">
           About
         </span>
         <h1 className="mt-3 text-balance text-[clamp(2.5rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.035em]">
-          <span className="text-[oklch(0.82_0.07_225)]">A</span>m
-          <span className="text-[oklch(0.82_0.07_225)]">i</span>olas{" "}
+          <span className="text-spark">A</span>m
+          <span className="text-spark">i</span>olas{" "}
           <span className="text-muted-foreground">아미올라스</span>
         </h1>
         <p className="mt-6 text-pretty text-lg leading-[1.6] text-muted-foreground">
@@ -44,7 +44,7 @@ export default function AboutPage() {
       </header>
 
       <section className="mb-20 border-t border-border pt-12">
-        <span className="text-[11.5px] font-medium uppercase tracking-[0.16em] text-brand-light">
+        <span className="text-[11.5px] font-medium uppercase tracking-eyebrow text-brand-light">
           작명 어원
         </span>
         <p className="mt-4 text-pretty leading-[1.7] text-muted-foreground">
@@ -73,7 +73,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mb-20 border-t border-border pt-12">
-        <span className="text-[11.5px] font-medium uppercase tracking-[0.16em] text-brand-light">
+        <span className="text-[11.5px] font-medium uppercase tracking-eyebrow text-brand-light">
           미션
         </span>
         <blockquote className="mt-4 border-l-2 border-brand pl-6">
@@ -110,7 +110,7 @@ export default function AboutPage() {
       </section>
 
       <section className="border-t border-border pt-12">
-        <span className="text-[11.5px] font-medium uppercase tracking-[0.16em] text-brand-light">
+        <span className="text-[11.5px] font-medium uppercase tracking-eyebrow text-brand-light">
           사업 구조
         </span>
         <h2 className="mt-3 text-balance text-[clamp(1.5rem,2.4vw,2rem)] font-semibold leading-[1.2] tracking-[-0.02em]">
@@ -123,7 +123,7 @@ export default function AboutPage() {
         </p>
         <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
           <article className="rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-hairline)]">
-            <span className="text-[11.5px] font-medium uppercase tracking-[0.16em] text-brand-light">
+            <span className="text-[11.5px] font-medium uppercase tracking-eyebrow text-brand-light">
               장기 성장 동력
             </span>
             <h3 className="mt-3 text-lg font-semibold tracking-[-0.015em]">
@@ -141,7 +141,7 @@ export default function AboutPage() {
             </ul>
           </article>
           <article className="rounded-2xl border border-border bg-card p-7 shadow-[var(--shadow-hairline)]">
-            <span className="text-[11.5px] font-medium uppercase tracking-[0.16em] text-brand-light">
+            <span className="text-[11.5px] font-medium uppercase tracking-eyebrow text-brand-light">
               단기 자금 + 캐시플로
             </span>
             <h3 className="mt-3 text-lg font-semibold tracking-[-0.015em]">
