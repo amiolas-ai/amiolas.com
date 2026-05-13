@@ -74,10 +74,10 @@ function Pane({
         {items.map((item) => (
           <li
             key={item.v}
-            className="grid grid-cols-[28px_1fr_auto] items-center gap-3.5 bg-background py-3.5 text-[13.5px]"
+            className="grid grid-cols-[20px_1fr_auto] items-center gap-2.5 bg-background py-3.5 text-[13px] sm:grid-cols-[28px_1fr_auto] sm:gap-3.5 sm:text-[13.5px]"
           >
             <span className="font-mono text-[10.5px] text-fg-dim">{item.k}</span>
-            <span className="text-foreground">{item.v}</span>
+            <span className="break-keep text-foreground">{item.v}</span>
             <span className="font-mono text-[10.5px] text-fg-dim">
               {item.meta}
             </span>

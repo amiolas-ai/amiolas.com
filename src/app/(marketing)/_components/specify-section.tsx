@@ -3,7 +3,7 @@ import { SectionHead } from "@/components/marketing/section-head";
 
 export function SpecifySection() {
   return (
-    <section id="specify" className="relative py-[clamp(80px,10vw,140px)]">
+    <section id="specify" className="relative py-[clamp(56px,8vw,100px)]">
       <div className="mx-auto max-w-[1440px] px-[var(--pad)]">
         <Reveal>
           <SectionHead
@@ -18,12 +18,19 @@ export function SpecifySection() {
             <div className="flex flex-col gap-10">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.16em] text-fg-dim">
                 <span className="inline-flex items-center gap-1.5 text-accent-soft">
-                  <span aria-hidden className="size-1.5 rounded-full bg-accent-soft" />
+                  <span
+                    aria-hidden
+                    className="size-1.5 rounded-full bg-accent-soft"
+                  />
                   Open Beta
                 </span>
-                <span className="opacity-40" aria-hidden>/</span>
+                <span className="opacity-40" aria-hidden>
+                  /
+                </span>
                 <span>Ontology AI Agent</span>
-                <span className="opacity-40" aria-hidden>/</span>
+                <span className="opacity-40" aria-hidden>
+                  /
+                </span>
                 <span>Multi-Source RAG</span>
               </div>
 
@@ -38,14 +45,17 @@ export function SpecifySection() {
               </div>
 
               <p className="m-0 max-w-[54ch] break-keep text-[15px] leading-[1.75] text-fg-muted">
-                GitHub, Notion, Google Docs, 코드. 서로 다른 &ldquo;언어&rdquo;로
-                흩어진 사내 데이터를 통합 해독합니다. 단순 저장·검색을 넘어
-                AI의 자율 추론으로 인사이트를 역제안하며, 정보 탐색 시간을 평균
-                40% 단축합니다.
+                GitHub, Notion, Google Docs, 코드. 서로 다른
+                &ldquo;언어&rdquo;로 흩어진 사내 데이터를 통합 해독합니다. 단순
+                저장·검색을 넘어 AI의 자율 추론으로 인사이트를 역제안하며, 정보
+                탐색 시간을 평균 40% 단축합니다.
               </p>
 
               <dl className="grid max-w-[520px] grid-cols-3 gap-8 border-t border-line-soft pt-7">
-                <Stat dt="Search Time" dd={<span className="text-accent-soft">▼ 40%</span>} />
+                <Stat
+                  dt="Search Time"
+                  dd={<span className="text-accent-soft">▼ 40%</span>}
+                />
                 <Stat dt="Early Users" dd="~ 20" />
                 <Stat dt="Stage" dd="Open Beta" />
               </dl>
@@ -91,7 +101,9 @@ function Stat({ dt, dd }: { dt: string; dd: React.ReactNode }) {
       <dt className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-dim">
         {dt}
       </dt>
-      <dd className="m-0 text-[19px] font-semibold tracking-[-0.012em]">{dd}</dd>
+      <dd className="m-0 text-[19px] font-semibold tracking-[-0.012em]">
+        {dd}
+      </dd>
     </div>
   );
 }
@@ -122,7 +134,11 @@ function KnowledgeGraph() {
       >
         <defs>
           <radialGradient id="kgNodeA" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="oklch(0.85 0.18 295)" stopOpacity="1" />
+            <stop
+              offset="0%"
+              stopColor="oklch(0.85 0.18 295)"
+              stopOpacity="1"
+            />
             <stop
               offset="100%"
               stopColor="oklch(0.5 0.22 295)"
@@ -169,13 +185,7 @@ function KnowledgeGraph() {
           <line x1="250" y1="230" x2="380" y2="370" />
           <line x1="100" y1="100" x2="80" y2="260" />
           <line x1="400" y1="90" x2="420" y2="230" />
-          <line
-            x1="140"
-            y1="380"
-            x2="380"
-            y2="370"
-            strokeDasharray="3 4"
-          />
+          <line x1="140" y1="380" x2="380" y2="370" strokeDasharray="3 4" />
           <line x1="420" y1="230" x2="380" y2="370" />
           <line x1="80" y1="260" x2="140" y2="380" />
           <line
@@ -209,15 +219,51 @@ function KnowledgeGraph() {
           <circle cx="80" cy="260" r="8" fill="url(#kgNodeA)" />
           <circle cx="140" cy="380" r="10" fill="url(#kgNodeA)" />
           <circle cx="380" cy="370" r="9" fill="url(#kgNodeA)" />
-          <circle cx="200" cy="150" r="3.5" fill="url(#kgNodeB)" opacity="0.7" />
-          <circle cx="320" cy="170" r="3.5" fill="url(#kgNodeB)" opacity="0.7" />
-          <circle cx="190" cy="310" r="3.5" fill="url(#kgNodeB)" opacity="0.7" />
-          <circle cx="320" cy="300" r="3.5" fill="url(#kgNodeB)" opacity="0.7" />
+          <circle
+            cx="200"
+            cy="150"
+            r="3.5"
+            fill="url(#kgNodeB)"
+            opacity="0.7"
+          />
+          <circle
+            cx="320"
+            cy="170"
+            r="3.5"
+            fill="url(#kgNodeB)"
+            opacity="0.7"
+          />
+          <circle
+            cx="190"
+            cy="310"
+            r="3.5"
+            fill="url(#kgNodeB)"
+            opacity="0.7"
+          />
+          <circle
+            cx="320"
+            cy="300"
+            r="3.5"
+            fill="url(#kgNodeB)"
+            opacity="0.7"
+          />
         </g>
 
         <g>
-          <circle cx="250" cy="230" r="40" fill="oklch(0.62 0.22 295)" opacity="0.15" />
-          <circle cx="250" cy="230" r="26" fill="oklch(0.62 0.22 295)" opacity="0.35" />
+          <circle
+            cx="250"
+            cy="230"
+            r="40"
+            fill="oklch(0.62 0.22 295)"
+            opacity="0.15"
+          />
+          <circle
+            cx="250"
+            cy="230"
+            r="26"
+            fill="oklch(0.62 0.22 295)"
+            opacity="0.35"
+          />
           <circle cx="250" cy="230" r="16" fill="oklch(0.85 0.18 295)" />
           <text
             x="250"
@@ -238,12 +284,24 @@ function KnowledgeGraph() {
           fill={inkDim}
           letterSpacing="1"
         >
-          <text x="100" y="82">GITHUB</text>
-          <text x="380" y="72">NOTION</text>
-          <text x="430" y="216">GDRIVE</text>
-          <text x="58" y="246">SLACK</text>
-          <text x="120" y="402">JIRA</text>
-          <text x="360" y="392">FIGMA</text>
+          <text x="100" y="82">
+            GITHUB
+          </text>
+          <text x="380" y="72">
+            NOTION
+          </text>
+          <text x="430" y="216">
+            GDRIVE
+          </text>
+          <text x="58" y="246">
+            SLACK
+          </text>
+          <text x="120" y="402">
+            JIRA
+          </text>
+          <text x="360" y="392">
+            FIGMA
+          </text>
         </g>
       </svg>
     </div>
