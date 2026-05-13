@@ -46,13 +46,15 @@ export function Hero() {
         </div>
 
         <Reveal className="relative z-[2]">
-          <dl className="grid max-w-[920px] grid-cols-2 gap-6 border-t border-line-soft pt-6 md:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-6 border-t border-line-soft pt-6 md:grid-cols-4">
             {meta.map(({ dt, dd }) => (
               <div key={dt}>
                 <dt className="mb-2 font-mono text-[10.5px] uppercase tracking-[0.16em] text-fg-dim">
                   {dt}
                 </dt>
-                <dd className="m-0 text-sm text-foreground">{dd}</dd>
+                <dd className="m-0 text-sm text-foreground md:whitespace-nowrap">
+                  {dd}
+                </dd>
               </div>
             ))}
           </dl>

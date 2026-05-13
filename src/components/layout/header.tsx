@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Wordmark } from "@/components/marketing/wordmark";
 import { Clock } from "./clock";
 
 export function Header() {
@@ -10,17 +9,16 @@ export function Header() {
         <Link
           href="/"
           aria-label="Amiolas 홈"
-          className="flex items-center gap-3.5 transition hover:opacity-80"
+          className="inline-flex items-center transition hover:opacity-80"
         >
           <Image
-            src="/logos/logo-light.png"
-            alt=""
-            width={40}
-            height={40}
+            src="/logos/logo-simple-transparent.png"
+            alt="Amiolas"
+            width={44}
+            height={44}
             priority
-            className="size-10 mix-blend-multiply"
+            className="size-11"
           />
-          <Wordmark size="md" />
         </Link>
 
         <div className="hidden items-center gap-2.5 justify-self-center text-[11px] text-fg-muted md:flex">

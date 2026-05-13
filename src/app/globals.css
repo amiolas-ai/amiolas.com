@@ -78,7 +78,7 @@
 
   --font-sans: var(--font-sc-dream);
   --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-instrument-serif);
+  --font-serif: var(--font-instrument-serif), var(--font-sc-dream), serif;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -166,12 +166,12 @@ body {
   background-image:
     linear-gradient(
       to right,
-      color-mix(in oklab, var(--foreground) 5%, transparent) 1px,
+      color-mix(in oklab, var(--foreground) 7%, transparent) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      color-mix(in oklab, var(--foreground) 5%, transparent) 1px,
+      color-mix(in oklab, var(--foreground) 7%, transparent) 1px,
       transparent 1px
     );
   background-size: 96px 96px;
@@ -181,7 +181,7 @@ body {
     black 30%,
     transparent 80%
   );
-  opacity: 0.28;
+  opacity: 0.42;
 }
 .bg-noise {
   position: fixed;
@@ -256,38 +256,3 @@ body {
   opacity: 0.5;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .rv {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* ===== Specify release card spotlight ===== */
-.release-card-bg {
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    color-mix(in oklab, #ffffff 94%, var(--color-brand-light))
-  );
-}
-.release-card-spot::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    700px 300px at 80% 0%,
-    color-mix(in oklab, var(--color-brand-light) 18%, transparent),
-    transparent 60%
-  );
-  pointer-events: none;
-}
-.kg-bg {
-  background:
-    radial-gradient(
-      closest-side at 50% 50%,
-      color-mix(in oklab, var(--color-brand-light) 14%, transparent),
-      transparent 70%
-    ),
-    oklch(0.99 0.005 85);
-}

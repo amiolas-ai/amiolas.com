@@ -1,3 +1,5 @@
+import { BackToTop } from "./back-to-top";
+
 export function Footer() {
   return (
     <footer className="relative z-[1] border-t border-line-soft py-[30px] pb-[60px] text-xs text-fg-dim">
@@ -7,9 +9,7 @@ export function Footer() {
           Restore the continuity of meaning
         </div>
         <div className="text-left md:text-right">
-          <a href="#top" className="text-fg-muted transition hover:text-foreground">
-            Back to top ↑
-          </a>
+          <BackToTop />
         </div>
       </div>
     </footer>

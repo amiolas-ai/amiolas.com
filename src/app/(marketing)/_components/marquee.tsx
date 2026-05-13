@@ -26,7 +26,7 @@ export function Marquee() {
       aria-hidden
       className="relative overflow-hidden border-y border-line-soft py-5 text-fg-dim"
     >
-      <div className="flex w-max animate-marquee motion-reduce:animate-none">
+      <div className="flex w-max animate-marquee">
         <Track />
         <Track />
       </div>

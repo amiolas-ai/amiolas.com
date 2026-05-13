@@ -3,69 +3,69 @@ import { SectionHead } from "@/components/marketing/section-head";
 
 export function SpecifySection() {
   return (
-    <section
-      id="specify"
-      className="relative py-[clamp(60px,8vw,120px)]"
-    >
+    <section id="specify" className="relative py-[clamp(80px,10vw,140px)]">
       <div className="mx-auto max-w-[1440px] px-[var(--pad)]">
         <Reveal>
           <SectionHead
             label="Latest Release"
-            title={
-              <>
-                파편화된 기업 데이터를 기업용 AI 두뇌로. 첫 번째 AI 제품.
-              </>
-            }
+            title="파편화된 기업 데이터를 기업용 AI 두뇌로. 첫 번째 AI 제품."
             aside="2026 · 01 / Open Beta"
           />
         </Reveal>
 
         <Reveal>
-          <article className="release-card-bg release-card-spot relative grid grid-cols-1 overflow-hidden rounded-[22px] border border-border shadow-[0_1px_0_rgba(0,0,0,0.02),0_30px_60px_-30px_color-mix(in_oklab,var(--color-brand-light)_18%,transparent)] transition-colors hover:border-[color-mix(in_oklab,var(--color-brand-light)_55%,var(--color-border))] md:grid-cols-[1.1fr_1fr]">
-            <div className="relative z-[1] flex flex-col gap-8 px-7 py-9 md:px-11 md:pb-9 md:pt-11">
-              <div className="flex flex-wrap gap-2">
-                <Tag tone="accent">● Open Beta</Tag>
-                <Tag>Ontology AI Agent</Tag>
-                <Tag>Multi-Source RAG</Tag>
+          <article className="grid grid-cols-1 gap-14 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20">
+            <div className="flex flex-col gap-10">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.16em] text-fg-dim">
+                <span className="inline-flex items-center gap-1.5 text-accent-soft">
+                  <span aria-hidden className="size-1.5 rounded-full bg-accent-soft" />
+                  Open Beta
+                </span>
+                <span className="opacity-40" aria-hidden>/</span>
+                <span>Ontology AI Agent</span>
+                <span className="opacity-40" aria-hidden>/</span>
+                <span>Multi-Source RAG</span>
               </div>
 
-              <div>
-                <h3 className="m-0 break-keep text-[clamp(26px,2.6vw,38px)] font-semibold leading-[1.15] tracking-[-0.022em]">
+              <div className="flex flex-col gap-5">
+                <h3 className="m-0 text-[clamp(44px,5.6vw,76px)] font-semibold uppercase leading-[1] tracking-[-0.02em]">
                   Specify
-                  <small className="mt-3.5 block break-keep text-[0.45em] font-normal not-italic leading-[1.6] tracking-[-0.005em] text-fg-muted">
-                    파편화된 사내 지식을 그래프 기반 온톨로지로 구조화하는,
-                    기업용 AI 두뇌.
-                  </small>
                 </h3>
+                <p className="m-0 max-w-[32ch] break-keep text-[clamp(17px,1.4vw,20px)] leading-[1.5] text-foreground">
+                  파편화된 사내 지식을 그래프 기반 온톨로지로 구조화하는, 기업용
+                  AI 두뇌.
+                </p>
               </div>
 
-              <p className="m-0 max-w-[48ch] break-keep text-[15px] leading-[1.75] text-fg-muted">
+              <p className="m-0 max-w-[54ch] break-keep text-[15px] leading-[1.75] text-fg-muted">
                 GitHub, Notion, Google Docs, 코드. 서로 다른 &ldquo;언어&rdquo;로
                 흩어진 사내 데이터를 통합 해독합니다. 단순 저장·검색을 넘어
                 AI의 자율 추론으로 인사이트를 역제안하며, 정보 탐색 시간을 평균
                 40% 단축합니다.
               </p>
 
-              <dl className="mt-auto grid grid-cols-3 gap-4 border-t border-line-soft pt-6">
+              <dl className="grid max-w-[520px] grid-cols-3 gap-8 border-t border-line-soft pt-7">
                 <Stat dt="Search Time" dd={<span className="text-accent-soft">▼ 40%</span>} />
                 <Stat dt="Early Users" dd="~ 20" />
                 <Stat dt="Stage" dd="Open Beta" />
               </dl>
 
               <a
-                className="group inline-flex w-fit items-center gap-3 rounded-full bg-foreground px-4 py-3.5 text-[13.5px] font-medium text-background transition hover:-translate-y-px hover:bg-accent-soft hover:text-white"
+                className="group mt-2 inline-flex w-fit items-baseline gap-2 text-[15px] font-medium text-foreground transition-colors hover:text-brand-light"
                 href="https://specify.app"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span>Visit specify.app</span>
+                <span className="border-b border-foreground/40 pb-1 transition-colors group-hover:border-brand-light">
+                  Visit specify.app
+                </span>
                 <svg
-                  width="13"
-                  height="13"
+                  width="12"
+                  height="12"
                   viewBox="0 0 13 13"
                   fill="none"
                   aria-hidden
-                  className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  className="translate-y-0.5 transition-transform group-hover:-translate-y-px group-hover:translate-x-0.5"
                 >
                   <path
                     d="M2.5 10.5L10.5 2.5M10.5 2.5H4M10.5 2.5V9"
@@ -85,34 +85,13 @@ export function SpecifySection() {
   );
 }
 
-function Tag({
-  children,
-  tone,
-}: {
-  children: React.ReactNode;
-  tone?: "accent";
-}) {
-  if (tone === "accent") {
-    return (
-      <span className="inline-flex rounded font-mono text-[10.5px] uppercase tracking-[0.14em] text-accent-soft border border-[color-mix(in_oklab,var(--color-brand-light)_50%,var(--color-border))] bg-[color-mix(in_oklab,var(--color-brand-light)_10%,transparent)] px-2.5 py-1">
-        {children}
-      </span>
-    );
-  }
-  return (
-    <span className="inline-flex rounded border border-border px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-[0.14em] text-fg-muted">
-      {children}
-    </span>
-  );
-}
-
 function Stat({ dt, dd }: { dt: string; dd: React.ReactNode }) {
   return (
     <div>
-      <dt className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-fg-dim">
+      <dt className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-dim">
         {dt}
       </dt>
-      <dd className="m-0 text-lg font-semibold tracking-[-0.01em]">{dd}</dd>
+      <dd className="m-0 text-[19px] font-semibold tracking-[-0.012em]">{dd}</dd>
     </div>
   );
 }
@@ -124,9 +103,16 @@ function KnowledgeGraph() {
   return (
     <div
       aria-hidden
-      className="kg-bg relative min-h-[320px] border-t border-line-soft md:min-h-[460px] md:border-l md:border-t-0"
+      className="relative aspect-[5/4.6] w-full lg:aspect-auto lg:min-h-[480px]"
     >
-      <span className="absolute right-5 top-5 font-mono text-[10.5px] uppercase tracking-[0.16em] text-fg-dim">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(closest-side at 50% 50%, color-mix(in oklab, var(--color-brand-light) 12%, transparent), transparent 72%)",
+        }}
+      />
+      <span className="absolute right-0 top-0 font-mono text-[10.5px] uppercase tracking-[0.18em] text-fg-dim">
         ▣ Knowledge Graph
       </span>
       <svg

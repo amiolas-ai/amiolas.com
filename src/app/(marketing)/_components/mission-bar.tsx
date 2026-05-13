@@ -1,6 +1,6 @@
 export function MissionBar() {
   return (
-    <section className="mission-stripes relative mx-[calc(-1*var(--pad))] mt-[clamp(40px,6vw,90px)] overflow-hidden border-y border-line-soft bg-surface-soft px-[var(--pad)] py-[clamp(80px,13vw,180px)]">
+    <section className="mission-stripes relative mx-[calc(-1*var(--pad))] mt-[clamp(40px,6vw,90px)] overflow-hidden border-y border-line-soft bg-surface-soft px-[var(--pad)] py-[clamp(80px,13vw,120px)]">
       <div className="relative mx-auto max-w-[1440px] text-center">
         <div className="mb-7 font-mono text-[11px] uppercase tracking-[0.22em] text-fg-dim">
           Metaphor
