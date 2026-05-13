@@ -2,20 +2,32 @@
 @import "tw-animate-css";
 
 @theme inline {
-  /* Brand */
-  --color-brand: #693ad4;
-  --color-brand-light: oklch(0.55 0.22 295);
+  /* Brand — Amiolas violet (design canon · hue 295) */
+  --color-brand: oklch(0.55 0.22 295);
+  --color-brand-light: oklch(0.62 0.2 295);
   --color-brand-dark: oklch(0.4 0.22 295);
   --color-brand-glow: oklch(0.55 0.22 295 / 0.18);
   --color-brand-glow-soft: oklch(0.55 0.22 295 / 0.06);
 
-  /* Accent — name reveal ("Ai" in Amiolas) — deep bronze */
+  /* Accent — release card · serif italic */
+  --color-accent-soft: oklch(0.62 0.2 295);
+  --color-accent-dim: oklch(0.78 0.12 295);
+
+  /* Name reveal — "Ai" in Amiolas */
   --color-spark: oklch(0.45 0.1 60);
 
+  /* Surfaces · lines */
+  --color-surface-soft: var(--surface-soft);
+  --color-surface-card: var(--surface-card);
+  --color-line-soft: var(--line-soft);
   --color-border-strong: oklch(0.82 0.008 290);
+
+  /* Foreground tiers */
   --color-fg-muted: var(--muted-foreground);
   --color-fg-subtle: oklch(0.5 0.008 290);
+  --color-fg-dim: var(--fg-dim);
 
+  /* Tracking · shadow · motion */
   --tracking-eyebrow: 0.16em;
   --shadow-hairline: inset 0 0 0 1px oklch(0 0 0 / 0.04);
   --shadow-inner-sheen: inset 0 1px 0 0 oklch(1 0 0 / 0.6);
@@ -30,6 +42,16 @@
     50% {
       opacity: 0.9;
       transform: translate(-50%, -50%) scale(1.06);
+    }
+  }
+
+  --animate-marquee: marquee-scroll 50s linear infinite;
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
     }
   }
 
@@ -56,6 +78,7 @@
 
   --font-sans: var(--font-sc-dream);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -64,32 +87,37 @@
 
 :root {
   --radius: 0.5rem;
+  --pad: clamp(20px, 4vw, 56px);
 
-  /* Anthropic-style warm off-white, brand-hue 미세 틴팅 */
-  --background: oklch(0.985 0.005 290);
-  --foreground: oklch(0.2 0.012 290);
+  /* Warm cream off-white (design canon · hue 85) */
+  --background: oklch(0.985 0.004 85);
+  --surface-soft: oklch(0.965 0.006 85);
+  --surface-card: oklch(0.975 0.005 85);
+  --foreground: oklch(0.18 0.012 290);
 
-  --card: oklch(0.985 0.005 290);
-  --card-foreground: oklch(0.2 0.012 290);
-  --popover: oklch(0.985 0.005 290);
-  --popover-foreground: oklch(0.2 0.012 290);
+  --card: var(--surface-card);
+  --card-foreground: var(--foreground);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
 
-  --primary: #693ad4;
+  --primary: oklch(0.55 0.22 295);
   --primary-foreground: #ffffff;
 
-  --secondary: oklch(0.94 0.005 290);
-  --secondary-foreground: oklch(0.2 0.012 290);
-  --muted: oklch(0.94 0.005 290);
-  --muted-foreground: oklch(0.45 0.008 290);
-  --accent: oklch(0.94 0.005 290);
-  --accent-foreground: oklch(0.2 0.012 290);
+  --secondary: oklch(0.94 0.005 85);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.94 0.005 85);
+  --muted-foreground: oklch(0.42 0.014 285);
+  --accent: oklch(0.94 0.005 85);
+  --accent-foreground: var(--foreground);
 
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: #ffffff;
 
-  --border: oklch(0.9 0.005 290);
-  --input: oklch(0.9 0.005 290);
-  --ring: #693ad4;
+  --border: oklch(0.86 0.008 85);
+  --line-soft: oklch(0.92 0.006 85);
+  --fg-dim: oklch(0.58 0.014 285);
+  --input: oklch(0.86 0.008 85);
+  --ring: oklch(0.55 0.22 295);
 }
 
 * {
@@ -102,4 +130,164 @@ body {
   font-family:
     var(--font-sans), "Apple SD Gothic Neo", "Pretendard", "Malgun Gothic",
     ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: white;
+}
+
+/* ===== Background atmospheric layers ===== */
+.bg-fx {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      900px 700px at 88% -10%,
+      color-mix(in oklab, var(--color-brand-light) 6%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 700px at 4% 108%,
+      color-mix(in oklab, var(--color-brand-light) 5%, transparent),
+      transparent 62%
+    );
+}
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--foreground) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--foreground) 5%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 96px 96px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 30%,
+    transparent 80%
+  );
+  opacity: 0.28;
+}
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* ===== Reveal-on-scroll ===== */
+.rv {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.rv.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== Status dot pulse (header) ===== */
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: oklch(0.78 0.18 150);
+  box-shadow: 0 0 12px oklch(0.78 0.18 150);
+  animation: status-pulse 2.4s ease-in-out infinite;
+}
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ===== Hero blueprint mask — soft watermark ===== */
+.hero-arch-mask {
+  mask-image: radial-gradient(
+    ellipse 55% 60% at center,
+    black 0%,
+    black 25%,
+    transparent 85%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 55% 60% at center,
+    black 0%,
+    black 25%,
+    transparent 85%
+  );
+}
+
+/* ===== Mission bar vertical 12-col stripes ===== */
+.mission-stripes::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to right,
+    color-mix(in oklab, var(--foreground) 4%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: calc(100% / 12) 100%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== Specify release card spotlight ===== */
+.release-card-bg {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    color-mix(in oklab, #ffffff 94%, var(--color-brand-light))
+  );
+}
+.release-card-spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    700px 300px at 80% 0%,
+    color-mix(in oklab, var(--color-brand-light) 18%, transparent),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+.kg-bg {
+  background:
+    radial-gradient(
+      closest-side at 50% 50%,
+      color-mix(in oklab, var(--color-brand-light) 14%, transparent),
+      transparent 70%
+    ),
+    oklch(0.99 0.005 85);
 }

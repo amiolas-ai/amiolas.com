@@ -14,7 +14,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · Vercel
 
-**브랜드 / 디자인 캐논**: violet `#693AD4` (`oklch(50% 0.22 290)`), warm off-white bg 기본 (`oklch(0.985 0.005 290)` — Anthropic 톤, 보라 hue 미세 틴팅), 라이트 단일 테마. 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), warm cream bg `oklch(0.985 0.004 85)` (디자인 시안 기준 · hue 85), 라이트 단일 테마. 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
 
 **한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치.
 
@@ -193,12 +193,16 @@ export async function submitContact(prev: unknown, formData: FormData) {
 
 ```css
 @theme inline {
-  /* Brand */
-  --color-brand:            #693AD4;                        /* primary */
-  --color-brand-light:      oklch(0.55 0.22 295);           /* hover · accents (light bg 가독성) */
+  /* Brand · hue 295 (design canon) */
+  --color-brand:            oklch(0.55 0.22 295);           /* primary */
+  --color-brand-light:      oklch(0.62 0.20 295);           /* hover · accents */
   --color-brand-dark:       oklch(0.40 0.22 295);           /* pressed · depth */
   --color-brand-glow:       oklch(0.55 0.22 295 / 0.18);    /* radial halo */
   --color-brand-glow-soft:  oklch(0.55 0.22 295 / 0.06);    /* faint atmospheric */
+
+  /* Accent (release card · serif italic) */
+  --color-accent-soft:      oklch(0.62 0.20 295);           /* hover · pill */
+  --color-accent-dim:       oklch(0.78 0.12 295);           /* faded inline */
 
   /* Accent */
   --color-spark:            oklch(0.45 0.10 60);            /* name reveal — "Ai" in Amiolas (deep bronze) */
@@ -207,7 +211,7 @@ export async function submitContact(prev: unknown, formData: FormData) {
   --color-background · --color-foreground · --color-card · --color-popover
   --color-primary · --color-secondary · --color-muted · --color-accent
   --color-destructive · --color-border · --color-input · --color-ring
-  /* :root surfaces — bg 0.985 → muted 0.94 → border 0.90 → border-strong 0.82 (hue 290) */
+  /* :root surfaces (cream, hue 85) — bg 0.985 → surface-card 0.975 → surface-soft 0.965 → muted 0.94 → line-soft 0.92 → border 0.86 */
 
   /* Surface 확장 */
   --color-border-strong: oklch(0.82 0.008 290);
