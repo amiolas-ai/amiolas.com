@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Geist_Mono, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
@@ -37,18 +37,66 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL("https://amiolas.com"),
   title: {
-    default: "Amiolas — 의미의 연속성을 회복합니다",
+    default: "Amiolas",
     template: "%s — Amiolas",
   },
   description:
-    "파편화된 사내 데이터의 언어를 해독하는 온톨로지 기반 AI 에이전트.",
+    "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 제품과 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
+  applicationName: "Amiolas",
+  authors: [{ name: "Amiolas" }],
+  creator: "Amiolas",
+  publisher: "Amiolas, Inc.",
+  keywords: [
+    "Amiolas",
+    "아미올라스",
+    "AI Studio",
+    "온톨로지",
+    "엔터프라이즈 AI",
+    "지식 그래프",
+    "Specify",
+  ],
+  alternates: {
+    canonical: "/",
+    languages: { "ko-KR": "/" },
+  },
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
     url: "https://amiolas.com",
     siteName: "Amiolas",
+    title: "Amiolas — 의미의 연속성을 회복합니다",
+    description:
+      "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 제품과 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Amiolas — 의미의 연속성을 회복합니다",
+    description:
+      "단절된 곳에 의미의 연속성을 회복합니다.",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "light",
+  themeColor: "#6041e6",
 };
 
 export default function RootLayout({

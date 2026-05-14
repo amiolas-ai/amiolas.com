@@ -15,7 +15,7 @@ export function ContactSection() {
     >
       <div className="mx-auto max-w-[1440px] px-[var(--pad)]">
         <Reveal>
-          <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-[1.2fr_1fr] md:gap-14">
+          <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[1.2fr_1fr] md:gap-14">
             <div>
               <div className="mb-5 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-muted">
                 Contact
