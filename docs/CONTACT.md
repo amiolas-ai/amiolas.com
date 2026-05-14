@@ -50,6 +50,7 @@
 ### 단계별
 
 **A. 사용자 → Slack (Outbound)**
+
 1. 위젯 폼 submit → React 19 `useActionState`가 Server Action `sendContactMessage` 호출
 2. 액션이 zod로 입력 검증, 허니팟·rate-limit 체크
 3. 신규 대화면 `createConversation`으로 KV에 메타 저장 → Slack `chat.postMessage`로 새 thread 생성 → 반환된 `thread_ts`를 `setThreadTs`로 KV에 매핑 (`thread:<ts>` → `conversationId`)
@@ -59,6 +60,7 @@
 7. 액션 결과로 사용자 메시지 + (신규면) 자동 ACK 메시지 반환
 
 **B. 위젯 ← Slack (Inbound)**
+
 1. 운영자가 thread에 답글 작성
 2. Slack이 등록된 `/api/slack/events` 웹훅에 POST
 3. Edge runtime에서 HMAC SHA256 서명 검증 (timestamp ±5분 drift, timing-safe compare)
@@ -68,6 +70,7 @@
 7. SSE 구독자가 PUBLISH를 받아 onmessage → 위젯 messages 상태 머지
 
 **C. 실시간 전달 (SSE)**
+
 1. 위젯이 마운트 + `conversationId` 존재 시 `EventSource('/api/contact/stream?conversationId=…&since=0')` 생성
 2. SSE 라우트(Node runtime)가 KV에서 since 이후 메시지 일괄 replay → 클라가 history 복원
 3. 라우트가 node-redis로 `conv:<id>` 채널 SUBSCRIBE
@@ -82,28 +85,32 @@
 
 ### 클라이언트
 
-| 파일 | 책임 |
-| --- | --- |
-| `components/widget/contact-widget.tsx` | 모든 상태(messages, open, formKey) 보유. SSE 구독·메시지 머지·unread 계산·localStorage 동기화 |
-| `components/widget/widget-fab.tsx` | 우하단 floating action button. unread badge 표시 |
-| `components/widget/widget-panel.tsx` | 패널 UI (헤더·메시지 리스트·composer 폼). useFormStatus로 pending 처리 |
-| `components/widget/message-bubble.tsx` | 메시지 1건 렌더. sender별 스타일 분기 |
-| `components/layout/contact-trigger.tsx` | 헤더·CTA 버튼이 위젯을 열기 위한 트리거. window CustomEvent `amiolas:contact:toggle` 발행 |
-| `hooks/use-contact-storage.ts` | localStorage 영속화 훅. `{ conversationId, identity, lastReadTs }` 읽기/쓰기 |
+
+| 파일                                      | 책임                                                                          |
+| --------------------------------------- | --------------------------------------------------------------------------- |
+| `components/widget/contact-widget.tsx`  | 모든 상태(messages, open, formKey) 보유. SSE 구독·메시지 머지·unread 계산·localStorage 동기화 |
+| `components/widget/widget-fab.tsx`      | 우하단 floating action button. unread badge 표시                                 |
+| `components/widget/widget-panel.tsx`    | 패널 UI (헤더·메시지 리스트·composer 폼). useFormStatus로 pending 처리                    |
+| `components/widget/message-bubble.tsx`  | 메시지 1건 렌더. sender별 스타일 분기                                                   |
+| `components/layout/contact-trigger.tsx` | 헤더·CTA 버튼이 위젯을 열기 위한 트리거. window CustomEvent `amiolas:contact:toggle` 발행    |
+| `hooks/use-contact-storage.ts`          | localStorage 영속화 훅. `{ conversationId, identity, lastReadTs }` 읽기/쓰기        |
+
 
 ### 서버
 
-| 파일 | 책임 |
-| --- | --- |
-| `lib/actions/contact-send.ts` | Server Action. zod 검증 → rate-limit → Slack 게시 → KV append → publish |
-| `lib/contact/store.ts` | Upstash REST 어댑터. 대화 CRUD, 메시지 sorted set, thread 매핑, rate-limit 카운터, event dedupe, publish |
-| `lib/contact/realtime.ts` | node-redis subscriber 팩토리 (TCP 연결, SSE 라우트가 사용) |
-| `lib/slack/client.ts` | Slack Web API 래퍼. 새 thread 게시 + thread reply |
-| `lib/slack/verify.ts` | HMAC SHA256 서명 검증 (Web Crypto API) |
-| `app/api/contact/stream/route.ts` | SSE 엔드포인트. Node runtime, 25s 수명, Last-Event-ID 재연결 |
-| `app/api/slack/events/route.ts` | Slack Events 웹훅. Edge runtime, 서명 검증·dedupe·publish |
-| `lib/env.ts` | zod로 검증된 env 단일 진실 원천 |
-| `lib/contact/config.ts` | 상수 (rate-limit, 메시지 길이 한도, TTL, ACK 텍스트) |
+
+| 파일                                | 책임                                                                                          |
+| --------------------------------- | ------------------------------------------------------------------------------------------- |
+| `lib/actions/contact-send.ts`     | Server Action. zod 검증 → rate-limit → Slack 게시 → KV append → publish                         |
+| `lib/contact/store.ts`            | Upstash REST 어댑터. 대화 CRUD, 메시지 sorted set, thread 매핑, rate-limit 카운터, event dedupe, publish |
+| `lib/contact/realtime.ts`         | node-redis subscriber 팩토리 (TCP 연결, SSE 라우트가 사용)                                             |
+| `lib/slack/client.ts`             | Slack Web API 래퍼. 새 thread 게시 + thread reply                                                |
+| `lib/slack/verify.ts`             | HMAC SHA256 서명 검증 (Web Crypto API)                                                          |
+| `app/api/contact/stream/route.ts` | SSE 엔드포인트. Node runtime, 25s 수명, Last-Event-ID 재연결                                          |
+| `app/api/slack/events/route.ts`   | Slack Events 웹훅. Edge runtime, 서명 검증·dedupe·publish                                         |
+| `lib/env.ts`                      | zod로 검증된 env 단일 진실 원천                                                                       |
+| `lib/contact/config.ts`           | 상수 (rate-limit, 메시지 길이 한도, TTL, ACK 텍스트)                                                    |
+
 
 ---
 
@@ -111,11 +118,13 @@
 
 세 곳에 분산. 역할이 다릅니다.
 
-| 위치 | 무엇을 저장 | TTL | 역할 |
-| --- | --- | --- | --- |
-| **Upstash Redis (KV)** | 메시지 본문·sender·timestamp 전체 | 30일 | **단일 진실 원천**. SSE가 여기서 읽어 푸시 |
-| **Slack 채널 thread** | 메시지 본문 (운영자 가시화) | 무제한 | 운영자가 답변하는 UI. 봇이 게시·운영자가 reply |
-| **브라우저 localStorage** | `conversationId` + `identity` + `lastReadTs` | 영구 (사용자 삭제 전) | 세션 식별자 + 마지막 읽음 cursor. **메시지 본문은 저장 안 함** |
+
+| 위치                     | 무엇을 저장                                       | TTL           | 역할                                         |
+| ---------------------- | -------------------------------------------- | ------------- | ------------------------------------------ |
+| **Upstash Redis (KV)** | 메시지 본문·sender·timestamp 전체                   | 30일           | **단일 진실 원천**. SSE가 여기서 읽어 푸시               |
+| **Slack 채널 thread**    | 메시지 본문 (운영자 가시화)                             | 무제한           | 운영자가 답변하는 UI. 봇이 게시·운영자가 reply             |
+| **브라우저 localStorage**  | `conversationId` + `identity` + `lastReadTs` | 영구 (사용자 삭제 전) | 세션 식별자 + 마지막 읽음 cursor. **메시지 본문은 저장 안 함** |
+
 
 ### KV 키 구조
 
@@ -133,10 +142,12 @@ dedup:event:Ev012345    → 1                          ← 5분 TTL
 ```
 
 ### 왜 메시지를 localStorage에 두지 않나
+
 - **운영자 답글 동기화**: 다른 디바이스/브라우저에서도 같은 `conversationId`만 있으면 동일 대화 복원
 - **저장 한도·민감 데이터**: localStorage는 5MB 한도, XSS 표적 — PII 보관 부적합
 
 ### Sorted set 선택 이유
+
 - `ZRANGEBYSCORE (since +inf` 한 번에 시간 범위 조회 가능 → SSE history replay·재연결 cursor 모두 O(log N + M)
 - score = createdAt(ms)이라 자연 정렬
 
@@ -146,24 +157,28 @@ dedup:event:Ev012345    → 1                          ← 5분 TTL
 
 ### 비교
 
-| 방식 | 클라 fetch / 분 | KV 명령 / 분 (idle) | 지연 | 인프라 |
-| --- | --- | --- | --- | --- |
-| 5초 폴링 (이전) | 12 | 12 | 0~5s | 단순 |
-| Long polling | 2~3 | 동일 | 0~25s | 같음 |
-| **SSE + pub/sub** | **0~1** (재연결) | **0** | **<100ms** | node-redis + Node runtime |
-| WebSocket | 0 | 0 | <100ms | 서버리스 부적합 |
-| Pusher/Ably | 0 | 0 | <100ms | 외부 PaaS, 월 비용 |
+
+| 방식                | 클라 fetch / 분  | KV 명령 / 분 (idle) | 지연         | 인프라                       |
+| ----------------- | ------------- | ---------------- | ---------- | ------------------------- |
+| 5초 폴링 (이전)        | 12            | 12               | 0~5s       | 단순                        |
+| Long polling      | 2~3           | 동일               | 0~25s      | 같음                        |
+| **SSE + pub/sub** | **0~1** (재연결) | **0**            | **<100ms** | node-redis + Node runtime |
+| WebSocket         | 0             | 0                | <100ms     | 서버리스 부적합                  |
+| Pusher/Ably       | 0             | 0                | <100ms     | 외부 PaaS, 월 비용             |
+
 
 SSE를 택한 이유: Vercel + Upstash 위에서 추가 SaaS 없이 가장 적은 idle 비용을 달성. 답글 없으면 연결 유지 외 비용 0.
 
 ### Vercel + Upstash 조합의 제약
 
-| 항목 | 제약 |
-| --- | --- |
-| `@upstash/redis` REST 클라이언트 | `PUBLISH`는 가능, `SUBSCRIBE`는 불가 (HTTP stateless) |
-| Vercel Edge runtime | fetch/WebSocket만 가능, TCP 불가 — pub/sub subscribe 안 됨 |
-| Vercel Node serverless | TCP 가능, 함수 수명 동안 연결 유지 |
-| Vercel Hobby 함수 한도 | 스트리밍 최대 30s |
+
+| 항목                          | 제약                                                  |
+| --------------------------- | --------------------------------------------------- |
+| `@upstash/redis` REST 클라이언트 | `PUBLISH`는 가능, `SUBSCRIBE`는 불가 (HTTP stateless)     |
+| Vercel Edge runtime         | fetch/WebSocket만 가능, TCP 불가 — pub/sub subscribe 안 됨 |
+| Vercel Node serverless      | TCP 가능, 함수 수명 동안 연결 유지                              |
+| Vercel Hobby 함수 한도          | 스트리밍 최대 30s                                         |
+
 
 결론: **SSE 라우트는 Node runtime에서 운영, node-redis로 Upstash TCP 연결해 구독**, **PUBLISH는 @upstash/redis REST 사용**.
 
@@ -195,6 +210,7 @@ const since =
 ```
 
 ### 왜 인터벌 폴링도 fallback으로 두지 않았나
+
 이전 단계에서 5s 폴링 fallback을 유지할지 검토했지만, 폴링과 SSE 두 경로의 메시지 중복·중복 카운팅 처리가 복잡해져서 **SSE only**로 단순화. EventSource를 지원 안 하는 환경(IE 등)은 현재 마케팅 사이트 타깃에 무시 가능.
 
 ---
@@ -202,9 +218,11 @@ const since =
 ## 6. 보안·신뢰성
 
 ### HMAC 서명 검증 (Slack Events)
+
 `/api/slack/events`는 외부에서 누구나 POST할 수 있는 공개 endpoint. Slack은 모든 요청에 `X-Slack-Signature` (HMAC SHA256) + `X-Slack-Request-Timestamp` 헤더를 포함.
 
 검증 절차 (`lib/slack/verify.ts`):
+
 1. timestamp 파싱, 현재 시각과 ±5분 이내인지 (replay 방지)
 2. `v0:${timestamp}:${rawBody}`를 signing secret으로 HMAC SHA256 계산 (Web Crypto)
 3. 결과를 `v0=` 접두사를 제거한 헤더 값과 **timing-safe equal**로 비교
@@ -223,6 +241,7 @@ function timingSafeEqual(a: string, b: string): boolean {
 문자열 비교가 빠른 거절 시 조기 종료하면 timing attack 단서가 됨 → 길이가 같은 한 *모든* 문자를 항상 비교.
 
 ### Idempotency (이벤트 중복 차단)
+
 Slack은 endpoint가 3초 내 응답 못 하면 retry합니다. 같은 이벤트가 2번 도달 → 메시지 2번 저장될 위험. 이를 막기 위해 `event_id` 기반 atomic dedup:
 
 ```ts
@@ -236,6 +255,7 @@ return acquired === "OK";
 NX + EX 옵션이 *atomic*이라 동시 요청도 정확히 하나만 처리.
 
 ### 허니팟 (Anti-spam)
+
 폼에 시각적으로 숨긴 `<input name="_website">` 추가. 사람은 안 보고 지나치고, 폼 채우기 봇은 모든 필드를 채우는 경향. 서버에서 값이 있으면 200 OK 응답하되 Slack에 게시하지 않음 (silent rejection):
 
 ```ts
@@ -245,6 +265,7 @@ if (honeypot.length > 0) {
 ```
 
 ### Rate-limit
+
 Redis `INCR` + `EXPIRE`로 단순 슬라이딩 윈도우:
 
 ```ts
@@ -256,10 +277,13 @@ return { count, allowed: count <= 6 };
 키는 `conversationId` 우선, 없으면 IP. 60초 윈도우에 6건 한도.
 
 ### CSRF
+
 Server Action은 Next.js가 origin 헤더를 자동 검증 → CSRF 자동 보호.
 
 ### Slack 서명 시크릿 노출 시
+
 `SLACK_BOT_TOKEN`이나 `SLACK_SIGNING_SECRET`이 노출되면 **즉시 revoke + 재발급**.
+
 - Bot Token: Slack App → OAuth & Permissions → Revoke Token → Reinstall
 - Signing Secret: Basic Information → App Credentials → Regenerate
 
@@ -302,21 +326,24 @@ useEffect(() => {
 
 `lib/env.ts`에서 zod로 검증. 누락·형식 오류면 빌드/런타임 즉시 실패.
 
-| 변수 | 출처 | 용도 |
-| --- | --- | --- |
-| `SLACK_BOT_TOKEN` | Slack App OAuth | `chat.postMessage` 봇 인증 (xoxb-…) |
-| `SLACK_SIGNING_SECRET` | Slack App Basic Information | Events 웹훅 HMAC 검증 |
-| `SLACK_INBOX_CHANNEL_ID` | Slack 채널 ID (C로 시작) | 게시 대상 채널 |
-| `KV_REST_API_URL` | Vercel Storage / Upstash | `@upstash/redis` HTTPS endpoint |
-| `KV_REST_API_TOKEN` | Vercel Storage / Upstash | REST 인증 토큰 |
-| `KV_URL` | Vercel Storage / Upstash (rediss://) | node-redis TCP 연결 (pub/sub subscribe) |
-| `NEXT_PUBLIC_SITE_URL` | 직접 설정 | OG·sitemap 등 절대 URL |
+
+| 변수                       | 출처                                   | 용도                                    |
+| ------------------------ | ------------------------------------ | ------------------------------------- |
+| `SLACK_BOT_TOKEN`        | Slack App OAuth                      | `chat.postMessage` 봇 인증 (xoxb-…)      |
+| `SLACK_SIGNING_SECRET`   | Slack App Basic Information          | Events 웹훅 HMAC 검증                     |
+| `SLACK_INBOX_CHANNEL_ID` | Slack 채널 ID (C로 시작)                  | 게시 대상 채널                              |
+| `KV_REST_API_URL`        | Vercel Storage / Upstash             | `@upstash/redis` HTTPS endpoint       |
+| `KV_REST_API_TOKEN`      | Vercel Storage / Upstash             | REST 인증 토큰                            |
+| `KV_URL`                 | Vercel Storage / Upstash (rediss://) | node-redis TCP 연결 (pub/sub subscribe) |
+| `NEXT_PUBLIC_SITE_URL`   | 직접 설정                                | OG·sitemap 등 절대 URL                   |
+
 
 ---
 
 ## 9. 한계 / 향후 개선
 
 ### 현재 한계
+
 - **세션 유실**: 사용자가 브라우저 데이터를 지우면 `conversationId` 분실 → 기존 thread 못 봄. 새 대화로 시작됨
 - **운영자 알림 지연**: 운영자가 Slack 알림 못 보면 회신이 늦음. UX 메시지로 "1영업일 내 회신" 명시
 - **이메일 폴백 없음**: Slack 답글이 사용자 이메일로 자동 전달되지 않음. 위젯 안에서만 회신 확인 가능
@@ -325,6 +352,7 @@ useEffect(() => {
 - **다른 디바이스 동기화**: `conversationId`가 localStorage에 있어 디바이스 간 자동 동기화 안 됨. 이메일 magic link 같은 식별자 통합이 필요
 
 ### 향후 개선 방향
+
 - 트래픽 보고 외부 pub/sub(Pusher / Ably) 전환 검토
 - 답글 도착 시 사용자 이메일로 자동 알림 (Resend 류)
 - 첨부파일·이미지 지원
@@ -379,26 +407,32 @@ src/
 ## 11. 운영 cheatsheet
 
 ### 새 운영자 합류
+
 1. Slack workspace 초대
 2. `#contact` 채널 초대
 3. 봇 `@Amiolas Inbox`가 채널에 있는지 확인 (`/invite @Amiolas Inbox`)
 
 ### 채널 이름 변경
+
 - Slack 채널명 변경은 안전. 우리 코드는 `SLACK_INBOX_CHANNEL_ID` (ID 기반)를 참조하고 ID는 rename 시 유지됨
 
 ### Slack 토큰 재발급
-1. https://api.slack.com/apps → Amiolas Inbox
+
+1. [https://api.slack.com/apps](https://api.slack.com/apps) → Amiolas Inbox
 2. OAuth & Permissions → Revoke Token
 3. Install App → Reinstall to Workspace → 새 `xoxb-…` 발급
 4. `.env.local` + Vercel Settings → Environment Variables 양쪽에서 `SLACK_BOT_TOKEN` 교체
 5. Vercel 재배포
 
 ### KV 용량 / 명령 모니터링
+
 - Vercel Storage → `amiolas-contact` → Upstash 대시보드
 - Free tier: 500K commands/월, 256MB. SSE + pub/sub은 idle 비용이 거의 없어 트래픽 크게 늘기 전엔 여유
 
 ### 이슈 디버깅
+
 - `/api/slack/events` 401: 서명 검증 실패 → `SLACK_SIGNING_SECRET` 확인
 - `/api/contact/stream` 502/timeout: node-redis 연결 실패 → `KV_URL` (`rediss://`) 확인
 - Slack `not_in_channel` 에러: 봇이 채널에 미초대 상태 → `/invite @Amiolas Inbox`
 - 위젯이 안 보임: 마케팅 layout에 `<ContactWidget />` 삽입 확인
+
