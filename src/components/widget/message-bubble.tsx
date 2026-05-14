@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 export function MessageBubble({ message }: { message: ContactMessage }) {
   if (message.sender === "system") {
     return (
-      <li className="mx-auto max-w-[90%] py-1.5 text-center font-mono text-[10.5px] uppercase tracking-[0.16em] text-fg-dim">
+      <li className="mx-auto max-w-[90%] whitespace-pre-line py-1.5 text-center font-mono text-[10.5px] uppercase leading-[1.6] tracking-[0.16em] text-fg-dim">
         {message.text}
       </li>
     );

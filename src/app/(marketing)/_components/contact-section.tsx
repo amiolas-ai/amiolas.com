@@ -2,9 +2,8 @@ import { Reveal } from "@/components/marketing/reveal";
 import { ContactTrigger } from "@/components/layout/contact-trigger";
 
 const list = [
-  { dt: "General", dd: "contact@amiolas.com" },
-  { dt: "Products", dd: "hello@specify.app" },
-  { dt: "Studio", dd: "Seoul, KR · Remote-friendly" },
+  { dt: "General", dd: "support@amiolas.com" },
+  { dt: "Studio", dd: "Seoul, KR" },
   { dt: "Office Hours", dd: "Mon–Fri · 10:00 – 19:00 KST", mono: true },
 ] as const;
 

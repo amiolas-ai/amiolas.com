@@ -10,31 +10,51 @@ export async function postNewInquiryThread(args: {
   conversationId: string;
   firstMessage: string;
 }): Promise<string> {
-  const header = [
-    `*New inquiry · ${args.identity.name}*`,
-    `<mailto:${args.identity.email}|${args.identity.email}>`,
-    `\`conv:${args.conversationId}\``,
-  ].join("  ·  ");
+  const name = escapeMrkdwn(args.identity.name);
+  const body = escapeMrkdwn(args.firstMessage);
+  const preview = args.firstMessage
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 80);
 
   const res = await slack.chat.postMessage({
     channel: env.SLACK_INBOX_CHANNEL_ID,
-    text: `New inquiry from ${args.identity.name}`,
+    text: `새 문의 · ${args.identity.name} — ${preview}`,
     blocks: [
       {
-        type: "section",
-        text: { type: "mrkdwn", text: header },
+        type: "header",
+        text: { type: "plain_text", text: "새 문의", emoji: false },
       },
-      { type: "divider" },
       {
         type: "section",
-        text: { type: "mrkdwn", text: args.firstMessage },
+        fields: [
+          { type: "mrkdwn", text: `*이름*\n${name}` },
+          {
+            type: "mrkdwn",
+            text: `*이메일*\n<mailto:${args.identity.email}|${args.identity.email}>`,
+          },
+        ],
       },
       {
         type: "context",
         elements: [
           {
             type: "mrkdwn",
-            text: "Reply in this thread to respond to the visitor.",
+            text: `대화 ID · \`${args.conversationId}\``,
+          },
+        ],
+      },
+      { type: "divider" },
+      {
+        type: "section",
+        text: { type: "mrkdwn", text: body },
+      },
+      {
+        type: "context",
+        elements: [
+          {
+            type: "mrkdwn",
+            text: "↳ 이 thread에 답글을 달면 방문자 위젯에 즉시 전달됩니다.",
           },
         ],
       },
@@ -45,6 +65,13 @@ export async function postNewInquiryThread(args: {
     throw new Error(`Slack postMessage failed: ${res.error ?? "unknown"}`);
   }
   return res.ts;
+}
+
+function escapeMrkdwn(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
 }
 
 export async function replyInThread(args: {

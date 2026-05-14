@@ -33,22 +33,11 @@ export function Header() {
 
         <nav className="flex items-center justify-end">
           <ContactTrigger className="group inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 text-xs text-foreground transition hover:border-foreground hover:bg-foreground hover:text-background">
-            <span>Contact</span>
-            <svg
-              width="11"
-              height="11"
-              viewBox="0 0 11 11"
-              fill="none"
+            <span
               aria-hidden
-              className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            >
-              <path
-                d="M2 9L9 2M9 2H3.5M9 2V7.5"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-              />
-            </svg>
+              className="inline-block size-1.5 rounded-full bg-[oklch(0.78_0.18_150)] shadow-[0_0_0_2px_color-mix(in_oklab,oklch(0.78_0.18_150)_30%,transparent)] transition group-hover:bg-background group-hover:shadow-none"
+            />
+            <span>Contact</span>
           </ContactTrigger>
         </nav>
       </div>

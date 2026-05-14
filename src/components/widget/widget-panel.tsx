@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { CONTACT_CONFIG } from "@/lib/contact/config";
@@ -48,32 +49,51 @@ export function WidgetPanel({
           : "pointer-events-none translate-y-3 opacity-0",
       )}
     >
-      <header className="flex items-start justify-between gap-3 border-b border-line-soft bg-foreground px-5 pb-5 pt-6 text-background sm:rounded-t-2xl">
-        <div>
-          <div className="font-mono text-[10.5px] uppercase tracking-[0.22em] opacity-60">
+      <header className="relative flex flex-col gap-7 overflow-hidden border-b border-line-soft bg-foreground px-5 pb-6 pt-5 text-background sm:rounded-t-2xl">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-16 -top-24 h-56 w-56 rounded-full bg-brand-light/35 blur-3xl"
+        />
+        <div className="relative flex items-center justify-between">
+          <Image
+            src="/logos/logo-simple-transparent.png"
+            alt="Amiolas"
+            width={32}
+            height={32}
+            className="size-8 brightness-0 invert"
+          />
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close"
+            className="-mr-1.5 inline-flex h-8 w-8 items-center justify-center rounded-full text-background/70 transition hover:bg-white/10 hover:text-background"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden
+            >
+              <path
+                d="M4 4L12 12M12 4L4 12"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div className="relative">
+          <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-background/55">
             Amiolas · Contact
           </div>
-          <h2 className="mt-2 break-keep font-serif text-[22px] italic leading-[1.2] tracking-[-0.01em]">
+          <h2 className="mt-2.5 break-keep font-serif text-[23px] italic leading-[1.2] tracking-[-0.012em]">
             안녕하세요.
             <br />
             도움이 필요하신가요?
           </h2>
         </div>
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label="Close"
-          className="-mr-1 -mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-white/10"
-        >
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
-            <path
-              d="M5 5L13 13M13 5L5 13"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            />
-          </svg>
-        </button>
       </header>
 
       <ol
@@ -123,14 +143,14 @@ export function WidgetPanel({
               placeholder="이름"
               required
               maxLength={CONTACT_CONFIG.maxNameLen}
-              className="h-10 rounded-lg border border-border bg-background px-3 text-[13px] outline-none transition focus:border-foreground"
+              className="h-10 rounded-lg border border-border bg-background px-3 text-[13px] outline-none transition focus:border-brand-light"
             />
             <input
               type="email"
               name="email"
               placeholder="이메일"
               required
-              className="h-10 rounded-lg border border-border bg-background px-3 text-[13px] outline-none transition focus:border-foreground"
+              className="h-10 rounded-lg border border-border bg-background px-3 text-[13px] outline-none transition focus:border-brand-light"
             />
           </div>
         )}
@@ -142,7 +162,7 @@ export function WidgetPanel({
             required
             rows={2}
             maxLength={CONTACT_CONFIG.maxMessageLen}
-            className="min-h-[44px] flex-1 resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[13.5px] leading-[1.5] outline-none transition focus:border-foreground"
+            className="min-h-[44px] flex-1 resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[13.5px] leading-[1.5] outline-none transition focus:border-brand-light"
           />
           <SubmitButton />
         </div>
@@ -167,7 +187,7 @@ function SubmitButton() {
       type="submit"
       disabled={pending}
       aria-label="Send message"
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand text-white transition hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-50"
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand text-white shadow-[0_8px_24px_-8px_color-mix(in_oklab,var(--color-brand)_55%,transparent)] transition hover:-translate-y-px hover:bg-brand-light hover:shadow-[0_14px_32px_-8px_color-mix(in_oklab,var(--color-brand)_70%,transparent)] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
     >
       {pending ? (
         <svg
@@ -196,12 +216,11 @@ function SubmitButton() {
       ) : (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
           <path
-            d="M3 8L13 3L8.5 13L7.5 9L3 8Z"
+            d="M8 13V3M8 3L4 7M8 3L12 7"
             stroke="currentColor"
-            strokeWidth="1.4"
+            strokeWidth="1.6"
+            strokeLinecap="round"
             strokeLinejoin="round"
-            fill="currentColor"
-            fillOpacity="0.15"
           />
         </svg>
       )}
