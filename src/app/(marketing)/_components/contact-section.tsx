@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/marketing/reveal";
+import { ContactTrigger } from "@/components/layout/contact-trigger";
 
 const list = [
   { dt: "General", dd: "contact@amiolas.com" },
@@ -31,10 +32,7 @@ export function ContactSection() {
                 AI 제품 도입, 엔터프라이즈 시스템 의뢰, 협업 제안, 미디어 문의.
                 한 통의 메일로 시작합니다.
               </p>
-              <a
-                href="mailto:contact@amiolas.com"
-                className="inline-flex items-center gap-3.5 rounded-full bg-brand-light px-6 py-4 text-sm font-medium text-white shadow-[0_0_0_0_color-mix(in_oklab,var(--color-brand-light)_40%,transparent)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_60px_-10px_color-mix(in_oklab,var(--color-brand-light)_60%,transparent)]"
-              >
+              <ContactTrigger className="inline-flex items-center gap-3.5 rounded-full bg-brand-light px-6 py-4 text-sm font-medium text-white shadow-[0_0_0_0_color-mix(in_oklab,var(--color-brand-light)_40%,transparent)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_60px_-10px_color-mix(in_oklab,var(--color-brand-light)_60%,transparent)]">
                 <span>Start an Inquiry</span>
                 <svg
                   width="14"
@@ -50,7 +48,7 @@ export function ContactSection() {
                     strokeLinecap="round"
                   />
                 </svg>
-              </a>
+              </ContactTrigger>
             </div>
 
             <dl className="text-sm text-fg-muted">

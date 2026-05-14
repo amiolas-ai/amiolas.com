@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Clock } from "./clock";
+import { ContactTrigger } from "./contact-trigger";
 
 export function Header() {
   return (
@@ -31,10 +32,7 @@ export function Header() {
         </div>
 
         <nav className="flex items-center justify-end">
-          <Link
-            href="/#contact"
-            className="group inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 text-xs text-foreground transition hover:border-foreground hover:bg-foreground hover:text-background"
-          >
+          <ContactTrigger className="group inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 text-xs text-foreground transition hover:border-foreground hover:bg-foreground hover:text-background">
             <span>Contact</span>
             <svg
               width="11"
@@ -51,7 +49,7 @@ export function Header() {
                 strokeLinecap="round"
               />
             </svg>
-          </Link>
+          </ContactTrigger>
         </nav>
       </div>
     </header>
