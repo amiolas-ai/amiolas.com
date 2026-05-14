@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Geist_Mono, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
 const scDream = localFont({
@@ -110,6 +111,7 @@ export default function RootLayout({
       className={`${scDream.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd />
         {children}
         <Analytics />
         <SpeedInsights />
