@@ -1,10 +1,6 @@
-
-
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-
-
 
 ---
 
@@ -14,11 +10,23 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · Vercel
 
-**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), warm cream bg `oklch(0.985 0.004 85)` (디자인 시안 기준 · hue 85), 라이트 단일 테마. 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), warm cream bg `oklch(0.985 0.004 85)` (디자인 시안 기준 · hue 85), 라이트 단일 테마. 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 `**docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
 
 **한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치.
 
-> ⚠ Next.js 16은 v15에서 다수 breaking change. AI 어시스턴트가 v15 패턴(특히 sync `params`, `middleware.ts`, single-arg `revalidateTag`)을 자동 생성할 수 있으니 본 문서의 §10을 먼저 확인.
+> ⚠ Next.js 16은 v15에서 다수 breaking change. v16 함정·캐시·서버/클라이언트 규칙은 `senior-fullstack-engineer` agent의 *Next.js 16 / React 19 Discipline* 절을 우선 참조합니다.
+
+---
+
+## 0. 이 문서의 역할
+
+| 문서 | 범위 |
+| --- | --- |
+| **`AGENTS.md`** (여기) | 프로젝트 캐논 — 디렉터리 구조·라우팅 골격·디자인 토큰·네이밍·성능 목표·테스팅/배포 정책. *what·where·which.* |
+| **`.claude/agents/senior-fullstack-engineer.md`** | 모든 코딩·기술 가이드 — 보편 원칙(Clean Code·타입 안전성·접근성·보안), 워크플로우·자기리뷰 체크리스트, Next.js 16 / React 19 디시플린, v16 함정, 캐시·폼·이미지 패턴. *how.* |
+| **`docs/BRAND.md`** | 미션·메타포·보이스·비즈니스 모델 등 브랜드 진실 원천. |
+
+비-trivial 구현·리뷰는 `senior-fullstack-engineer` 서브 에이전트에 위임합니다. 메인 Claude가 직접 패치할 때도 두 문서를 함께 참조하되, 코딩·API·캐시 규칙이 두 문서에서 겹친다면 **agent 본문이 우선**합니다. 본 문서는 그 규칙을 *이 프로젝트가 어떤 모양으로 갖추는가*(파일 위치·토큰 값·목표 수치)에만 집중합니다.
 
 ---
 
@@ -72,120 +80,14 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
   // app/@modal/default.tsx
   export default function Default() { return null; }
   ```
-- 미들웨어가 필요하면 `middleware.ts`가 아니라 `**proxy.ts**` (Next 16에서 이름 변경, runtime은 node only)
+- 미들웨어 파일은 `middleware.ts`가 아니라 `proxy.ts` (Next 16에서 이름 변경, Node 런타임 전용)
+- 마케팅 라우트는 **static-first** — 동적 데이터가 꼭 필요한 경우에만 보강
 
-### 비동기 Request APIs (v16 강제)
-
-`cookies()`, `headers()`, `draftMode()`, `params`, `searchParams`는 **반드시 await**. 동기 호환 모드는 v16에서 완전 제거됨.
-
-```tsx
-// 올바른 패턴
-export default async function Page(props: PageProps<'/blog/[slug]'>) {
-  const { slug } = await props.params;
-  const query = await props.searchParams;
-  return <h1>{slug}</h1>;
-}
-```
-
-`PageProps`, `LayoutProps`, `RouteContext` 타입 헬퍼는 `npx next typegen`으로 자동 생성.
+라우팅·서버/클라이언트 경계·데이터 페칭/캐싱·폼 처리 등 코드 작성 규칙은 모두 `senior-fullstack-engineer` agent 본문의 *Next.js 16 / React 19 Discipline* 절을 단일 진실 원천으로 합니다.
 
 ---
 
-## 3. Server vs Client Components
-
-기본 = **Server Component**. `"use client"`는 다음 경우에만:
-
-- State / effects / refs
-- Browser APIs
-- Event handlers
-- Client-only libraries (Framer Motion 등)
-
-`**"use client"`는 잎 컴포넌트에만**. 페이지는 Server Component이고 작은 `<ThemeToggle />`을 client island로 import. 반대 방향 금지.
-
-서버 데이터는 **props로 내려보냄**. Client에서 server module을 import하지 말 것. `lib/data/`*는 `import "server-only"`로 가드.
-
----
-
-## 4. 데이터 페칭과 캐싱 (v16)
-
-Next 16의 `fetch`는 **기본 uncached**. 명시적 opt-in:
-
-```ts
-fetch(url, { next: { revalidate: 3600, tags: ['posts'] } });
-```
-
-또는 `"use cache"` 디렉티브 + **stable** `cacheLife()` / `cacheTag()`:
-
-```ts
-"use cache";
-import { cacheLife, cacheTag } from "next/cache";
-
-cacheLife("hours");
-cacheTag("posts");
-```
-
-> v15의 `unstable_cacheLife`/`unstable_cacheTag` import는 더 이상 사용하지 말 것. v16에서 stable.
-
-### Cache 무효화 (v16 필수 변경)
-
-
-| 함수                            | 사용처                                                       | 시그니처                                   |
-| ----------------------------- | --------------------------------------------------------- | -------------------------------------- |
-| `revalidateTag(tag, profile)` | 일반 / 백그라운드 갱신. 사용자는 stale 보다가 fresh로 전환                   | **2번째 인자 필수** (`'max'`, `'days'` 등)    |
-| `updateTag(tag)`              | **Server Action 전용**. read-your-writes — 같은 요청에서 즉시 fresh | Server Action 안에서만                     |
-| `refresh()`                   | Server Action 후 클라이언트 라우터만 새로고침                           | `import { refresh } from 'next/cache'` |
-
-
-```ts
-// v15 → v16 마이그레이션
-revalidateTag('posts')          // ❌ 1-arg deprecated
-revalidateTag('posts', 'max')   // ✅
-```
-
-### PPR (Partial Prerendering)
-
-`experimental.ppr`, `experimental_ppr` segment config는 v16에서 제거됨. 대신:
-
-```ts
-// next.config.ts
-const nextConfig: NextConfig = {
-  cacheComponents: true,
-};
-```
-
-독립 fetch는 `Promise.all`로 병렬화.
-
----
-
-## 5. 폼 처리
-
-- **Server Actions** 사용 (contact, newsletter 등)
-- 액션 내부 zod validation
-- 클라이언트는 `useActionState`로 progressive enhancement
-- API routes는 **웹훅·외부 호출만**
-
-```ts
-// lib/actions/contact.ts
-"use server";
-import { z } from "zod";
-import { updateTag } from "next/cache";
-
-const Schema = z.object({ /* ... */ });
-
-export async function submitContact(prev: unknown, formData: FormData) {
-  const parsed = Schema.safeParse(Object.fromEntries(formData));
-  if (!parsed.success) return { error: parsed.error.flatten() };
-
-  // side effects
-  // 사용자가 즉시 결과를 봐야 한다면:
-  updateTag(`contact-${id}`);
-  return { success: true };
-}
-```
-
----
-
-## 6. 스타일링 (Tailwind v4) & 디자인 시스템
+## 3. 스타일링 (Tailwind v4) & 디자인 시스템
 
 `**tailwind.config.ts` 없음**. 모든 토큰은 `src/app/globals.css`의 `@theme inline` 블록이 단일 진실 원천. 새 토큰 추가 시 그곳에서.
 
@@ -242,17 +144,19 @@ export async function submitContact(prev: unknown, formData: FormData) {
 - **Aura 사용**: hero · CTA 한정. `--color-brand-glow` + `blur(40px)` + `animate-aura-pulse`. 그 외 영역에서 남용 금지
 
 ### 디자인 토큰 변경 시
-1. 위 §6 표 갱신
+
+1. 위 §3 표 갱신
 2. `docs/BRAND.md` 영향이면 거기도 동기화
-3. 새 토큰은 `@theme inline` 안에서 `--color-*` / `--shadow-*` / `--animate-*` prefix로 — Tailwind 유틸리티 자동 생성
+3. 새 토큰은 `@theme inline` 안에서 `--color-`* / `--shadow-*` / `--animate-*` prefix로 — Tailwind 유틸리티 자동 생성
 
 ---
 
-## 7. TypeScript
+## 4. TypeScript & 빌드 설정
 
-`tsconfig.json`:
+프로젝트가 확정한 설정만 유지합니다. 보편 TS 원칙(`satisfies > as`, `any` 금지, `type` vs `interface`, 외부 입력 zod 검증 등)은 `senior-fullstack-engineer` agent의 *Type Safety & Correctness* 절이 단일 진실 원천입니다.
 
 ```json
+// tsconfig.json
 {
   "compilerOptions": {
     "strict": true,
@@ -262,29 +166,30 @@ export async function submitContact(prev: unknown, formData: FormData) {
 }
 ```
 
-- 객체/유니언은 `type`, declaration merging이 필요할 때만 `interface`
-- `satisfies` > `as`
-- env는 zod로 검증
+- env는 zod로 검증 — `lib/env.ts`가 단일 진실 원천
 - ESLint: `@typescript-eslint/no-explicit-any: error`
 - 라우트 타입 헬퍼는 `npx next typegen` (PageProps, LayoutProps, RouteContext)
 
 ---
 
-## 8. 성능
+## 5. 성능 목표
 
-- `next/image` 항상 사용, `width`/`height` 명시 (또는 `fill` + 사이즈 컨테이너), `priority`는 LCP 1개만
-  - v16 기본값: `minimumCacheTTL` 4h (was 60s), `qualities` [75] only, `imageSizes`에서 16 제거. 필요 시 `next.config.ts`에서 override
-  - `images.domains`는 deprecated → `images.remotePatterns` 사용
-- `next/font/local`로 self-hosted (Geist 권장)
-- `next/script`은 analytics에 `strategy="afterInteractive"`
-- Lighthouse 목표: Performance ≥ 95, A11y ≥ 95, SEO = 100, LCP < 2.0s, CLS < 0.05, INP < 200ms
-- **React Compiler** (v16 stable): `next.config.ts`에서 `reactCompiler: true` (선택, 빌드 시간 증가하나 자동 메모이제이션)
-- `next dev` 출력 디렉토리 = `.next/dev` (v15는 `.next`). `next build`는 `.next/`. 동시 실행 가능
+코드 레벨 성능 가이드(`next/image` 사용법·캐시·React Compiler 등)는 agent의 *Performance* 절. 본 문서는 프로젝트가 합의한 *목표 수치*만 박아둡니다.
+
+| 지표 | 목표 |
+| --- | --- |
+| Lighthouse Performance | ≥ 95 |
+| Lighthouse Accessibility | ≥ 95 |
+| Lighthouse SEO | = 100 |
+| LCP | < 2.0s |
+| CLS | < 0.05 |
+| INP | < 200ms |
+
+이 수치는 *지향*이 아니라 *허용 한계*입니다. PR이 이를 회귀시키면 머지 보류.
 
 ---
 
-## 9. 네이밍
-
+## 6. 네이밍
 
 | 대상   | 컨벤션                | 예                  |
 | ---- | ------------------ | ------------------ |
@@ -294,31 +199,9 @@ export async function submitContact(prev: unknown, formData: FormData) {
 | 함수   | `camelCase`        | `formatPrice()`    |
 | 상수   | `UPPER_SNAKE_CASE` | `MAX_LENGTH`       |
 
-
 ---
 
-## 10. v16 함정 (반드시 피할 것)
-
-1. ❌ Sync `params` / `searchParams` 접근 (v15 호환 제거됨) — 무조건 `await`
-2. ❌ `middleware.ts` (이름 변경됨) — `proxy.ts`로
-3. ❌ `revalidateTag('tag')` 1-arg — 2번째 인자(`'max'` 등) 필수
-4. ❌ `unstable_cacheLife` / `unstable_cacheTag` import — 이제 stable, prefix 제거
-5. ❌ `experimental.ppr` / `experimental_ppr` segment — `cacheComponents: true`로 대체
-6. ❌ `next lint` 명령 — 제거됨, ESLint 직접 실행
-7. ❌ `<Image>` width/height 누락 — CLS 회귀 + v16에서 query string은 `localPatterns.search` 설정 필요
-8. ❌ `images.domains` config — deprecated, `remotePatterns` 사용
-9. ❌ `--turbopack` 플래그 — v16 기본값, 스크립트에서 제거 (커스텀 webpack은 `--webpack`으로 opt-out)
-10. ❌ Parallel route 슬롯에 `default.js` 누락 — 빌드 실패
-11. ❌ `serverRuntimeConfig` / `publicRuntimeConfig` / `next/amp` — 모두 제거됨
-12. ❌ 트리 최상단 `"use client"` — RSC 죽음
-13. ❌ `tailwind.config.ts` 찾기 — v4에서 없음, `@theme` in globals.css
-14. ❌ 웹훅에 Server Actions — React caller 필요. API route 사용
-15. ❌ `metadataBase` 누락 — OG 이미지 절대 URL 깨짐
-16. ❌ Server-only를 client에 import — `import "server-only"` 가드 필수
-
----
-
-## 11. 테스팅 (lean)
+## 7. 테스팅 (lean)
 
 - **Vitest**: `lib/` 유틸리티 + zod 스키마
 - **Playwright**: 3-5개 smoke flow (home 로드, theme toggle, contact form, sitemap, mobile nav)
@@ -326,7 +209,7 @@ export async function submitContact(prev: unknown, formData: FormData) {
 
 ---
 
-## 12. 배포
+## 8. 배포
 
 - **Vercel** + GitHub 통합, PR마다 preview
 - `package.json` 스크립트는 v16에서 단순:
