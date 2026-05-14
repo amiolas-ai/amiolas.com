@@ -29,7 +29,7 @@ export function ContactSection() {
               </h2>
               <p className="m-0 mb-8 max-w-[50ch] break-keep text-[15px] leading-[1.75] text-fg-muted">
                 AI 제품 도입, 엔터프라이즈 시스템 의뢰, 협업 제안, 미디어 문의.
-                한 통의 메일로 시작합니다.
+                한 통의 메시지로 시작합니다.
               </p>
               <ContactTrigger className="inline-flex items-center gap-3.5 rounded-full bg-brand-light px-6 py-4 text-sm font-medium text-white shadow-[0_0_0_0_color-mix(in_oklab,var(--color-brand-light)_40%,transparent)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_60px_-10px_color-mix(in_oklab,var(--color-brand-light)_60%,transparent)]">
                 <span>Start an Inquiry</span>
