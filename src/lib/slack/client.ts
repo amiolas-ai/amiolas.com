@@ -10,7 +10,7 @@ export async function postNewInquiryThread(args: {
   conversationId: string;
   firstMessage: string;
 }): Promise<string> {
-  const name = escapeMrkdwn(args.identity.name);
+  const name = sanitizeIdentity(args.identity.name);
   const body = escapeMrkdwn(args.firstMessage);
   const preview = args.firstMessage
     .replace(/\s+/g, " ")
@@ -19,42 +19,21 @@ export async function postNewInquiryThread(args: {
 
   const res = await slack.chat.postMessage({
     channel: env.SLACK_INBOX_CHANNEL_ID,
-    text: `새 문의 · ${args.identity.name} — ${preview}`,
+    text: `${args.identity.name}: ${preview}`,
     blocks: [
       {
-        type: "header",
-        text: { type: "plain_text", text: "새 문의", emoji: false },
-      },
-      {
         type: "section",
-        fields: [
-          { type: "mrkdwn", text: `*이름*\n${name}` },
-          {
-            type: "mrkdwn",
-            text: `*이메일*\n<mailto:${args.identity.email}|${args.identity.email}>`,
-          },
-        ],
+        text: {
+          type: "mrkdwn",
+          text: `*${name}*  ·  <mailto:${args.identity.email}|${args.identity.email}>\n\n${body}`,
+        },
       },
       {
         type: "context",
         elements: [
           {
             type: "mrkdwn",
-            text: `대화 ID · \`${args.conversationId}\``,
-          },
-        ],
-      },
-      { type: "divider" },
-      {
-        type: "section",
-        text: { type: "mrkdwn", text: body },
-      },
-      {
-        type: "context",
-        elements: [
-          {
-            type: "mrkdwn",
-            text: "↳ 이 thread에 답글을 달면 방문자 위젯에 즉시 전달됩니다.",
+            text: `\`conv:${args.conversationId}\`  ·  답글은 이 thread에 작성해주세요.`,
           },
         ],
       },
@@ -72,6 +51,10 @@ function escapeMrkdwn(text: string): string {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
+}
+
+function sanitizeIdentity(text: string): string {
+  return text.replace(/[*_`~]/g, "").trim();
 }
 
 export async function replyInThread(args: {

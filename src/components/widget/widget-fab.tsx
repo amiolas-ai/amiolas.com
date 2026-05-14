@@ -43,7 +43,7 @@ export function WidgetFab({ open, unread, onToggle }: Props) {
       {unread > 0 && !open && (
         <span
           aria-hidden
-          className="absolute -right-1 -top-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-foreground px-1.5 text-[10.5px] font-semibold text-background"
+          className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-destructive px-1 text-center text-[10.5px] font-semibold leading-none text-white shadow-[0_4px_10px_-2px_color-mix(in_oklab,var(--color-destructive)_55%,transparent)] tabular-nums"
         >
           {unread > 9 ? "9+" : unread}
         </span>
