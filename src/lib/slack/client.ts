@@ -29,7 +29,7 @@ export async function postNewInquiryThread(args: {
         type: "section",
         text: {
           type: "mrkdwn",
-          text: `📩 *[새 문의]*\n*${name}*\n<mailto:${args.identity.email}|${args.identity.email}>`,
+          text: `📩 *[새 문의]*\n*${name}* (<mailto:${args.identity.email}|${args.identity.email}>)`,
         },
       },
       {
