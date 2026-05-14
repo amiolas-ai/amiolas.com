@@ -12,6 +12,10 @@ export async function postNewInquiryThread(args: {
 }): Promise<string> {
   const name = sanitizeIdentity(args.identity.name);
   const body = escapeMrkdwn(args.firstMessage);
+  const quotedBody = body
+    .split("\n")
+    .map((line) => `> ${line}`)
+    .join("\n");
   const preview = args.firstMessage
     .replace(/\s+/g, " ")
     .trim()
@@ -25,15 +29,28 @@ export async function postNewInquiryThread(args: {
         type: "section",
         text: {
           type: "mrkdwn",
-          text: `*${name}*  ·  <mailto:${args.identity.email}|${args.identity.email}>\n\n${body}`,
+          text: `*${name}*\n<mailto:${args.identity.email}|${args.identity.email}>`,
         },
+      },
+      {
+        type: "section",
+        text: { type: "mrkdwn", text: quotedBody },
       },
       {
         type: "context",
         elements: [
           {
             type: "mrkdwn",
-            text: `\`conv:${args.conversationId}\`  ·  답글은 이 thread에 작성해주세요.`,
+            text: `\`conv:${args.conversationId}\``,
+          },
+        ],
+      },
+      {
+        type: "context",
+        elements: [
+          {
+            type: "mrkdwn",
+            text: "↳ 이 thread에 답글을 달면 방문자 위젯에 즉시 전달됩니다",
           },
         ],
       },
