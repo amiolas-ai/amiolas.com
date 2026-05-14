@@ -1,7 +1,6 @@
 "use client";
 
 import { useActionState, useCallback, useEffect, useRef, useState } from "react";
-import { CONTACT_CONFIG } from "@/lib/contact/config";
 import { sendContactMessage } from "@/lib/actions/contact-send";
 import { useContactStorage } from "@/hooks/use-contact-storage";
 import type { ContactMessage, SendMessageResult } from "@/types/contact";
@@ -68,57 +67,45 @@ export function ContactWidget() {
 
   const [state, formAction] = useActionState(handleAction, null);
 
-  // Polling
+  // SSE — live messages via /api/contact/stream
   useEffect(() => {
     const conversationId = stored?.conversationId;
     if (!conversationId) return;
+    if (typeof EventSource === "undefined") return;
 
-    let cancelled = false;
-    let timer: ReturnType<typeof setTimeout> | undefined;
+    const url = `/api/contact/stream?conversationId=${encodeURIComponent(
+      conversationId,
+    )}&since=${lastSeenRef.current}`;
+    const es = new EventSource(url);
 
-    const tick = async () => {
-      if (cancelled) return;
-      if (typeof document !== "undefined" && document.hidden) {
-        timer = setTimeout(tick, CONTACT_CONFIG.pollIntervalMs);
+    es.onmessage = (event) => {
+      let parsed: { type: string; payload?: ContactMessage };
+      try {
+        parsed = JSON.parse(event.data);
+      } catch {
         return;
       }
-      try {
-        const url = `/api/contact/poll?conversationId=${encodeURIComponent(
-          conversationId,
-        )}&since=${lastSeenRef.current}`;
-        const res = await fetch(url, { cache: "no-store" });
-        if (!cancelled && res.ok) {
-          const data = (await res.json()) as { messages: ContactMessage[] };
-          if (data.messages.length > 0) {
-            setMessages((prev) => {
-              const merged = mergeMessages(prev, data.messages);
-              const latest = merged[merged.length - 1]?.createdAt ?? 0;
-              if (latest > lastSeenRef.current) lastSeenRef.current = latest;
-              return merged;
-            });
-            if (!openRef.current) {
-              const operatorCount = data.messages.filter(
-                (m) => m.sender === "operator",
-              ).length;
-              if (operatorCount > 0) {
-                setUnread((u) => u + operatorCount);
-              }
-            }
-          }
-        }
-      } catch {
-        /* transient — try again next tick */
-      }
-      if (!cancelled) {
-        timer = setTimeout(tick, CONTACT_CONFIG.pollIntervalMs);
+      if (parsed.type !== "message" || !parsed.payload) return;
+      const message = parsed.payload;
+
+      setMessages((prev) => {
+        const merged = mergeMessages(prev, [message]);
+        const latest = merged[merged.length - 1]?.createdAt ?? 0;
+        if (latest > lastSeenRef.current) lastSeenRef.current = latest;
+        return merged;
+      });
+
+      if (!openRef.current && message.sender === "operator") {
+        setUnread((u) => u + 1);
       }
     };
 
-    tick();
+    es.onerror = () => {
+      // EventSource auto-reconnects using Last-Event-ID; nothing to do.
+    };
 
     return () => {
-      cancelled = true;
-      if (timer) clearTimeout(timer);
+      es.close();
     };
   }, [stored?.conversationId]);
 

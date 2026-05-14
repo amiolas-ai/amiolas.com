@@ -1,5 +1,4 @@
 export const CONTACT_CONFIG = {
-  pollIntervalMs: 5000,
   maxMessageLen: 2000,
   minMessageLen: 1,
   maxNameLen: 64,

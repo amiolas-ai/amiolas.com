@@ -4,6 +4,7 @@ import {
   appendMessage,
   getConversationIdByThread,
   markEventProcessed,
+  publishMessage,
 } from "@/lib/contact/store";
 import { verifySlackSignature } from "@/lib/slack/verify";
 
@@ -73,6 +74,7 @@ export async function POST(req: Request) {
   const conversationId = await getConversationIdByThread(event.thread_ts);
   if (!conversationId) return ok();
 
-  await appendMessage(conversationId, "operator", text);
+  const operatorMessage = await appendMessage(conversationId, "operator", text);
+  await publishMessage(conversationId, operatorMessage);
   return ok();
 }

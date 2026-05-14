@@ -119,3 +119,14 @@ export async function markEventProcessed(eventId: string): Promise<boolean> {
   });
   return acquired === "OK";
 }
+
+export function conversationChannel(conversationId: string): string {
+  return `conv:${conversationId}`;
+}
+
+export async function publishMessage(
+  conversationId: string,
+  message: ContactMessage,
+): Promise<void> {
+  await redis.publish(conversationChannel(conversationId), JSON.stringify(message));
+}

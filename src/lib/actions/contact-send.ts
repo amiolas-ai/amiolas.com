@@ -8,6 +8,7 @@ import {
   createConversation,
   getConversation,
   incrRateLimit,
+  publishMessage,
   setThreadTs,
 } from "@/lib/contact/store";
 import { postNewInquiryThread, replyInThread } from "@/lib/slack/client";
@@ -117,10 +118,12 @@ export async function sendContactMessage(
 
   const userMessage = await appendMessage(conv.id, "user", text);
   const responseMessages: ContactMessage[] = [userMessage];
+  await publishMessage(conv.id, userMessage);
 
   if (isNewConversation) {
     const ack = await appendMessage(conv.id, "system", CONTACT_CONFIG.ackText);
     responseMessages.push(ack);
+    await publishMessage(conv.id, ack);
   }
 
   return {
