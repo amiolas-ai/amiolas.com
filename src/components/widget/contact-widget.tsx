@@ -1,6 +1,12 @@
 "use client";
 
-import { useActionState, useCallback, useEffect, useRef, useState } from "react";
+import {
+  useActionState,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { sendContactMessage } from "@/lib/actions/contact-send";
 import { useContactStorage } from "@/hooks/use-contact-storage";
 import type { ContactMessage, SendMessageResult } from "@/types/contact";
@@ -18,17 +24,30 @@ function mergeMessages(
   return [...prev, ...fresh].sort((a, b) => a.createdAt - b.createdAt);
 }
 
+function maxCreatedAt(messages: ContactMessage[]): number {
+  let max = 0;
+  for (const m of messages) {
+    if (m.createdAt > max) max = m.createdAt;
+  }
+  return max;
+}
+
 export function ContactWidget() {
   const { stored, save } = useContactStorage();
 
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ContactMessage[]>([]);
-  const [unread, setUnread] = useState(0);
   const [formKey, setFormKey] = useState(0);
 
-  const lastSeenRef = useRef(0);
-  const openRef = useRef(open);
-  openRef.current = open;
+  const lastReadTs = stored?.lastReadTs ?? 0;
+
+  const unread = useMemo(
+    () =>
+      messages.filter(
+        (m) => m.sender === "operator" && m.createdAt > lastReadTs,
+      ).length,
+    [messages, lastReadTs],
+  );
 
   const handleAction = useCallback(
     async (
@@ -45,17 +64,13 @@ export function ContactWidget() {
             save({
               conversationId: result.conversationId,
               identity: { name, email },
+              lastReadTs: 0,
             });
           }
         }
 
         if (result.messages.length > 0) {
-          setMessages((prev) => {
-            const merged = mergeMessages(prev, result.messages);
-            const latest = merged[merged.length - 1]?.createdAt ?? 0;
-            if (latest > lastSeenRef.current) lastSeenRef.current = latest;
-            return merged;
-          });
+          setMessages((prev) => mergeMessages(prev, result.messages));
           setFormKey((k) => k + 1);
         }
       }
@@ -75,7 +90,7 @@ export function ContactWidget() {
 
     const url = `/api/contact/stream?conversationId=${encodeURIComponent(
       conversationId,
-    )}&since=${lastSeenRef.current}`;
+    )}&since=0`;
     const es = new EventSource(url);
 
     es.onmessage = (event) => {
@@ -86,18 +101,7 @@ export function ContactWidget() {
         return;
       }
       if (parsed.type !== "message" || !parsed.payload) return;
-      const message = parsed.payload;
-
-      setMessages((prev) => {
-        const merged = mergeMessages(prev, [message]);
-        const latest = merged[merged.length - 1]?.createdAt ?? 0;
-        if (latest > lastSeenRef.current) lastSeenRef.current = latest;
-        return merged;
-      });
-
-      if (!openRef.current && message.sender === "operator") {
-        setUnread((u) => u + 1);
-      }
+      setMessages((prev) => mergeMessages(prev, [parsed.payload!]));
     };
 
     es.onerror = () => {
@@ -109,10 +113,14 @@ export function ContactWidget() {
     };
   }, [stored?.conversationId]);
 
-  // Clear unread on open
+  // Mark current messages as read whenever widget is open
   useEffect(() => {
-    if (open) setUnread(0);
-  }, [open]);
+    if (!open || !stored) return;
+    const maxTs = maxCreatedAt(messages);
+    if (maxTs > lastReadTs) {
+      save({ ...stored, lastReadTs: maxTs });
+    }
+  }, [open, messages, lastReadTs, stored, save]);
 
   // Global toggle event (fired from header Contact button)
   useEffect(() => {

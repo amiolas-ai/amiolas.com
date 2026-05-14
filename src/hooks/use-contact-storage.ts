@@ -8,6 +8,7 @@ const STORAGE_KEY = "amiolas:contact:v1";
 export type ContactStored = {
   conversationId: string;
   identity: Identity;
+  lastReadTs: number;
 };
 
 function read(): ContactStored | null {
@@ -19,7 +20,12 @@ function read(): ContactStored | null {
     if (!obj.conversationId || !obj.identity?.name || !obj.identity?.email) {
       return null;
     }
-    return { conversationId: obj.conversationId, identity: obj.identity };
+    return {
+      conversationId: obj.conversationId,
+      identity: obj.identity,
+      lastReadTs:
+        typeof obj.lastReadTs === "number" ? obj.lastReadTs : 0,
+    };
   } catch {
     return null;
   }
