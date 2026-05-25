@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/marketing/reveal";
+import { HeroField } from "./hero-field";
 
 const meta = [
   { dt: "Mission", dd: "Restore continuity of meaning" },
@@ -10,6 +11,7 @@ const meta = [
 export function Hero() {
   return (
     <section className="relative flex min-h-[min(720px,82vh)] items-stretch pb-[clamp(60px,9vw,120px)]">
+      <HeroField />
       <div className="relative mx-auto flex w-full max-w-[1440px] flex-col justify-between gap-[clamp(40px,5vw,64px)] px-[var(--pad)] pt-[clamp(40px,5vw,64px)]">
         <HelmBlueprint />
 
