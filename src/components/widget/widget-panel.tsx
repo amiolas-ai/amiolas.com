@@ -56,7 +56,7 @@ export function WidgetPanel({
         />
         <div className="relative flex items-center justify-between">
           <Image
-            src="/logos/logo-simple-transparent.png"
+            src="/logos/logo.png"
             alt="Amiolas"
             width={32}
             height={32}

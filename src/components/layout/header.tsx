@@ -13,7 +13,7 @@ export function Header() {
           className="inline-flex items-center transition hover:opacity-80"
         >
           <Image
-            src="/logos/logo-simple-transparent.png"
+            src="/logos/logo.png"
             alt="Amiolas"
             width={44}
             height={44}

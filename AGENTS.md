@@ -140,7 +140,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
 - **마케팅 섹션**: hand-built (`src/components/marketing/`). primitive를 조합해 제작, 새 primitive 함부로 만들지 말 것
 - **테마**: 라이트 단일 — `:root` 토큰만 사용. `next-themes` · 다크 모드 미운영
 - **폰트**: `next/font/local`로 SCDream 9 weights self-host (`public/fonts/SCDream{1..9}.otf`). Latin도 SCDream 사용 (Geist Sans는 사용 안 함, Geist Mono는 코드 블록용)
-- **로고/이미지**: `public/logos/` (logo.png · logo-light.png), `public/images/` (specify.webp). 검정 배경 PNG 로고는 `mix-blend-mode: screen`으로 블렌딩
+- **로고/이미지**: `public/logos/logo.png` (투명 배경 단일 로고), `public/images/` (specify.webp)
 - **Aura 사용**: hero · CTA 한정. `--color-brand-glow` + `blur(40px)` + `animate-aura-pulse`. 그 외 영역에서 남용 금지
 
 ### 디자인 토큰 변경 시
