@@ -10,6 +10,7 @@ export function ContactTrigger({ children, ...props }: Props) {
   return (
     <button
       type="button"
+      data-contact-trigger
       onClick={() =>
         window.dispatchEvent(new Event("amiolas:contact:toggle"))
       }

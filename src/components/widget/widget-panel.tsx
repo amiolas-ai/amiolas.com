@@ -42,31 +42,43 @@ export function WidgetPanel({
       aria-label="Contact"
       aria-hidden={!open}
       className={cn(
-        "fixed bottom-0 right-0 z-40 flex flex-col overflow-hidden border-border bg-background shadow-[0_24px_80px_-16px_oklch(0.18_0.012_290/0.28),0_0_0_1px_oklch(0_0_0/0.04)] transition-all duration-200 ease-[cubic-bezier(0.2,0.6,0.2,1)]",
-        "inset-0 sm:inset-auto sm:bottom-24 sm:right-7 sm:h-[min(620px,calc(100vh-7rem))] sm:w-[380px] sm:rounded-2xl sm:border",
+        "contact-light fixed bottom-0 right-0 z-40 flex flex-col overflow-hidden bg-surface-raised text-foreground shadow-[0_1px_1px_oklch(0_0_0/0.5),0_18px_50px_-12px_oklch(0_0_0/0.65),0_44px_100px_-36px_oklch(0.55_0.22_295/0.45)] transition-all duration-200 ease-[cubic-bezier(0.2,0.6,0.2,1)]",
+        "inset-0 sm:inset-auto sm:bottom-24 sm:right-7 sm:h-[min(620px,calc(100vh-7rem))] sm:w-[384px] sm:rounded-[20px]",
         open
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-3 opacity-0",
       )}
     >
-      <header className="relative flex flex-col gap-7 overflow-hidden border-b border-line-soft bg-foreground px-5 pb-6 pt-5 text-background sm:rounded-t-2xl">
+      <header className="relative flex flex-col gap-5 px-5 pb-5 pt-[18px]">
+        {/* faint brand wash — warmth without hard chrome */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-16 -top-24 h-56 w-56 rounded-full bg-brand-light/35 blur-3xl"
+          className="pointer-events-none absolute -right-12 -top-20 h-44 w-44 rounded-full bg-brand/12 blur-3xl"
         />
         <div className="relative flex items-center justify-between">
-          <Image
-            src="/logos/logo.png"
-            alt="Amiolas"
-            width={32}
-            height={32}
-            className="size-8 brightness-0 invert"
-          />
+          <div className="flex items-center gap-2.5">
+            <Image
+              src="/logos/logo.png"
+              alt="Amiolas"
+              width={32}
+              height={32}
+              className="size-8"
+            />
+            <div className="flex flex-col leading-tight">
+              <span className="text-[13.5px] font-semibold tracking-[-0.01em] text-foreground">
+                Amiolas
+              </span>
+              <span className="mt-0.5 inline-flex items-center gap-1.5 text-[10.5px] text-fg-dim">
+                <span className="status-dot" aria-hidden />
+                Online · KST
+              </span>
+            </div>
+          </div>
           <button
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="-mr-1.5 inline-flex h-8 w-8 items-center justify-center rounded-full text-background/70 transition hover:bg-white/10 hover:text-background"
+            className="-mr-1.5 inline-flex h-8 w-8 items-center justify-center rounded-full text-fg-dim transition hover:bg-foreground/[0.06] hover:text-foreground"
           >
             <svg
               width="16"
@@ -84,30 +96,20 @@ export function WidgetPanel({
             </svg>
           </button>
         </div>
-        <div className="relative">
-          <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-background/55">
-            Amiolas · Contact
-          </div>
-          <h2 className="mt-2.5 break-keep font-serif text-[23px] italic leading-[1.2] tracking-[-0.012em]">
-            안녕하세요.
-            <br />
-            도움이 필요하신가요?
-          </h2>
-        </div>
+        <h2 className="relative m-0 break-keep text-[21px] font-bold leading-[1.3] tracking-[-0.018em] text-foreground">
+          안녕하세요.
+          <br />
+          무엇을 도와드릴까요?
+        </h2>
       </header>
 
       <ol
         ref={scrollRef}
-        className="m-0 flex flex-1 list-none flex-col gap-3 overflow-y-auto p-5"
+        className="m-0 flex flex-1 list-none flex-col gap-3 overflow-y-auto px-5 pb-5 pt-1"
       >
         {messages.length === 0 && (
-          <li className="flex flex-col gap-2 rounded-2xl border border-line-soft bg-surface-soft px-4 py-4 text-[13px] leading-[1.6] text-fg-muted">
-            <span className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-fg-dim">
-              First message
-            </span>
-            <span className="text-foreground">
-              메시지를 보내주시면 영업일 기준 1일 이내에 회신드립니다.
-            </span>
+          <li className="max-w-[88%] self-start rounded-2xl rounded-bl-md bg-surface-soft px-4 py-3 text-[13px] leading-[1.6] text-fg-muted shadow-[0_1px_2px_oklch(0_0_0/0.05)]">
+            메시지를 보내주시면 영업일 기준 1일 이내에 회신드립니다.
           </li>
         )}
         {messages.map((m) => (
@@ -118,7 +120,7 @@ export function WidgetPanel({
       <form
         key={formKey}
         action={formAction}
-        className="flex flex-col gap-2.5 border-t border-line-soft bg-background p-4"
+        className="flex flex-col gap-2 p-3.5 pt-2"
       >
         <input
           type="hidden"
@@ -143,26 +145,26 @@ export function WidgetPanel({
               placeholder="이름"
               required
               maxLength={CONTACT_CONFIG.maxNameLen}
-              className="h-10 rounded-lg border border-border bg-background px-3 text-[13px] outline-none transition focus:border-brand-light"
+              className="h-10 rounded-xl bg-surface-soft px-3.5 text-[13px] text-foreground placeholder:text-fg-dim outline-none ring-1 ring-transparent transition focus:bg-background focus:ring-brand/40"
             />
             <input
               type="email"
               name="email"
               placeholder="이메일"
               required
-              className="h-10 rounded-lg border border-border bg-background px-3 text-[13px] outline-none transition focus:border-brand-light"
+              className="h-10 rounded-xl bg-surface-soft px-3.5 text-[13px] text-foreground placeholder:text-fg-dim outline-none ring-1 ring-transparent transition focus:bg-background focus:ring-brand/40"
             />
           </div>
         )}
 
-        <div className="flex items-end gap-2">
+        <div className="flex items-stretch gap-2 rounded-2xl bg-surface-soft p-2 ring-1 ring-transparent transition focus-within:bg-background focus-within:ring-brand/40">
           <textarea
             name="text"
             placeholder="메시지를 보내주세요"
             required
             rows={2}
             maxLength={CONTACT_CONFIG.maxMessageLen}
-            className="min-h-[44px] flex-1 resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-[13.5px] leading-[1.5] outline-none transition focus:border-brand-light"
+            className="min-h-[40px] flex-1 resize-none bg-transparent px-2 py-1.5 text-[13.5px] leading-[1.5] text-foreground placeholder:text-fg-dim outline-none"
           />
           <SubmitButton />
         </div>
@@ -170,7 +172,7 @@ export function WidgetPanel({
         {errorMessage && (
           <p
             role="alert"
-            className="m-0 mt-1 text-[12px] leading-[1.4] text-destructive"
+            className="m-0 mt-0.5 px-1 text-[12px] leading-[1.4] text-destructive"
           >
             {errorMessage}
           </p>
@@ -187,7 +189,7 @@ function SubmitButton() {
       type="submit"
       disabled={pending}
       aria-label="Send message"
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand text-white shadow-[0_8px_24px_-8px_color-mix(in_oklab,var(--color-brand)_55%,transparent)] transition hover:-translate-y-px hover:bg-brand-light hover:shadow-[0_14px_32px_-8px_color-mix(in_oklab,var(--color-brand)_70%,transparent)] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+      className="flex aspect-square shrink-0 self-stretch items-center justify-center rounded-xl bg-brand text-white shadow-[0_6px_18px_-6px_color-mix(in_oklab,var(--color-brand)_60%,transparent)] transition hover:-translate-y-px hover:bg-brand-light hover:shadow-[0_12px_28px_-8px_color-mix(in_oklab,var(--color-brand)_70%,transparent)] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
     >
       {pending ? (
         <svg

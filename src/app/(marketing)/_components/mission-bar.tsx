@@ -1,6 +1,12 @@
 export function MissionBar() {
   return (
-    <section className="mission-stripes relative mt-[clamp(20px,6vw,90px)] overflow-hidden border-y border-line-soft bg-surface-soft px-[var(--pad)] py-[clamp(56px,13vw,120px)]">
+    <section
+      className="mission-stripes relative mt-[clamp(20px,6vw,90px)] overflow-hidden border-y border-dashed border-border px-[var(--pad)] py-[clamp(56px,13vw,120px)]"
+      style={{
+        background:
+          "radial-gradient(ellipse at center, oklch(0.55 0.22 295 / 0.08) 0%, transparent 70%)",
+      }}
+    >
       <div className="relative mx-auto max-w-[1440px] text-center">
         <div className="mb-7 font-mono text-[11px] uppercase tracking-[0.22em] text-fg-dim">
           Metaphor

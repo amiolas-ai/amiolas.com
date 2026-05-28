@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist_Mono, Instrument_Serif, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -27,6 +27,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Latin display/UI face — distinctive techy grotesk. Korean falls back to
+// SCDream via the --font-sans stack in globals.css.
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
   weight: "400",
@@ -42,7 +50,7 @@ export const metadata: Metadata = {
     template: "%s — Amiolas",
   },
   description:
-    "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 제품과 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
+    "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 에이전트와 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
   applicationName: "Amiolas",
   authors: [{ name: "Amiolas" }],
   creator: "Amiolas",
@@ -83,7 +91,7 @@ export const metadata: Metadata = {
     siteName: "Amiolas",
     title: "Amiolas — 의미의 연속성을 회복합니다",
     description:
-      "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 제품과 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
+      "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 에이전트와 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
   },
   twitter: {
     card: "summary_large_image",
@@ -96,8 +104,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "light",
-  themeColor: "#6041e6",
+  colorScheme: "dark",
+  themeColor: "#0b0a10",
 };
 
 export default function RootLayout({
@@ -108,7 +116,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${scDream.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
+      className={`${scDream.variable} ${spaceGrotesk.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <JsonLd />

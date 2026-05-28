@@ -5,8 +5,8 @@ type Item = { k: string; v: string; meta: string };
 
 const trackA: Item[] = [
   { k: "01", v: "Specify · Ontology AI Agent", meta: "Open Beta" },
-  { k: "02", v: "Product II · 도메인 검토 단계", meta: "TBA" },
-  { k: "03", v: "Product III · 도메인 검토 단계", meta: "TBA" },
+  { k: "02", v: "Agent II · 도메인 검토 단계", meta: "TBA" },
+  { k: "03", v: "Agent III · 도메인 검토 단계", meta: "TBA" },
 ];
 
 const trackB: Item[] = [
@@ -28,17 +28,17 @@ export function Approach() {
         </Reveal>
 
         <Reveal>
-          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[18px] border border-line-soft bg-line-soft md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[18px] border border-dashed border-border bg-line-soft md:grid-cols-2">
             <Pane
-              sub="▌ Track A / Product Line"
-              title="AI Products"
-              body="장기 성장 동력. Specify를 시작으로 AI를 활용한 후속 제품을 순차적으로 추가해 제품군을 확장합니다."
+              sub="▌ Track A / Agent Line"
+              title="AI Agents"
+              body="장기 성장 동력. Specify를 시작으로 영역을 넓혀가며 도메인별 전문 AI 에이전트를 순차 확장하는, AI 에이전트 개발 전문 기업으로 성장합니다."
               items={trackA}
             />
             <Pane
               sub="▌ Track B / Service Line"
               title="Enterprise Engineering"
-              body="단기 자금 + 캐시플로. 클라이언트 의뢰 기반의 맞춤형 IT 시스템 설계·구축·운영. AI 제품 라인과 분리 운영합니다."
+              body="단기 자금 + 캐시플로. 클라이언트 의뢰 기반의 맞춤형 IT 시스템 설계·구축·운영. AI 에이전트 라인과 분리 운영합니다."
               items={trackB}
             />
           </div>

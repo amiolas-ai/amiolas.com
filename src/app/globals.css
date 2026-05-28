@@ -19,12 +19,14 @@
   /* Surfaces · lines */
   --color-surface-soft: var(--surface-soft);
   --color-surface-card: var(--surface-card);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-raised-soft: var(--surface-raised-soft);
   --color-line-soft: var(--line-soft);
-  --color-border-strong: oklch(0.82 0.008 290);
+  --color-border-strong: oklch(0.52 0.016 290);
 
   /* Foreground tiers */
   --color-fg-muted: var(--muted-foreground);
-  --color-fg-subtle: oklch(0.5 0.008 290);
+  --color-fg-subtle: oklch(0.62 0.012 290);
   --color-fg-dim: var(--fg-dim);
 
   /* Tracking · shadow · motion */
@@ -76,7 +78,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-sans: var(--font-sc-dream);
+  --font-sans: var(--font-space-grotesk), var(--font-sc-dream);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-instrument-serif), var(--font-sc-dream), serif;
 
@@ -89,35 +91,58 @@
   --radius: 0.5rem;
   --pad: clamp(20px, 4vw, 56px);
 
-  /* Warm cream off-white (design canon · hue 85) */
-  --background: oklch(0.985 0.004 85);
-  --surface-soft: oklch(0.965 0.006 85);
-  --surface-card: oklch(0.975 0.005 85);
-  --foreground: oklch(0.18 0.012 290);
+  /* Deep dark — restrained cyberpunk (design canon · ≈ #0b0a10, hue 290) */
+  --background: oklch(0.13 0.012 290);
+  --surface-soft: oklch(0.16 0.014 290);
+  --surface-card: oklch(0.18 0.016 290);
+  /* Elevated surfaces — floating overlays (contact widget) that must read clearly above the page */
+  --surface-raised: oklch(0.23 0.015 290);
+  --surface-raised-soft: oklch(0.28 0.016 290);
+  --foreground: oklch(0.92 0.012 290);
 
   --card: var(--surface-card);
   --card-foreground: var(--foreground);
-  --popover: var(--background);
+  --popover: var(--surface-card);
   --popover-foreground: var(--foreground);
 
   --primary: oklch(0.55 0.22 295);
-  --primary-foreground: #ffffff;
+  /* violet 버튼 위 텍스트는 딥 다크 */
+  --primary-foreground: #0b0a10;
 
-  --secondary: oklch(0.94 0.005 85);
+  --secondary: oklch(0.22 0.013 290);
   --secondary-foreground: var(--foreground);
-  --muted: oklch(0.94 0.005 85);
-  --muted-foreground: oklch(0.42 0.014 285);
-  --accent: oklch(0.94 0.005 85);
+  --muted: oklch(0.22 0.013 290);
+  --muted-foreground: oklch(0.7 0.012 290);
+  --accent: oklch(0.24 0.014 290);
   --accent-foreground: var(--foreground);
 
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: #ffffff;
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: #0b0a10;
 
+  --border: oklch(0.42 0.014 290);
+  --line-soft: oklch(0.36 0.013 290);
+  --fg-dim: oklch(0.62 0.012 290);
+  --input: oklch(0.42 0.014 290);
+  --ring: oklch(0.55 0.22 295);
+}
+
+/* Contact widget runs a LIGHT surface so it reads as a bright floating panel
+   above the dark page. Token overrides cascade to every semantic utility used
+   inside the panel (text-foreground, bg-surface-raised, border-border, …). */
+.contact-light {
+  --background: oklch(0.99 0.004 85);
+  --surface-soft: oklch(0.965 0.006 85);
+  --surface-card: oklch(0.975 0.005 85);
+  --surface-raised: oklch(0.995 0.003 85);
+  --surface-raised-soft: oklch(0.95 0.008 85);
+  --foreground: oklch(0.18 0.012 290);
+  --muted-foreground: oklch(0.42 0.014 285);
+  --fg-dim: oklch(0.52 0.012 285);
   --border: oklch(0.86 0.008 85);
   --line-soft: oklch(0.92 0.006 85);
-  --fg-dim: oklch(0.58 0.014 285);
   --input: oklch(0.86 0.008 85);
-  --ring: oklch(0.55 0.22 295);
+  --card: var(--surface-card);
+  --color-border-strong: oklch(0.8 0.008 85);
 }
 
 * {
@@ -140,7 +165,7 @@ body {
   color: white;
 }
 
-/* ===== Background atmospheric layers ===== */
+/* ===== Background atmospheric layers (dark cyberpunk) ===== */
 .bg-fx {
   position: fixed;
   inset: 0;
@@ -149,12 +174,12 @@ body {
   background:
     radial-gradient(
       900px 700px at 88% -10%,
-      color-mix(in oklab, var(--color-brand-light) 6%, transparent),
+      color-mix(in oklab, var(--color-brand) 16%, transparent),
       transparent 60%
     ),
     radial-gradient(
       900px 700px at 4% 108%,
-      color-mix(in oklab, var(--color-brand-light) 5%, transparent),
+      color-mix(in oklab, var(--color-brand) 12%, transparent),
       transparent 62%
     );
 }
@@ -166,30 +191,43 @@ body {
   background-image:
     linear-gradient(
       to right,
-      color-mix(in oklab, var(--foreground) 7%, transparent) 1px,
+      color-mix(in oklab, var(--foreground) 6%, transparent) 1px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      color-mix(in oklab, var(--foreground) 7%, transparent) 1px,
+      color-mix(in oklab, var(--foreground) 6%, transparent) 1px,
       transparent 1px
     );
-  background-size: 96px 96px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 25%, transparent 82%);
   -webkit-mask-image: radial-gradient(
     ellipse at center,
-    black 30%,
-    transparent 80%
+    black 25%,
+    transparent 82%
   );
-  opacity: 0.42;
+  opacity: 0.5;
+}
+/* faint horizontal scanlines — 3px repeat */
+.bg-scanline {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  background-image: repeating-linear-gradient(
+    0deg,
+    color-mix(in oklab, var(--foreground) 4%, transparent) 0 1px,
+    transparent 1px 3px
+  );
 }
 .bg-noise {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
 /* ===== Reveal-on-scroll ===== */
@@ -254,5 +292,180 @@ body {
   background-size: calc(100% / 12) 100%;
   pointer-events: none;
   opacity: 0.5;
+}
+
+/* ===== Glitch text effect — two bursts per ~3.6s cycle (mid + late) ===== */
+.glitch {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: transparent;
+}
+.glitch::before {
+  color: oklch(0.7 0.28 295);
+  transform: translate(-2px, 0);
+  mix-blend-mode: screen;
+  animation: glitch-x 3.6s steps(1) infinite;
+  clip-path: inset(0 0 70% 0);
+}
+.glitch::after {
+  color: oklch(0.78 0.18 200);
+  transform: translate(2px, 0);
+  mix-blend-mode: screen;
+  animation: glitch-y 3.6s steps(1) infinite;
+  clip-path: inset(70% 0 0 0);
+}
+/* two bursts per cycle (mid + late) on a shorter loop — more frequent, still restrained */
+@keyframes glitch-x {
+  0%,
+  40%,
+  51%,
+  88%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+  41% {
+    transform: translate(-4px, 0);
+    opacity: 0.95;
+    clip-path: inset(8% 0 58% 0);
+  }
+  44% {
+    transform: translate(3px, -1px);
+    opacity: 0.75;
+    clip-path: inset(38% 0 28% 0);
+  }
+  48% {
+    transform: translate(-3px, 1px);
+    opacity: 0.95;
+    clip-path: inset(4% 0 78% 0);
+  }
+  89% {
+    transform: translate(-4px, 0);
+    opacity: 0.95;
+    clip-path: inset(10% 0 60% 0);
+  }
+  92% {
+    transform: translate(3px, -1px);
+    opacity: 0.8;
+    clip-path: inset(40% 0 30% 0);
+  }
+  95% {
+    transform: translate(-3px, 1px);
+    opacity: 0.95;
+    clip-path: inset(5% 0 80% 0);
+  }
+  98% {
+    transform: translate(2px, 0);
+    opacity: 0.65;
+    clip-path: inset(60% 0 20% 0);
+  }
+}
+@keyframes glitch-y {
+  0%,
+  40%,
+  51%,
+  88%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+  }
+  41% {
+    transform: translate(4px, 0);
+    opacity: 0.95;
+    clip-path: inset(58% 0 8% 0);
+  }
+  44% {
+    transform: translate(-3px, 1px);
+    opacity: 0.75;
+    clip-path: inset(28% 0 38% 0);
+  }
+  48% {
+    transform: translate(3px, -1px);
+    opacity: 0.95;
+    clip-path: inset(78% 0 4% 0);
+  }
+  89% {
+    transform: translate(4px, 0);
+    opacity: 0.95;
+    clip-path: inset(60% 0 10% 0);
+  }
+  92% {
+    transform: translate(-3px, 1px);
+    opacity: 0.8;
+    clip-path: inset(30% 0 40% 0);
+  }
+  95% {
+    transform: translate(3px, -1px);
+    opacity: 0.95;
+    clip-path: inset(80% 0 5% 0);
+  }
+  98% {
+    transform: translate(-2px, 0);
+    opacity: 0.65;
+    clip-path: inset(20% 0 60% 0);
+  }
+}
+/* a faint flicker on the base text itself */
+.glitch-base {
+  animation: glitch-flicker 3.6s steps(1) infinite;
+}
+@keyframes glitch-flicker {
+  0%,
+  40%,
+  51%,
+  88%,
+  100% {
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+  41%,
+  89% {
+    text-shadow:
+      -2px 0 oklch(0.7 0.28 295 / 0.75),
+      2px 0 oklch(0.78 0.18 200 / 0.65);
+    transform: translateX(0.6px);
+  }
+  44%,
+  92% {
+    text-shadow:
+      1px 0 oklch(0.7 0.28 295 / 0.75),
+      -1px 0 oklch(0.78 0.18 200 / 0.65);
+    transform: translateX(-0.6px);
+  }
+  48%,
+  95% {
+    text-shadow:
+      -2px 0 oklch(0.7 0.28 295 / 0.75),
+      2px 0 oklch(0.78 0.18 200 / 0.65);
+  }
+}
+/* subtle glitch — short labels / small text */
+.glitch-soft {
+  animation: glitch-soft 7s steps(1) infinite;
+}
+@keyframes glitch-soft {
+  0%,
+  96%,
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  97% {
+    opacity: 0.7;
+    transform: translate(1px, -1px);
+  }
+  98% {
+    opacity: 1;
+    transform: translate(-1px, 1px);
+  }
 }
 

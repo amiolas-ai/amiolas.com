@@ -22,8 +22,8 @@ export default async function OG() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 88px",
-          background: "#faf8f5",
-          color: "#1a1224",
+          background: "#0b0a10",
+          color: "#e9e6f0",
           fontFamily: "SCDream",
           position: "relative",
         }}
@@ -38,7 +38,7 @@ export default async function OG() {
             height: 720,
             borderRadius: 720,
             background: "#6041e6",
-            opacity: 0.14,
+            opacity: 0.32,
             display: "flex",
           }}
         />
@@ -52,7 +52,7 @@ export default async function OG() {
             height: 640,
             borderRadius: 640,
             background: "#6041e6",
-            opacity: 0.06,
+            opacity: 0.16,
             display: "flex",
           }}
         />
@@ -66,7 +66,7 @@ export default async function OG() {
             fontFamily: "SCDream",
             fontSize: 22,
             letterSpacing: "0.22em",
-            color: "#5a5468",
+            color: "#a59fb8",
           }}
         >
           <div
@@ -121,7 +121,7 @@ export default async function OG() {
             justifyContent: "space-between",
             alignItems: "flex-end",
             fontSize: 22,
-            color: "#3d3850",
+            color: "#cbc6da",
           }}
         >
           <div
@@ -137,10 +137,10 @@ export default async function OG() {
                 display: "flex",
                 fontSize: 22,
                 lineHeight: 1.5,
-                color: "#5a5468",
+                color: "#a59fb8",
               }}
             >
-              자체 AI 제품과 엔터프라이즈 엔지니어링을 병행하는 AI Studio.
+              자체 AI 에이전트와 엔터프라이즈 엔지니어링을 병행하는 AI Studio.
             </div>
           </div>
           <div
@@ -148,7 +148,7 @@ export default async function OG() {
               display: "flex",
               fontSize: 20,
               letterSpacing: "0.22em",
-              color: "#5a5468",
+              color: "#a59fb8",
             }}
           >
             AMIOLAS.COM

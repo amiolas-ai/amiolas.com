@@ -10,7 +10,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · Vercel
 
-**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), warm cream bg `oklch(0.985 0.004 85)` (디자인 시안 기준 · hue 85), 라이트 단일 테마. 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 `**docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), deep dark bg `oklch(0.13 0.012 290)` (≈ `#0b0a10` · hue 290), **다크 단일 테마** (절제된 사이버펑크: 네온 violet + 미세 그리드/스캔라인 + dashed 블루프린트 보더 + 절제된 글리치). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 `**docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
 
 **한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치.
 
@@ -109,19 +109,19 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
   /* Accent */
   --color-spark:            oklch(0.45 0.10 60);            /* name reveal — "Ai" in Amiolas (deep bronze) */
 
-  /* shadcn semantic (라이트 단일) */
+  /* shadcn semantic (다크 단일) */
   --color-background · --color-foreground · --color-card · --color-popover
   --color-primary · --color-secondary · --color-muted · --color-accent
   --color-destructive · --color-border · --color-input · --color-ring
-  /* :root surfaces (cream, hue 85) — bg 0.985 → surface-card 0.975 → surface-soft 0.965 → muted 0.94 → line-soft 0.92 → border 0.86 */
+  /* :root surfaces (deep dark, hue 290) — bg 0.13 → surface-soft 0.16 → surface-card 0.18 → muted/secondary 0.22 → accent 0.24 → line-soft 0.26 → border 0.30. fg 0.92 / muted-fg 0.70 / fg-dim 0.58. primary-foreground #0b0a10 (violet 버튼 위 텍스트) */
 
   /* Surface 확장 */
-  --color-border-strong: oklch(0.82 0.008 290);
+  --color-border-strong: oklch(0.40 0.014 290);
   --color-fg-muted: var(--muted-foreground);
-  --color-fg-subtle: oklch(0.50 0.008 290);
+  --color-fg-subtle: oklch(0.62 0.012 290);
 
   /* Type */
-  --font-sans:  var(--font-sc-dream);    /* SCDream (KR + Latin 단일 스택) */
+  --font-sans:  var(--font-space-grotesk), var(--font-sc-dream);  /* Latin: Space Grotesk · KR: SCDream 폴백 */
   --font-mono:  var(--font-geist-mono);
   --tracking-eyebrow: 0.16em;
 
@@ -131,6 +131,14 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
 
   /* Motion */
   --animate-aura-pulse: aura-pulse 8s ease-in-out infinite (brand glow 전용)
+  --animate-marquee:    marquee-scroll 50s linear infinite (키워드 스트립)
+
+  /* Glitch (절제된 사이버펑크 · globals.css 전역 클래스) */
+  .glitch / .glitch-base / .glitch-soft + @keyframes glitch-x/-y/-flicker/-soft
+  /* ~5.6s 사이클 중 4~6%만 트리거. hero H1·라벨 한정. 항상 동작(reduced-motion 미가드 — 디자인 의도) */
+
+  /* Background atmospheres (globals.css 전역) */
+  .bg-fx (violet radial glow) · .bg-grid (40px) · .bg-scanline (3px) · .bg-noise
 }
 ```
 
@@ -138,10 +146,11 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
 
 - **Primitive**: `src/components/ui/` 안의 shadcn 패턴만 (`Button` CVA primary/ghost pill 이미 존재). 새 primitive 필요 시 `/add-shadcn` 또는 동일 패턴으로
 - **마케팅 섹션**: hand-built (`src/components/marketing/`). primitive를 조합해 제작, 새 primitive 함부로 만들지 말 것
-- **테마**: 라이트 단일 — `:root` 토큰만 사용. `next-themes` · 다크 모드 미운영
-- **폰트**: `next/font/local`로 SCDream 9 weights self-host (`public/fonts/SCDream{1..9}.otf`). Latin도 SCDream 사용 (Geist Sans는 사용 안 함, Geist Mono는 코드 블록용)
-- **로고/이미지**: `public/logos/logo.png` (투명 배경 단일 로고), `public/images/` (specify.webp)
-- **Aura 사용**: hero · CTA 한정. `--color-brand-glow` + `blur(40px)` + `animate-aura-pulse`. 그 외 영역에서 남용 금지
+- **테마**: 다크 단일 — `:root` 토큰만 사용 (딥 다크 + 네온 violet). `next-themes` · 라이트 모드 미운영
+- **폰트**: 한글은 `next/font/local` SCDream 9 weights self-host (`public/fonts/SCDream{1..9}.otf`). **Latin은 Space Grotesk**(`next/font/google`) — `--font-sans` 스택 1순위에 두고 한글은 SCDream으로 폴백. Geist Mono는 mono(코드·라벨), Instrument Serif는 일부 이탤릭 인용(mission-bar)에 사용. ※ 디자인 와이어프레임의 손글씨 폰트(Caveat·Patrick Hand)는 lo-fi placeholder — 프로덕션엔 사용 안 함
+- **로고/이미지**: `public/logos/logo.png` (투명 배경 단일 로고), `public/images/` (specify.webp), `public/videos/hero.mp4` (히어로 풀블리드 배경 영상)
+- **Aura/Glow 사용**: hero · CTA · mission bar 한정. `--color-brand-glow` + `blur(40px)` + `animate-aura-pulse`, 또는 violet radial-gradient. 그 외 영역에서 남용 금지
+- **보더**: 블루프린트 무드의 dashed 보더(`border-dashed border-border`)를 섹션 구분에 사용. 글리치는 hero H1·라벨에만 절제 적용
 
 ### 디자인 토큰 변경 시
 

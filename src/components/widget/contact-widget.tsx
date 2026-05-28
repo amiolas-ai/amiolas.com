@@ -5,6 +5,7 @@ import {
   useCallback,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { sendContactMessage } from "@/lib/actions/contact-send";
@@ -35,6 +36,7 @@ function maxCreatedAt(messages: ContactMessage[]): number {
 export function ContactWidget() {
   const { stored, save } = useContactStorage();
 
+  const rootRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ContactMessage[]>([]);
   const [formKey, setFormKey] = useState(0);
@@ -129,11 +131,26 @@ export function ContactWidget() {
     return () => window.removeEventListener("amiolas:contact:toggle", handler);
   }, []);
 
+  // Close on click outside the widget (ignore the external Contact triggers,
+  // which toggle via their own handler).
+  useEffect(() => {
+    if (!open) return;
+    const handler = (event: PointerEvent) => {
+      const target = event.target as Element | null;
+      if (!target) return;
+      if (rootRef.current?.contains(target)) return;
+      if (target.closest("[data-contact-trigger]")) return;
+      setOpen(false);
+    };
+    document.addEventListener("pointerdown", handler);
+    return () => document.removeEventListener("pointerdown", handler);
+  }, [open]);
+
   const conversationId = stored?.conversationId ?? "";
   const errorMessage = state && !state.ok ? state.message : null;
 
   return (
-    <>
+    <div ref={rootRef} className="contents">
       <WidgetFab
         open={open}
         unread={unread}
@@ -148,6 +165,6 @@ export function ContactWidget() {
         formAction={formAction}
         formKey={formKey}
       />
-    </>
+    </div>
   );
 }

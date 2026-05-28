@@ -12,7 +12,7 @@ const organization = {
   url: SITE_URL,
   logo: `${SITE_URL}/logos/logo.png`,
   description:
-    "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 제품과 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
+    "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 에이전트와 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
   foundingDate: "2025",
   email: "support@amiolas.com",
   address: {
