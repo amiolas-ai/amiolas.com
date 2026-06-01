@@ -1,0 +1,2329 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "14c49d01464440d0cd8726d15d300849758d8bed",
+  "generatedAt": "2026-06-01T07:22:00.392Z",
+  "files": {
+    ".claude/agents/senior-fullstack-engineer.md": {
+      "filePath": ".claude/agents/senior-fullstack-engineer.md",
+      "contentHash": "d62538dc0adc125eb99c6940901993680e511f11a4c61a7509b49e9655956425",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 386,
+      "hasStructuralAnalysis": true
+    },
+    ".claude/settings.json": {
+      "filePath": ".claude/settings.json",
+      "contentHash": "43fd9292d8554aea3381e56d82032711f710bf8de2cec4c06ef2966351c70934",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    ".env.example": {
+      "filePath": ".env.example",
+      "contentHash": "5ae21be6a8bf84bd7acc389f17ecb9866d860b2f92b2bff272bc28e674cbe4ba",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    ".understand-anything/.understandignore": {
+      "filePath": ".understand-anything/.understandignore",
+      "contentHash": "017760dff50cbf4954675408b2a05c5dc273d99de3a6db48b80ecd8683147d62",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 45,
+      "hasStructuralAnalysis": false
+    },
+    ".understand-anything/config.json": {
+      "filePath": ".understand-anything/config.json",
+      "contentHash": "a80a1a497d66022e9bbfca38401115cffe5360f9b74e3fd515d2e1a9ad7e5322",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 3,
+      "hasStructuralAnalysis": true
+    },
+    "AGENTS.md": {
+      "filePath": "AGENTS.md",
+      "contentHash": "ce91d248f4846eb943fb0a5b0b1618d09640fc4114e1e2d33c922494b870533a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 236,
+      "hasStructuralAnalysis": true
+    },
+    "CLAUDE.md": {
+      "filePath": "CLAUDE.md",
+      "contentHash": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "components.json": {
+      "filePath": "components.json",
+      "contentHash": "4b0a88efc61eb3b93585eaef3da001f7f30ba7f47b005218345e737813f848d3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "docs/BRAND.md": {
+      "filePath": "docs/BRAND.md",
+      "contentHash": "19d89fc5ad2d1963576eedfaa9bcfb666a45855cb1baf47e2700529b94ec85f6",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 136,
+      "hasStructuralAnalysis": true
+    },
+    "docs/CONTACT.md": {
+      "filePath": "docs/CONTACT.md",
+      "contentHash": "ce450abc079d8f9bced39388f66e38450e329f043550f7c742c2afa658690aa5",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 439,
+      "hasStructuralAnalysis": true
+    },
+    "docs/DESIGN.md": {
+      "filePath": "docs/DESIGN.md",
+      "contentHash": "30747cf0e5a5c81e2575f44314ea6256648e8fe864991b50a60b60634115cd08",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 405,
+      "hasStructuralAnalysis": true
+    },
+    "docs/PLANNING.md": {
+      "filePath": "docs/PLANNING.md",
+      "contentHash": "5bbb5efe3da4799826fb3e81a9079bbb697c228b992f4a4f62fe78df68216258",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 203,
+      "hasStructuralAnalysis": true
+    },
+    "eslint.config.mjs": {
+      "filePath": "eslint.config.mjs",
+      "contentHash": "870f1adccecf3051cbcd9fd307cef51d7633cf510979c181a81f4b1797273493",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "eslint/config",
+          "specifiers": [
+            "defineConfig",
+            "globalIgnores"
+          ]
+        },
+        {
+          "source": "eslint-config-next/core-web-vitals",
+          "specifiers": [
+            "nextVitals"
+          ]
+        },
+        {
+          "source": "eslint-config-next/typescript",
+          "specifiers": [
+            "nextTs"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "next.config.ts": {
+      "filePath": "next.config.ts",
+      "contentHash": "58d7f0d9ff632e876f172ea91e3daed804d922494a6a2e7cd312260dfb7973d0",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "NextConfig"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "package.json": {
+      "filePath": "package.json",
+      "contentHash": "78b34210c954ef5ee4a6a18f22980ff7d04afcbdf295d8cab569fa02b538660f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "postcss.config.mjs": {
+      "filePath": "postcss.config.mjs",
+      "contentHash": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "public/fonts/SCDream1.otf": {
+      "filePath": "public/fonts/SCDream1.otf",
+      "contentHash": "8c0f13e8694b29846767ccc256f0ca3127a3c4851eacd32463eef0791dade47b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1338,
+      "hasStructuralAnalysis": false
+    },
+    "public/fonts/SCDream2.otf": {
+      "filePath": "public/fonts/SCDream2.otf",
+      "contentHash": "db5c1b4cbacfdfa9c0d1901b37a19bcb839be0352dc7a250f74cc114cca4fd70",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1150,
+      "hasStructuralAnalysis": false
+    },
+    "public/fonts/SCDream3.otf": {
+      "filePath": "public/fonts/SCDream3.otf",
+      "contentHash": "ea9d7dbbd305eb009a4f4ed5cd2897f85f49b0815cefed54741d7cc448d2f41e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1335,
+      "hasStructuralAnalysis": false
+    },
+    "public/fonts/SCDream4.otf": {
+      "filePath": "public/fonts/SCDream4.otf",
+      "contentHash": "9662a1874b4a9fdd548f6250d5ae6ce57ec7cc49280f27fc3a1c030271c14e73",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1259,
+      "hasStructuralAnalysis": false
+    },
+    "public/fonts/SCDream5.otf": {
+      "filePath": "public/fonts/SCDream5.otf",
+      "contentHash": "bac37657e1b03562400f64f3b11838ae93d0843ef822a80511e4fb1d9406a48a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1139,
+      "hasStructuralAnalysis": false
+    },
+    "public/fonts/SCDream6.otf": {
+      "filePath": "public/fonts/SCDream6.otf",
+      "contentHash": "2a0d527bcffa01b3c98a2c7944927e6f31307a05958ba6567affb7773a569b71",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 2275,
+      "hasStructuralAnalysis": false
+    },
+    "public/fonts/SCDream7.otf": {
+      "filePath": "public/fonts/SCDream7.otf",
+      "contentHash": "cf878175e8c6f02f0c7f6e5cdd1151b7eb7767e1dfd0a6aa1e439aa5aa6997a9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1638,
+      "hasStructuralAnalysis": false
+    },
+    "public/fonts/SCDream8.otf": {
+      "filePath": "public/fonts/SCDream8.otf",
+      "contentHash": "6379cabd91614cc6bec7d2fcf2819cd1b79005b322231114ad74e66a4a280510",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1318,
+      "hasStructuralAnalysis": false
+    },
+    "public/fonts/SCDream9.otf": {
+      "filePath": "public/fonts/SCDream9.otf",
+      "contentHash": "e2f8ffb84796735982fae5ffe64d9072cf876e8a15a5d2678b4d1b7c539f5d51",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1085,
+      "hasStructuralAnalysis": false
+    },
+    "public/googleb2384b35fb620939.html": {
+      "filePath": "public/googleb2384b35fb620939.html",
+      "contentHash": "01538779f416b4a40dcf647176f6957dcd4cc997aa1cf205e37fb4cbcf89552f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 1,
+      "hasStructuralAnalysis": false
+    },
+    "public/images/specify.webp": {
+      "filePath": "public/images/specify.webp",
+      "contentHash": "251f030658f4a468d56bb50221e807aa7ca034547edf83c8498f426e54c29f41",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 343,
+      "hasStructuralAnalysis": false
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "bb8d62de30f6e20f1fdaf73d5e61eecfd8c9a93a8b447e5df39bea9090ea60f9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(legal)/layout.tsx": {
+      "filePath": "src/app/(legal)/layout.tsx",
+      "contentHash": "55f1b6c5422c67ec94ded253c33789bd0ab2ea9d9c97591519751fa7206548cc",
+      "functions": [
+        {
+          "name": "LegalLayout",
+          "params": [
+            "{ children }"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "ReactNode"
+          ]
+        },
+        {
+          "source": "@/components/layout/site-shell",
+          "specifiers": [
+            "SiteShell"
+          ]
+        }
+      ],
+      "exports": [
+        "LegalLayout"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(legal)/privacy/page.tsx": {
+      "filePath": "src/app/(legal)/privacy/page.tsx",
+      "contentHash": "a10a3851712ab1a121d4bbff57a0b0a46c88a24ffd24bcf0ba32f91025ec3f07",
+      "functions": [
+        {
+          "name": "PrivacyPage",
+          "params": [],
+          "exported": true,
+          "lineCount": 65
+        },
+        {
+          "name": "Row",
+          "params": [
+            "{ term, desc }"
+          ],
+          "exported": false,
+          "lineCount": 10
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "Metadata"
+          ]
+        },
+        {
+          "source": "@/lib/seo",
+          "specifiers": [
+            "buildMetadata"
+          ]
+        }
+      ],
+      "exports": [
+        "metadata",
+        "PrivacyPage"
+      ],
+      "totalLines": 228,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/_components/approach.tsx": {
+      "filePath": "src/app/(marketing)/_components/approach.tsx",
+      "contentHash": "e9693732424f30a0d09079d2c542cd95b087d8af235b3571a53af102807c5a3e",
+      "functions": [
+        {
+          "name": "Approach",
+          "params": [],
+          "exported": true,
+          "lineCount": 32
+        },
+        {
+          "name": "Pane",
+          "params": [
+            "{\n  sub,\n  title,\n  body,\n  items,\n}"
+          ],
+          "exported": false,
+          "lineCount": 39
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/components/marketing/reveal",
+          "specifiers": [
+            "Reveal"
+          ]
+        },
+        {
+          "source": "@/components/marketing/section-head",
+          "specifiers": [
+            "SectionHead"
+          ]
+        }
+      ],
+      "exports": [
+        "Approach"
+      ],
+      "totalLines": 90,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/_components/contact-section.tsx": {
+      "filePath": "src/app/(marketing)/_components/contact-section.tsx",
+      "contentHash": "64197c108b0f9051faf3a7b3f3a8cc16f4f10782d46f058d92047becb04aaa66",
+      "functions": [
+        {
+          "name": "ContactSection",
+          "params": [],
+          "exported": true,
+          "lineCount": 94
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/components/marketing/reveal",
+          "specifiers": [
+            "Reveal"
+          ]
+        },
+        {
+          "source": "@/components/layout/contact-trigger",
+          "specifiers": [
+            "ContactTrigger"
+          ]
+        }
+      ],
+      "exports": [
+        "ContactSection"
+      ],
+      "totalLines": 104,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/_components/hero-video.tsx": {
+      "filePath": "src/app/(marketing)/_components/hero-video.tsx",
+      "contentHash": "ca53d7fe1d62d2059d962f830a337a9740d1f8b837ec0a574f81841b0b548430",
+      "functions": [
+        {
+          "name": "HeroVideo",
+          "params": [],
+          "exported": true,
+          "lineCount": 57
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        }
+      ],
+      "exports": [
+        "HeroVideo"
+      ],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/_components/hero.tsx": {
+      "filePath": "src/app/(marketing)/_components/hero.tsx",
+      "contentHash": "aab18376f362dc9f1592c2a0779c0038ba5627d0677963738e612c5686fe2fc5",
+      "functions": [
+        {
+          "name": "Hero",
+          "params": [],
+          "exported": true,
+          "lineCount": 50
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/components/marketing/reveal",
+          "specifiers": [
+            "Reveal"
+          ]
+        },
+        {
+          "source": "./hero-video",
+          "specifiers": [
+            "HeroVideo"
+          ]
+        }
+      ],
+      "exports": [
+        "Hero"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/_components/marquee.tsx": {
+      "filePath": "src/app/(marketing)/_components/marquee.tsx",
+      "contentHash": "c1413ac609ccbc90c8f3711536c9fef6551c8a9055613e31b37799b9904b8edf",
+      "functions": [
+        {
+          "name": "Track",
+          "params": [],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "Marquee",
+          "params": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "Marquee"
+      ],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/_components/mission-bar.tsx": {
+      "filePath": "src/app/(marketing)/_components/mission-bar.tsx",
+      "contentHash": "dc0b618320f0b4842dd6fd0988b51280ff0bdb2285317bb6319b8c8f0d78bf6e",
+      "functions": [
+        {
+          "name": "MissionBar",
+          "params": [],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "MissionBar"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/_components/specify-section.tsx": {
+      "filePath": "src/app/(marketing)/_components/specify-section.tsx",
+      "contentHash": "25629ba7fdbdb9b4f98b289f461108b8c909b0789afbf3dd7a49a47453c44b82",
+      "functions": [
+        {
+          "name": "SpecifySection",
+          "params": [],
+          "exported": true,
+          "lineCount": 164
+        },
+        {
+          "name": "CornerBrackets",
+          "params": [],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "Stat",
+          "params": [
+            "{ dt, dd }"
+          ],
+          "exported": false,
+          "lineCount": 12
+        },
+        {
+          "name": "SpecifyVisual",
+          "params": [],
+          "exported": false,
+          "lineCount": 43
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "@/components/marketing/reveal",
+          "specifiers": [
+            "Reveal"
+          ]
+        },
+        {
+          "source": "@/components/marketing/section-head",
+          "specifiers": [
+            "SectionHead"
+          ]
+        }
+      ],
+      "exports": [
+        "SpecifySection"
+      ],
+      "totalLines": 245,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/layout.tsx": {
+      "filePath": "src/app/(marketing)/layout.tsx",
+      "contentHash": "acd803f1903e740437eee198a1fd7dd492e942668beb85c94b13c318088d7a46",
+      "functions": [
+        {
+          "name": "MarketingLayout",
+          "params": [
+            "{ children }"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "ReactNode"
+          ]
+        },
+        {
+          "source": "@/components/layout/site-shell",
+          "specifiers": [
+            "SiteShell"
+          ]
+        }
+      ],
+      "exports": [
+        "MarketingLayout"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/loading.tsx": {
+      "filePath": "src/app/(marketing)/loading.tsx",
+      "contentHash": "1586e95dda11929facd66ccf5e8ca99f886c25231f91562a4e4982452bf2490c",
+      "functions": [
+        {
+          "name": "Loading",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "Loading"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/(marketing)/page.tsx": {
+      "filePath": "src/app/(marketing)/page.tsx",
+      "contentHash": "ded1ebe8dd3ed5366b39240197faa0ddeb3d63201ba11f7904316b640743ab0e",
+      "functions": [
+        {
+          "name": "HomePage",
+          "params": [],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "./_components/hero",
+          "specifiers": [
+            "Hero"
+          ]
+        },
+        {
+          "source": "./_components/marquee",
+          "specifiers": [
+            "Marquee"
+          ]
+        },
+        {
+          "source": "./_components/specify-section",
+          "specifiers": [
+            "SpecifySection"
+          ]
+        },
+        {
+          "source": "./_components/mission-bar",
+          "specifiers": [
+            "MissionBar"
+          ]
+        },
+        {
+          "source": "./_components/approach",
+          "specifiers": [
+            "Approach"
+          ]
+        },
+        {
+          "source": "./_components/contact-section",
+          "specifiers": [
+            "ContactSection"
+          ]
+        }
+      ],
+      "exports": [
+        "HomePage"
+      ],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/api/contact/stream/route.ts": {
+      "filePath": "src/app/api/contact/stream/route.ts",
+      "contentHash": "f3446b506e7a0e5af3dc436ccb8941bc56c3353039271e11655787311b4e09a3",
+      "functions": [
+        {
+          "name": "GET",
+          "params": [
+            "req"
+          ],
+          "exported": true,
+          "lineCount": 115
+        },
+        {
+          "name": "parseTs",
+          "params": [
+            "value"
+          ],
+          "returnType": "number | null",
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/lib/contact/realtime",
+          "specifiers": [
+            "createSubscriber"
+          ]
+        },
+        {
+          "source": "@/lib/contact/store",
+          "specifiers": [
+            "conversationChannel",
+            "getMessagesSince"
+          ]
+        },
+        {
+          "source": "@/types/contact",
+          "specifiers": [
+            "ContactMessage"
+          ]
+        }
+      ],
+      "exports": [
+        "runtime",
+        "dynamic",
+        "maxDuration",
+        "GET"
+      ],
+      "totalLines": 136,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/api/slack/events/route.ts": {
+      "filePath": "src/app/api/slack/events/route.ts",
+      "contentHash": "7bec0a2c7b57f03c787822ea520ba5248b0c6847f27fbf4de24af8ee849b51cd",
+      "functions": [
+        {
+          "name": "ok",
+          "params": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "POST",
+          "params": [
+            "req"
+          ],
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/server",
+          "specifiers": [
+            "NextResponse"
+          ]
+        },
+        {
+          "source": "@/lib/env",
+          "specifiers": [
+            "env"
+          ]
+        },
+        {
+          "source": "@/lib/contact/store",
+          "specifiers": [
+            "appendMessage",
+            "getConversationIdByThread",
+            "markEventProcessed",
+            "publishMessage"
+          ]
+        },
+        {
+          "source": "@/lib/slack/verify",
+          "specifiers": [
+            "verifySlackSignature"
+          ]
+        }
+      ],
+      "exports": [
+        "runtime",
+        "dynamic",
+        "POST"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/apple-icon.tsx": {
+      "filePath": "src/app/apple-icon.tsx",
+      "contentHash": "8090269c52e7521c2206617e2eca72fce115e1827329b3f703ca0d043e8e7bb1",
+      "functions": [
+        {
+          "name": "AppleIcon",
+          "params": [],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/og",
+          "specifiers": [
+            "ImageResponse"
+          ]
+        },
+        {
+          "source": "node:fs/promises",
+          "specifiers": [
+            "fs"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "path"
+          ]
+        }
+      ],
+      "exports": [
+        "size",
+        "contentType",
+        "AppleIcon"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/globals.css": {
+      "filePath": "src/app/globals.css",
+      "contentHash": "f81e6500bee133a0c81e177017e6f946ee9faa056412cc578cc2df8790a449cb",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 472,
+      "hasStructuralAnalysis": false
+    },
+    "src/app/icon.tsx": {
+      "filePath": "src/app/icon.tsx",
+      "contentHash": "2c2a5384fb5aad92125ebf0de9e2a95b5635296d43ed1592c3a1d923a3e48bf9",
+      "functions": [
+        {
+          "name": "Icon",
+          "params": [],
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/og",
+          "specifiers": [
+            "ImageResponse"
+          ]
+        },
+        {
+          "source": "node:fs/promises",
+          "specifiers": [
+            "fs"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "path"
+          ]
+        }
+      ],
+      "exports": [
+        "size",
+        "contentType",
+        "Icon"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/layout.tsx": {
+      "filePath": "src/app/layout.tsx",
+      "contentHash": "f06aace5283857458299aee45bf03c7411ee7e49de374d32adaccdf157ad3b19",
+      "functions": [
+        {
+          "name": "RootLayout",
+          "params": [
+            "{\n  children,\n}"
+          ],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "Metadata",
+            "Viewport"
+          ]
+        },
+        {
+          "source": "next/font/local",
+          "specifiers": [
+            "localFont"
+          ]
+        },
+        {
+          "source": "next/font/google",
+          "specifiers": [
+            "Geist_Mono",
+            "Instrument_Serif",
+            "Space_Grotesk"
+          ]
+        },
+        {
+          "source": "@vercel/analytics/next",
+          "specifiers": [
+            "Analytics"
+          ]
+        },
+        {
+          "source": "@vercel/speed-insights/next",
+          "specifiers": [
+            "SpeedInsights"
+          ]
+        },
+        {
+          "source": "@/components/seo/json-ld",
+          "specifiers": [
+            "JsonLd"
+          ]
+        },
+        {
+          "source": "./globals.css",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "metadata",
+        "viewport",
+        "RootLayout"
+      ],
+      "totalLines": 130,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/manifest.ts": {
+      "filePath": "src/app/manifest.ts",
+      "contentHash": "54387c7c8a808e48c6115d8178976322ef8c5c723d1d03adfda6590763fe5620",
+      "functions": [
+        {
+          "name": "manifest",
+          "params": [],
+          "returnType": "MetadataRoute.Manifest",
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "MetadataRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "manifest"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/opengraph-image.tsx": {
+      "filePath": "src/app/opengraph-image.tsx",
+      "contentHash": "0119fb44f0ce9fd437824ce3e82094bd4e26d005e09a3760d8d544d37a6c3d30",
+      "functions": [
+        {
+          "name": "OG",
+          "params": [],
+          "exported": true,
+          "lineCount": 159
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/og",
+          "specifiers": [
+            "ImageResponse"
+          ]
+        },
+        {
+          "source": "node:fs/promises",
+          "specifiers": [
+            "fs"
+          ]
+        },
+        {
+          "source": "node:path",
+          "specifiers": [
+            "path"
+          ]
+        }
+      ],
+      "exports": [
+        "size",
+        "contentType",
+        "alt",
+        "OG"
+      ],
+      "totalLines": 168,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/robots.ts": {
+      "filePath": "src/app/robots.ts",
+      "contentHash": "cc969c9d7f8ef40acd68131a99984c42e618ac053c2762bdddfdfa261fbc1c54",
+      "functions": [
+        {
+          "name": "robots",
+          "params": [],
+          "returnType": "MetadataRoute.Robots",
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "MetadataRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "robots"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/sitemap.ts": {
+      "filePath": "src/app/sitemap.ts",
+      "contentHash": "af1019482b4431376d0d02ba59e3ee3b804a6c81d167182012a23dbeeb10ae4d",
+      "functions": [
+        {
+          "name": "sitemap",
+          "params": [],
+          "returnType": "MetadataRoute.Sitemap",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "MetadataRoute"
+          ]
+        }
+      ],
+      "exports": [
+        "sitemap"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "src/app/twitter-image.tsx": {
+      "filePath": "src/app/twitter-image.tsx",
+      "contentHash": "f9feae3ab9a0893ac74432416a5ad0ee41cc0209974837e41762289b895dc627",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "default",
+        "size",
+        "contentType",
+        "alt"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/layout/back-to-top.tsx": {
+      "filePath": "src/components/layout/back-to-top.tsx",
+      "contentHash": "86ac8f1c7f0af354e139a076fa9b4ac1f6222d34dcb6e1d857b977e4a5a87538",
+      "functions": [
+        {
+          "name": "easeOutCubic",
+          "params": [
+            "t"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "BackToTop",
+          "params": [],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "MouseEvent"
+          ]
+        }
+      ],
+      "exports": [
+        "BackToTop"
+      ],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/layout/background-fx.tsx": {
+      "filePath": "src/components/layout/background-fx.tsx",
+      "contentHash": "ec1fca7856c41500f576b0575518fbfe60a895a309053df5a6af9fe77e04bbeb",
+      "functions": [
+        {
+          "name": "BackgroundFx",
+          "params": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "BackgroundFx"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/layout/clock.tsx": {
+      "filePath": "src/components/layout/clock.tsx",
+      "contentHash": "5ac93918b375ba5ea94d4090b6a28bc18c8da45d278188c10c0d5b4334f8f8ca",
+      "functions": [
+        {
+          "name": "Clock",
+          "params": [],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useState"
+          ]
+        }
+      ],
+      "exports": [
+        "Clock"
+      ],
+      "totalLines": 32,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/layout/contact-trigger.tsx": {
+      "filePath": "src/components/layout/contact-trigger.tsx",
+      "contentHash": "ba797f3f87b2b7a1714d1b72c207e8c186ac8a5c17bc32b84ee8877f6d261a07",
+      "functions": [
+        {
+          "name": "ContactTrigger",
+          "params": [
+            "{ children, ...props }"
+          ],
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "ComponentProps",
+            "ReactNode"
+          ]
+        }
+      ],
+      "exports": [
+        "ContactTrigger"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/layout/footer.tsx": {
+      "filePath": "src/components/layout/footer.tsx",
+      "contentHash": "737b02be54e2607bb761e73d9755e6d6f1dc6f1f35d2a91eb698a06deaca5774",
+      "functions": [
+        {
+          "name": "Footer",
+          "params": [],
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/link",
+          "specifiers": [
+            "Link"
+          ]
+        },
+        {
+          "source": "./back-to-top",
+          "specifiers": [
+            "BackToTop"
+          ]
+        }
+      ],
+      "exports": [
+        "Footer"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/layout/header.tsx": {
+      "filePath": "src/components/layout/header.tsx",
+      "contentHash": "6d8097f6a6e55d80be8ba9ced0ef516852aef092f6565c12feb4ee3046d177a7",
+      "functions": [
+        {
+          "name": "Header",
+          "params": [],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "next/link",
+          "specifiers": [
+            "Link"
+          ]
+        },
+        {
+          "source": "./clock",
+          "specifiers": [
+            "Clock"
+          ]
+        },
+        {
+          "source": "./contact-trigger",
+          "specifiers": [
+            "ContactTrigger"
+          ]
+        }
+      ],
+      "exports": [
+        "Header"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/layout/site-shell.tsx": {
+      "filePath": "src/components/layout/site-shell.tsx",
+      "contentHash": "33e0bc8691a45ca1b1f56f7e5e05f88e4489a5dac1a8be633f0d3f7326b48cc6",
+      "functions": [
+        {
+          "name": "SiteShell",
+          "params": [
+            "{ children }"
+          ],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "ReactNode"
+          ]
+        },
+        {
+          "source": "@/components/layout/background-fx",
+          "specifiers": [
+            "BackgroundFx"
+          ]
+        },
+        {
+          "source": "@/components/layout/footer",
+          "specifiers": [
+            "Footer"
+          ]
+        },
+        {
+          "source": "@/components/layout/header",
+          "specifiers": [
+            "Header"
+          ]
+        },
+        {
+          "source": "@/components/widget/contact-widget",
+          "specifiers": [
+            "ContactWidget"
+          ]
+        }
+      ],
+      "exports": [
+        "SiteShell"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/marketing/eyebrow.tsx": {
+      "filePath": "src/components/marketing/eyebrow.tsx",
+      "contentHash": "6c4e2bc893eb541dd9d10ffa2c6c74b57bc16cea416e1982074610a1cc8b952b",
+      "functions": [
+        {
+          "name": "Eyebrow",
+          "params": [
+            "{ children, className }"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "ReactNode"
+          ]
+        },
+        {
+          "source": "@/lib/utils",
+          "specifiers": [
+            "cn"
+          ]
+        }
+      ],
+      "exports": [
+        "Eyebrow"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/marketing/reveal.tsx": {
+      "filePath": "src/components/marketing/reveal.tsx",
+      "contentHash": "2a1566d6ebac6ebc545317e218f51e60c445f450cdeb9d9de6bee923c64b306e",
+      "functions": [
+        {
+          "name": "Reveal",
+          "params": [
+            "{ children, className }"
+          ],
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef",
+            "ReactNode"
+          ]
+        },
+        {
+          "source": "@/lib/utils",
+          "specifiers": [
+            "cn"
+          ]
+        }
+      ],
+      "exports": [
+        "Reveal"
+      ],
+      "totalLines": 38,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/marketing/section-head.tsx": {
+      "filePath": "src/components/marketing/section-head.tsx",
+      "contentHash": "f480348d41be534d416936c530373dffcf0c894143e10848cd7b628f0d8a0539",
+      "functions": [
+        {
+          "name": "SectionHead",
+          "params": [
+            "{ label, title, aside }"
+          ],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "ReactNode"
+          ]
+        }
+      ],
+      "exports": [
+        "SectionHead"
+      ],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/seo/json-ld.tsx": {
+      "filePath": "src/components/seo/json-ld.tsx",
+      "contentHash": "70d6df8487ba106fa0b2593bcea31476925934ef8e9829b30b3f76f11695194e",
+      "functions": [
+        {
+          "name": "JsonLd",
+          "params": [],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "JsonLd"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/ui/button.tsx": {
+      "filePath": "src/components/ui/button.tsx",
+      "contentHash": "05d7e459a4a6792c19149462a54064c4afc778b386e32ac60d03362ffab3f97a",
+      "functions": [
+        {
+          "name": "Button",
+          "params": [
+            "{ className, variant, size, ...props }"
+          ],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "class-variance-authority",
+          "specifiers": [
+            "cva",
+            "VariantProps"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "ComponentProps"
+          ]
+        },
+        {
+          "source": "@/lib/utils",
+          "specifiers": [
+            "cn"
+          ]
+        }
+      ],
+      "exports": [
+        "Button",
+        "buttonVariants"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/widget/contact-widget.tsx": {
+      "filePath": "src/components/widget/contact-widget.tsx",
+      "contentHash": "0ba0cd348f3f03ca6cc4d661a2017d3066ad3a9027a357f21e636ff71e81cf69",
+      "functions": [
+        {
+          "name": "mergeMessages",
+          "params": [
+            "prev",
+            "incoming"
+          ],
+          "returnType": "ContactMessage[]",
+          "exported": false,
+          "lineCount": 10
+        },
+        {
+          "name": "maxCreatedAt",
+          "params": [
+            "messages"
+          ],
+          "returnType": "number",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "ContactWidget",
+          "params": [],
+          "exported": true,
+          "lineCount": 135
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useActionState",
+            "useCallback",
+            "useEffect",
+            "useMemo",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "source": "@/lib/actions/contact-send",
+          "specifiers": [
+            "sendContactMessage"
+          ]
+        },
+        {
+          "source": "@/hooks/use-contact-storage",
+          "specifiers": [
+            "useContactStorage"
+          ]
+        },
+        {
+          "source": "@/types/contact",
+          "specifiers": [
+            "ContactMessage",
+            "SendMessageResult"
+          ]
+        },
+        {
+          "source": "./widget-fab",
+          "specifiers": [
+            "WidgetFab"
+          ]
+        },
+        {
+          "source": "./widget-panel",
+          "specifiers": [
+            "WidgetPanel"
+          ]
+        }
+      ],
+      "exports": [
+        "ContactWidget"
+      ],
+      "totalLines": 171,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/widget/message-bubble.tsx": {
+      "filePath": "src/components/widget/message-bubble.tsx",
+      "contentHash": "eca4174a0a8e6f73f1d4bd7728944a975c74b25e02eb8a7024dec49988315f5a",
+      "functions": [
+        {
+          "name": "MessageBubble",
+          "params": [
+            "{ message }"
+          ],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/types/contact",
+          "specifiers": [
+            "ContactMessage"
+          ]
+        },
+        {
+          "source": "@/lib/utils",
+          "specifiers": [
+            "cn"
+          ]
+        }
+      ],
+      "exports": [
+        "MessageBubble"
+      ],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/widget/widget-fab.tsx": {
+      "filePath": "src/components/widget/widget-fab.tsx",
+      "contentHash": "d3152cf34110cdf0e6f48940c63c6acdee39e70d349d06f2a5247cd980044815",
+      "functions": [
+        {
+          "name": "WidgetFab",
+          "params": [
+            "{ open, unread, onToggle }"
+          ],
+          "exported": true,
+          "lineCount": 43
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "@/lib/utils",
+          "specifiers": [
+            "cn"
+          ]
+        }
+      ],
+      "exports": [
+        "WidgetFab"
+      ],
+      "totalLines": 54,
+      "hasStructuralAnalysis": true
+    },
+    "src/components/widget/widget-panel.tsx": {
+      "filePath": "src/components/widget/widget-panel.tsx",
+      "contentHash": "d63cccee2ec704616fcd3d59296fbcaee76b388bd25e0aa20854c8af68ca3bd2",
+      "functions": [
+        {
+          "name": "WidgetPanel",
+          "params": [
+            "{\n  open,\n  onClose,\n  conversationId,\n  messages,\n  errorMessage,\n  formAction,\n  formKey,\n}"
+          ],
+          "exported": true,
+          "lineCount": 163
+        },
+        {
+          "name": "SubmitButton",
+          "params": [],
+          "exported": false,
+          "lineCount": 47
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/image",
+          "specifiers": [
+            "Image"
+          ]
+        },
+        {
+          "source": "react",
+          "specifiers": [
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "source": "react-dom",
+          "specifiers": [
+            "useFormStatus"
+          ]
+        },
+        {
+          "source": "@/lib/contact/config",
+          "specifiers": [
+            "CONTACT_CONFIG"
+          ]
+        },
+        {
+          "source": "@/lib/utils",
+          "specifiers": [
+            "cn"
+          ]
+        },
+        {
+          "source": "@/types/contact",
+          "specifiers": [
+            "ContactMessage"
+          ]
+        },
+        {
+          "source": "./message-bubble",
+          "specifiers": [
+            "MessageBubble"
+          ]
+        }
+      ],
+      "exports": [
+        "WidgetPanel"
+      ],
+      "totalLines": 232,
+      "hasStructuralAnalysis": true
+    },
+    "src/hooks/use-contact-storage.ts": {
+      "filePath": "src/hooks/use-contact-storage.ts",
+      "contentHash": "a6c32a56384d4c12668ca0e9fd1232e5e40865fcb4cd9eabc75fe54b2cce41a1",
+      "functions": [
+        {
+          "name": "read",
+          "params": [],
+          "returnType": "ContactStored | null",
+          "exported": false,
+          "lineCount": 19
+        },
+        {
+          "name": "write",
+          "params": [
+            "value"
+          ],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "erase",
+          "params": [],
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "useContactStorage",
+          "params": [],
+          "exported": true,
+          "lineCount": 21
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "react",
+          "specifiers": [
+            "useCallback",
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "source": "@/types/contact",
+          "specifiers": [
+            "Identity"
+          ]
+        }
+      ],
+      "exports": [
+        "useContactStorage"
+      ],
+      "totalLines": 71,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/actions/contact-send.ts": {
+      "filePath": "src/lib/actions/contact-send.ts",
+      "contentHash": "b6264e9781b8937e00e270a3e22e79fb6a430e68df218cee00d899c7f8ab3098",
+      "functions": [
+        {
+          "name": "sendContactMessage",
+          "params": [
+            "_prev",
+            "formData"
+          ],
+          "returnType": "Promise<SendMessageResult>",
+          "exported": true,
+          "lineCount": 107
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next/headers",
+          "specifiers": [
+            "headers"
+          ]
+        },
+        {
+          "source": "zod",
+          "specifiers": [
+            "z"
+          ]
+        },
+        {
+          "source": "@/lib/contact/config",
+          "specifiers": [
+            "CONTACT_CONFIG"
+          ]
+        },
+        {
+          "source": "@/lib/contact/store",
+          "specifiers": [
+            "appendMessage",
+            "createConversation",
+            "getConversation",
+            "incrRateLimit",
+            "publishMessage",
+            "setThreadTs"
+          ]
+        },
+        {
+          "source": "@/lib/slack/client",
+          "specifiers": [
+            "postNewInquiryThread",
+            "replyInThread"
+          ]
+        },
+        {
+          "source": "@/types/contact",
+          "specifiers": [
+            "ContactMessage",
+            "SendMessageResult"
+          ]
+        }
+      ],
+      "exports": [
+        "sendContactMessage"
+      ],
+      "totalLines": 135,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/contact/config.ts": {
+      "filePath": "src/lib/contact/config.ts",
+      "contentHash": "a1fd9248b0011ed10d188964d5fa818c6d2d317e6f7a58c235fd6401228da3fc",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "CONTACT_CONFIG"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/contact/realtime.ts": {
+      "filePath": "src/lib/contact/realtime.ts",
+      "contentHash": "fe531055c03dd74e6faafc80d17d459b88077edf47710e0e9b7c11279880037a",
+      "functions": [
+        {
+          "name": "createSubscriber",
+          "params": [],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "server-only",
+          "specifiers": []
+        },
+        {
+          "source": "redis",
+          "specifiers": [
+            "createClient"
+          ]
+        },
+        {
+          "source": "@/lib/env",
+          "specifiers": [
+            "env"
+          ]
+        }
+      ],
+      "exports": [
+        "createSubscriber"
+      ],
+      "totalLines": 8,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/contact/store.ts": {
+      "filePath": "src/lib/contact/store.ts",
+      "contentHash": "c7eecb707918efaa5237062417c5b181f3d942847525e001d4319ece5f6d741f",
+      "functions": [
+        {
+          "name": "convKey",
+          "params": [
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "msgKey",
+          "params": [
+            "id"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "threadKey",
+          "params": [
+            "ts"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "rateKey",
+          "params": [
+            "key"
+          ],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "getConversation",
+          "params": [
+            "id"
+          ],
+          "returnType": "Promise<Conversation | null>",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "createConversation",
+          "params": [
+            "identity"
+          ],
+          "returnType": "Promise<Conversation>",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "setThreadTs",
+          "params": [
+            "conversationId",
+            "threadTs"
+          ],
+          "returnType": "Promise<void>",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "getConversationIdByThread",
+          "params": [
+            "threadTs"
+          ],
+          "returnType": "Promise<string | null>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "appendMessage",
+          "params": [
+            "conversationId",
+            "sender",
+            "text"
+          ],
+          "returnType": "Promise<ContactMessage>",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "getMessagesSince",
+          "params": [
+            "conversationId",
+            "sinceMs"
+          ],
+          "returnType": "Promise<ContactMessage[]>",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "incrRateLimit",
+          "params": [
+            "key"
+          ],
+          "returnType": "Promise<{ count: number; allowed: boolean }>",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "markEventProcessed",
+          "params": [
+            "eventId"
+          ],
+          "returnType": "Promise<boolean>",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "conversationChannel",
+          "params": [
+            "conversationId"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "publishMessage",
+          "params": [
+            "conversationId",
+            "message"
+          ],
+          "returnType": "Promise<void>",
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "server-only",
+          "specifiers": []
+        },
+        {
+          "source": "@upstash/redis",
+          "specifiers": [
+            "Redis"
+          ]
+        },
+        {
+          "source": "nanoid",
+          "specifiers": [
+            "nanoid"
+          ]
+        },
+        {
+          "source": "@/lib/env",
+          "specifiers": [
+            "env"
+          ]
+        },
+        {
+          "source": "@/lib/contact/config",
+          "specifiers": [
+            "CONTACT_CONFIG"
+          ]
+        },
+        {
+          "source": "@/types/contact",
+          "specifiers": [
+            "ContactMessage",
+            "Conversation",
+            "Identity",
+            "Sender"
+          ]
+        }
+      ],
+      "exports": [
+        "getConversation",
+        "createConversation",
+        "setThreadTs",
+        "getConversationIdByThread",
+        "appendMessage",
+        "getMessagesSince",
+        "incrRateLimit",
+        "markEventProcessed",
+        "conversationChannel",
+        "publishMessage"
+      ],
+      "totalLines": 133,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/env.ts": {
+      "filePath": "src/lib/env.ts",
+      "contentHash": "b4f9effcf36c4549907ac7b70a4f3f021a7744a053f37055a5d45f1519e0560a",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "server-only",
+          "specifiers": []
+        },
+        {
+          "source": "zod",
+          "specifiers": [
+            "z"
+          ]
+        }
+      ],
+      "exports": [
+        "env"
+      ],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/seo.ts": {
+      "filePath": "src/lib/seo.ts",
+      "contentHash": "38f57380743058038aae1a08184807c6ff93f2798d2edd7f6ee410db7a2d99ba",
+      "functions": [
+        {
+          "name": "buildMetadata",
+          "params": [
+            "{\n  title,\n  description,\n  path = \"/\",\n}"
+          ],
+          "returnType": "Metadata",
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "next",
+          "specifiers": [
+            "Metadata"
+          ]
+        }
+      ],
+      "exports": [
+        "buildMetadata"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/slack/client.ts": {
+      "filePath": "src/lib/slack/client.ts",
+      "contentHash": "581e514c7afe367d24da0ebff2deb55de7546d9b193a10cf17bfe5aeccf9c70e",
+      "functions": [
+        {
+          "name": "postNewInquiryThread",
+          "params": [
+            "args"
+          ],
+          "returnType": "Promise<string>",
+          "exported": true,
+          "lineCount": 57
+        },
+        {
+          "name": "escapeMrkdwn",
+          "params": [
+            "text"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "sanitizeIdentity",
+          "params": [
+            "text"
+          ],
+          "returnType": "string",
+          "exported": false,
+          "lineCount": 3
+        },
+        {
+          "name": "replyInThread",
+          "params": [
+            "args"
+          ],
+          "returnType": "Promise<void>",
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "server-only",
+          "specifiers": []
+        },
+        {
+          "source": "@slack/web-api",
+          "specifiers": [
+            "WebClient"
+          ]
+        },
+        {
+          "source": "@/lib/env",
+          "specifiers": [
+            "env"
+          ]
+        },
+        {
+          "source": "@/types/contact",
+          "specifiers": [
+            "Identity"
+          ]
+        }
+      ],
+      "exports": [
+        "postNewInquiryThread",
+        "replyInThread"
+      ],
+      "totalLines": 90,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/slack/verify.ts": {
+      "filePath": "src/lib/slack/verify.ts",
+      "contentHash": "699c5f17373cbbefd8d4ddcae2528dab8888d1d5626b5550f641d9fea4fa5ff7",
+      "functions": [
+        {
+          "name": "verifySlackSignature",
+          "params": [
+            "args"
+          ],
+          "returnType": "Promise<boolean>",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "hmacHex",
+          "params": [
+            "secret",
+            "message"
+          ],
+          "returnType": "Promise<string>",
+          "exported": false,
+          "lineCount": 14
+        },
+        {
+          "name": "timingSafeEqual",
+          "params": [
+            "a",
+            "b"
+          ],
+          "returnType": "boolean",
+          "exported": false,
+          "lineCount": 8
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "server-only",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "verifySlackSignature"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "src/lib/utils.ts": {
+      "filePath": "src/lib/utils.ts",
+      "contentHash": "d1f1e0d62cb8d8d1e04c26e14de842d8a151f75812d81b046c65b5d1fe8e4b27",
+      "functions": [
+        {
+          "name": "cn",
+          "params": [
+            "...inputs"
+          ],
+          "exported": true,
+          "lineCount": 3
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "clsx",
+          "specifiers": [
+            "clsx",
+            "ClassValue"
+          ]
+        },
+        {
+          "source": "tailwind-merge",
+          "specifiers": [
+            "twMerge"
+          ]
+        }
+      ],
+      "exports": [
+        "cn"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "src/types/contact.ts": {
+      "filePath": "src/types/contact.ts",
+      "contentHash": "e85645214132b0f27ad2d1785f538850ecd1c5460f939a0328da8877b059e96d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 39,
+      "hasStructuralAnalysis": true
+    },
+    "tsconfig.json": {
+      "filePath": "tsconfig.json",
+      "contentHash": "5c51df4c59f4510d8c7dadf07a5c32132228826a3b331da5e286207b4df7ef9c",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

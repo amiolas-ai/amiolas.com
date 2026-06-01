@@ -1,0 +1,3950 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "amiolas.com",
+    "languages": [
+      "typescript",
+      "css",
+      "javascript",
+      "json",
+      "markdown",
+      "html"
+    ],
+    "frameworks": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Zod"
+    ],
+    "description": "Amiolas 회사 소개 마케팅 웹사이트. Next.js 16 App Router 기반으로 다크 사이버펑크 테마의 랜딩 페이지와 Slack Web API · Upstash Redis로 연동되는 실시간 contact 위젯을 제공합니다.",
+    "analyzedAt": "2026-06-01T07:21:14.940Z",
+    "gitCommitHash": "14c49d01464440d0cd8726d15d300849758d8bed"
+  },
+  "nodes": [
+    {
+      "id": "file:src/app/(marketing)/_components/approach.tsx",
+      "type": "file",
+      "name": "approach.tsx",
+      "filePath": "src/app/(marketing)/_components/approach.tsx",
+      "summary": "랜딩 페이지의 '접근 방식' 섹션 컴포넌트로, SectionHead와 Reveal 애니메이션 래퍼를 조합해 두 개의 설명 페인(Pane)을 보여줍니다.",
+      "tags": [
+        "component",
+        "marketing-section",
+        "landing-page",
+        "ssr"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/approach.tsx:Approach",
+      "type": "function",
+      "name": "Approach",
+      "filePath": "src/app/(marketing)/_components/approach.tsx",
+      "lineRange": [
+        18,
+        49
+      ],
+      "summary": "접근 방식 섹션의 루트 컴포넌트로, 섹션 헤더와 두 개의 Pane을 Reveal 래퍼로 감싸 렌더링합니다.",
+      "tags": [
+        "component",
+        "marketing-section",
+        "export"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/approach.tsx:Pane",
+      "type": "function",
+      "name": "Pane",
+      "filePath": "src/app/(marketing)/_components/approach.tsx",
+      "lineRange": [
+        51,
+        89
+      ],
+      "summary": "서브타이틀·제목·본문·항목 리스트를 받아 블루프린트 무드의 카드 형태로 출력하는 내부 프레젠테이션 컴포넌트입니다.",
+      "tags": [
+        "component",
+        "presentational",
+        "internal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/(marketing)/_components/contact-section.tsx",
+      "type": "file",
+      "name": "contact-section.tsx",
+      "filePath": "src/app/(marketing)/_components/contact-section.tsx",
+      "summary": "랜딩 페이지 하단의 컨택트 유도 섹션으로, ContactTrigger 버튼으로 컨택트 위젯을 열고 Reveal 애니메이션으로 내용을 노출합니다.",
+      "tags": [
+        "component",
+        "marketing-section",
+        "cta",
+        "landing-page"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/contact-section.tsx:ContactSection",
+      "type": "function",
+      "name": "ContactSection",
+      "filePath": "src/app/(marketing)/_components/contact-section.tsx",
+      "lineRange": [
+        10,
+        103
+      ],
+      "summary": "컨택트 섹션 전체를 구성하는 컴포넌트로, 안내 리스트를 매핑하고 ContactTrigger로 위젯 열기를 트리거합니다.",
+      "tags": [
+        "component",
+        "cta",
+        "export",
+        "marketing-section"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/(marketing)/_components/hero-video.tsx",
+      "type": "file",
+      "name": "hero-video.tsx",
+      "filePath": "src/app/(marketing)/_components/hero-video.tsx",
+      "summary": "히어로 풀블리드 배경 영상을 렌더링하는 클라이언트 컴포넌트로, useEffect에서 자동재생을 시도하고 violet 오버레이를 덧입힙니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "hero",
+        "video"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/hero-video.tsx:HeroVideo",
+      "type": "function",
+      "name": "HeroVideo",
+      "filePath": "src/app/(marketing)/_components/hero-video.tsx",
+      "lineRange": [
+        11,
+        67
+      ],
+      "summary": "useRef로 video 엘리먼트를 잡고 useEffect에서 play()를 호출해 자동재생을 보장하는 배경 영상 컴포넌트입니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "video",
+        "export"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "useRef + useEffect 조합으로 브라우저 자동재생 정책 회피를 위해 play().catch()로 실패를 무시하는 패턴을 사용합니다."
+    },
+    {
+      "id": "file:src/app/(marketing)/_components/hero.tsx",
+      "type": "file",
+      "name": "hero.tsx",
+      "filePath": "src/app/(marketing)/_components/hero.tsx",
+      "summary": "랜딩 페이지 최상단 히어로 섹션으로, HeroVideo 배경 위에 글리치 적용된 H1과 Reveal 애니메이션 카피를 배치합니다.",
+      "tags": [
+        "component",
+        "hero",
+        "landing-page",
+        "entry-point"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/hero.tsx:Hero",
+      "type": "function",
+      "name": "Hero",
+      "filePath": "src/app/(marketing)/_components/hero.tsx",
+      "lineRange": [
+        4,
+        53
+      ],
+      "summary": "히어로 영역 전체를 구성하는 컴포넌트로, 배경 영상과 글리치 헤드라인, 서브 카피를 합성합니다.",
+      "tags": [
+        "component",
+        "hero",
+        "export"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/(marketing)/_components/marquee.tsx",
+      "type": "file",
+      "name": "marquee.tsx",
+      "filePath": "src/app/(marketing)/_components/marquee.tsx",
+      "summary": "키워드를 무한 스크롤로 흘려보내는 마퀴 스트립 섹션으로, 동일 트랙을 중복 렌더링해 끊김 없는 marquee 애니메이션을 구현합니다.",
+      "tags": [
+        "component",
+        "marketing-section",
+        "animation",
+        "marquee"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/(marketing)/_components/mission-bar.tsx",
+      "type": "file",
+      "name": "mission-bar.tsx",
+      "filePath": "src/app/(marketing)/_components/mission-bar.tsx",
+      "summary": "미션 문구를 Instrument Serif 이탤릭 인용 형태로 보여주는 좁은 띠(bar) 섹션으로, violet aura glow를 강조점으로 사용합니다.",
+      "tags": [
+        "component",
+        "marketing-section",
+        "mission",
+        "landing-page"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "type": "file",
+      "name": "specify-section.tsx",
+      "filePath": "src/app/(marketing)/_components/specify-section.tsx",
+      "summary": "후속 AI 에이전트 라인업과 핵심 지표를 소개하는 가장 큰 마케팅 섹션으로, 라인업 카드 매핑·통계·specify 비주얼·코너 브래킷 장식을 조합합니다.",
+      "tags": [
+        "component",
+        "marketing-section",
+        "landing-page",
+        "data-driven"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/specify-section.tsx:SpecifySection",
+      "type": "function",
+      "name": "SpecifySection",
+      "filePath": "src/app/(marketing)/_components/specify-section.tsx",
+      "lineRange": [
+        12,
+        175
+      ],
+      "summary": "에이전트 라인업을 매핑해 카드로 렌더링하고 SectionHead·통계·비주얼을 배치하는 섹션 루트 컴포넌트입니다.",
+      "tags": [
+        "component",
+        "marketing-section",
+        "export",
+        "data-driven"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/specify-section.tsx:SpecifyVisual",
+      "type": "function",
+      "name": "SpecifyVisual",
+      "filePath": "src/app/(marketing)/_components/specify-section.tsx",
+      "lineRange": [
+        202,
+        244
+      ],
+      "summary": "specify.webp 이미지와 블루프린트 보더·글로우를 합성해 섹션의 시각적 강조 비주얼을 만드는 내부 컴포넌트입니다.",
+      "tags": [
+        "component",
+        "presentational",
+        "internal",
+        "visual"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/specify-section.tsx:Stat",
+      "type": "function",
+      "name": "Stat",
+      "filePath": "src/app/(marketing)/_components/specify-section.tsx",
+      "lineRange": [
+        190,
+        201
+      ],
+      "summary": "정의어(dt)와 값(dd)을 받아 핵심 지표 한 항목을 표시하는 작은 프레젠테이션 컴포넌트입니다.",
+      "tags": [
+        "component",
+        "presentational",
+        "internal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/app/(marketing)/_components/specify-section.tsx:CornerBrackets",
+      "type": "function",
+      "name": "CornerBrackets",
+      "filePath": "src/app/(marketing)/_components/specify-section.tsx",
+      "lineRange": [
+        177,
+        188
+      ],
+      "summary": "카드 네 모서리에 블루프린트 무드의 코너 브래킷 장식을 그리는 순수 장식용 내부 컴포넌트입니다.",
+      "tags": [
+        "component",
+        "presentational",
+        "decoration",
+        "internal"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/(marketing)/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/(marketing)/page.tsx",
+      "summary": "마케팅 홈 라우트(/)의 페이지 진입점으로, Hero·MissionBar·Marquee·SpecifySection·Approach·ContactSection 섹션을 순서대로 조립합니다.",
+      "tags": [
+        "entry-point",
+        "page",
+        "landing-page",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/layout/contact-trigger.tsx",
+      "type": "file",
+      "name": "contact-trigger.tsx",
+      "filePath": "src/components/layout/contact-trigger.tsx",
+      "summary": "컨택트 위젯을 여는 버튼 래퍼로, 클릭 시 'amiolas:contact:toggle' 윈도우 커스텀 이벤트를 디스패치해 위젯과 느슨하게 연결됩니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "event-handler",
+        "cta"
+      ],
+      "complexity": "simple",
+      "languageNotes": "props를 통한 직접 결합 대신 window.dispatchEvent 커스텀 이벤트로 컨택트 위젯과 디커플링하는 pub/sub 패턴을 사용합니다."
+    },
+    {
+      "id": "file:src/components/marketing/reveal.tsx",
+      "type": "file",
+      "name": "reveal.tsx",
+      "filePath": "src/components/marketing/reveal.tsx",
+      "summary": "자식 요소가 뷰포트에 들어올 때 등장 애니메이션 클래스를 부여하는 재사용 스크롤 리빌 래퍼로, IntersectionObserver를 사용합니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "animation",
+        "utility"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "IntersectionObserver를 useEffect 안에서 생성하고 cleanup에서 disconnect하는 표준 클라이언트 애니메이션 패턴입니다."
+    },
+    {
+      "id": "function:src/components/marketing/reveal.tsx:Reveal",
+      "type": "function",
+      "name": "Reveal",
+      "filePath": "src/components/marketing/reveal.tsx",
+      "lineRange": [
+        11,
+        37
+      ],
+      "summary": "children과 className을 받아 IntersectionObserver로 가시성을 감지하고, 진입 시 등장 클래스를 추가한 뒤 관찰을 해제하는 애니메이션 래퍼입니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "animation",
+        "export"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/components/marketing/section-head.tsx",
+      "type": "file",
+      "name": "section-head.tsx",
+      "filePath": "src/components/marketing/section-head.tsx",
+      "summary": "마케팅 섹션 상단의 라벨·제목·보조 텍스트를 일관된 타이포그래피로 렌더링하는 재사용 섹션 헤더 프리미티브입니다.",
+      "tags": [
+        "component",
+        "presentational",
+        "utility",
+        "reusable"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/(legal)/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "src/app/(legal)/layout.tsx",
+      "summary": "(legal) 라우트 그룹의 레이아웃으로, privacy·terms 같은 법적 페이지를 공통 SiteShell 셸로 감쌉니다.",
+      "tags": [
+        "layout",
+        "route-group",
+        "chrome",
+        "wrapper"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Next.js 16 App Router의 route group 레이아웃 — URL에 영향 없이 그룹별 공통 chrome를 공유합니다."
+    },
+    {
+      "id": "file:src/app/(marketing)/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "src/app/(marketing)/layout.tsx",
+      "summary": "(marketing) 라우트 그룹의 레이아웃으로, 공개 마케팅 페이지를 공통 SiteShell 셸(헤더·푸터·배경 FX·contact 위젯)로 감쌉니다.",
+      "tags": [
+        "layout",
+        "route-group",
+        "chrome",
+        "wrapper"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Next.js 16 App Router의 route group 레이아웃 — 마케팅 라우트 전반의 공통 셸을 제공합니다."
+    },
+    {
+      "id": "file:src/components/layout/back-to-top.tsx",
+      "type": "file",
+      "name": "back-to-top.tsx",
+      "filePath": "src/components/layout/back-to-top.tsx",
+      "summary": "푸터에 배치되는 '맨 위로' 컨트롤로, requestAnimationFrame과 ease-out-cubic 보간으로 부드러운 스크롤 애니메이션을 직접 구현합니다.",
+      "tags": [
+        "layout",
+        "client-component",
+        "scroll",
+        "animation"
+      ],
+      "complexity": "simple",
+      "languageNotes": "스크롤 거리에 비례한 가변 duration(450~900ms)과 cubic easing을 rAF 루프로 손수 구현합니다."
+    },
+    {
+      "id": "file:src/components/layout/background-fx.tsx",
+      "type": "file",
+      "name": "background-fx.tsx",
+      "filePath": "src/components/layout/background-fx.tsx",
+      "summary": "사이트 전역 배경 비주얼 레이어로, violet radial glow·그리드·스캔라인·노이즈 atmosphere를 고정 배치해 사이버펑크 무드를 깔아줍니다.",
+      "tags": [
+        "layout",
+        "background",
+        "visual-fx",
+        "presentational"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/layout/clock.tsx",
+      "type": "file",
+      "name": "clock.tsx",
+      "filePath": "src/components/layout/clock.tsx",
+      "summary": "헤더에 표시되는 실시간 서울(KST) 시계로, Intl.DateTimeFormat과 1초 interval로 시:분:초를 갱신합니다.",
+      "tags": [
+        "layout",
+        "client-component",
+        "hook",
+        "live-clock"
+      ],
+      "complexity": "simple",
+      "languageNotes": "SSR/CSR 시각 불일치를 막기 위해 초기값 null + suppressHydrationWarning으로 하이드레이션 안전성을 확보합니다."
+    },
+    {
+      "id": "file:src/components/layout/footer.tsx",
+      "type": "file",
+      "name": "footer.tsx",
+      "filePath": "src/components/layout/footer.tsx",
+      "summary": "사이트 공통 푸터로, 법적 링크와 BackToTop 컨트롤을 묶어 모든 라우트 하단에 렌더링합니다.",
+      "tags": [
+        "layout",
+        "footer",
+        "chrome",
+        "navigation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/layout/header.tsx",
+      "type": "file",
+      "name": "header.tsx",
+      "filePath": "src/components/layout/header.tsx",
+      "summary": "sticky 사이트 헤더로, 로고·실시간 Clock·Contact 트리거를 backdrop-blur된 상단 바에 배치합니다.",
+      "tags": [
+        "layout",
+        "header",
+        "chrome",
+        "navigation"
+      ],
+      "complexity": "simple",
+      "languageNotes": "sticky + backdrop-blur로 스크롤 시 고정되는 반투명 헤더를 구성합니다."
+    },
+    {
+      "id": "file:src/components/layout/site-shell.tsx",
+      "type": "file",
+      "name": "site-shell.tsx",
+      "filePath": "src/components/layout/site-shell.tsx",
+      "summary": "전 라우트가 공유하는 셸 컴포넌트로, BackgroundFx·Header·main·Footer·ContactWidget를 한 데 묶어 페이지 골격을 구성합니다.",
+      "tags": [
+        "layout",
+        "shell",
+        "chrome",
+        "composition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/layout/back-to-top.tsx:BackToTop",
+      "type": "function",
+      "name": "BackToTop",
+      "filePath": "src/components/layout/back-to-top.tsx",
+      "lineRange": [
+        7,
+        37
+      ],
+      "summary": "'맨 위로' 앵커를 렌더링하고, 클릭 시 rAF 기반 ease-out-cubic 스크롤 애니메이션으로 페이지 최상단까지 부드럽게 이동시킵니다.",
+      "tags": [
+        "client-component",
+        "scroll",
+        "animation",
+        "event-handler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/layout/background-fx.tsx:BackgroundFx",
+      "type": "function",
+      "name": "BackgroundFx",
+      "filePath": "src/components/layout/background-fx.tsx",
+      "lineRange": [
+        1,
+        10
+      ],
+      "summary": "고정 배치된 전역 배경 레이어를 렌더링해 violet glow·그리드·스캔라인·노이즈 atmosphere를 합성합니다.",
+      "tags": [
+        "background",
+        "visual-fx",
+        "presentational"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/layout/clock.tsx:Clock",
+      "type": "function",
+      "name": "Clock",
+      "filePath": "src/components/layout/clock.tsx",
+      "lineRange": [
+        13,
+        31
+      ],
+      "summary": "useEffect로 1초마다 서울 시각을 갱신하는 실시간 시계 컴포넌트로, 하이드레이션 안전을 위해 초기값을 null로 둡니다.",
+      "tags": [
+        "client-component",
+        "hook",
+        "live-clock"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/layout/footer.tsx:Footer",
+      "type": "function",
+      "name": "Footer",
+      "filePath": "src/components/layout/footer.tsx",
+      "lineRange": [
+        4,
+        29
+      ],
+      "summary": "법적 링크와 BackToTop 컨트롤을 담은 사이트 공통 푸터를 렌더링합니다.",
+      "tags": [
+        "footer",
+        "chrome",
+        "navigation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/layout/header.tsx:Header",
+      "type": "function",
+      "name": "Header",
+      "filePath": "src/components/layout/header.tsx",
+      "lineRange": [
+        6,
+        46
+      ],
+      "summary": "로고·Clock·ContactTrigger를 배치한 sticky·backdrop-blur 헤더 바를 렌더링합니다.",
+      "tags": [
+        "header",
+        "chrome",
+        "navigation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/layout/site-shell.tsx:SiteShell",
+      "type": "function",
+      "name": "SiteShell",
+      "filePath": "src/components/layout/site-shell.tsx",
+      "lineRange": [
+        7,
+        17
+      ],
+      "summary": "BackgroundFx·Header·main·Footer·ContactWidget를 조합해 전 라우트 공통 페이지 셸을 구성합니다.",
+      "tags": [
+        "shell",
+        "chrome",
+        "composition"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/widget/contact-widget.tsx",
+      "type": "file",
+      "name": "contact-widget.tsx",
+      "filePath": "src/components/widget/contact-widget.tsx",
+      "summary": "채팅형 contact 위젯의 최상위 클라이언트 컨테이너. localStorage 영속화, useActionState 기반 Server Action 전송, SSE(EventSource) 실시간 수신을 묶어 패널과 FAB를 렌더링합니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "contact-widget",
+        "real-time",
+        "state-management"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "React 19의 useActionState로 Server Action 폼 상태를 관리하고, EventSource로 SSE 스트림을 구독하는 클라이언트 컴포넌트 패턴."
+    },
+    {
+      "id": "function:src/components/widget/contact-widget.tsx:ContactWidget",
+      "type": "function",
+      "name": "ContactWidget",
+      "filePath": "src/components/widget/contact-widget.tsx",
+      "lineRange": [
+        36,
+        170
+      ],
+      "summary": "위젯 열림 상태, 대화 메시지 머지, 폼 전송 액션, SSE 구독, 외부 클릭 닫기 등 contact 위젯의 모든 상호작용 로직을 조립하는 메인 컴포넌트.",
+      "tags": [
+        "component",
+        "event-handler",
+        "real-time",
+        "state-management"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/components/widget/contact-widget.tsx:mergeMessages",
+      "type": "function",
+      "name": "mergeMessages",
+      "filePath": "src/components/widget/contact-widget.tsx",
+      "lineRange": [
+        17,
+        26
+      ],
+      "summary": "기존 메시지와 들어온 메시지를 id 기준 중복 제거 후 createdAt 순으로 정렬해 병합하는 순수 헬퍼.",
+      "tags": [
+        "utility",
+        "merge",
+        "deduplication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/widget/message-bubble.tsx",
+      "type": "file",
+      "name": "message-bubble.tsx",
+      "filePath": "src/components/widget/message-bubble.tsx",
+      "summary": "단일 대화 메시지를 발신자(user/operator/system)에 따라 정렬·스타일을 달리해 렌더링하는 프레젠테이션 컴포넌트.",
+      "tags": [
+        "component",
+        "presentational",
+        "contact-widget",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/widget/widget-panel.tsx",
+      "type": "file",
+      "name": "widget-panel.tsx",
+      "filePath": "src/components/widget/widget-panel.tsx",
+      "summary": "contact 위젯의 패널 UI. 메시지 목록 스크롤, 입력 폼, 신원(이름·이메일) 입력, 전송 버튼 상태를 담은 사이버펑크 무드의 채팅 패널을 렌더링합니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "contact-widget",
+        "form",
+        "ui"
+      ],
+      "complexity": "complex",
+      "languageNotes": "useFormStatus로 Server Action 진행 상태에 따라 전송 버튼의 pending UI를 제어하는 React 19 폼 패턴."
+    },
+    {
+      "id": "function:src/components/widget/widget-panel.tsx:WidgetPanel",
+      "type": "function",
+      "name": "WidgetPanel",
+      "filePath": "src/components/widget/widget-panel.tsx",
+      "lineRange": [
+        21,
+        183
+      ],
+      "summary": "위젯 패널 본체. 메시지 자동 스크롤, 에러 메시지 표시, 신원 입력과 메시지 입력을 묶은 폼을 formAction에 연결해 렌더링합니다.",
+      "tags": [
+        "component",
+        "form",
+        "ui",
+        "scroll"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:src/components/widget/widget-panel.tsx:SubmitButton",
+      "type": "function",
+      "name": "SubmitButton",
+      "filePath": "src/components/widget/widget-panel.tsx",
+      "lineRange": [
+        185,
+        231
+      ],
+      "summary": "useFormStatus로 전송 중 pending 상태를 읽어 비활성화·로딩 표시를 처리하는 폼 제출 버튼.",
+      "tags": [
+        "component",
+        "form",
+        "event-handler",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/hooks/use-contact-storage.ts",
+      "type": "file",
+      "name": "use-contact-storage.ts",
+      "filePath": "src/hooks/use-contact-storage.ts",
+      "summary": "contact 대화 상태(대화 id·신원·메시지)를 localStorage에 영속화하고 hydration 안전하게 읽고 쓰는 클라이언트 전용 훅.",
+      "tags": [
+        "hook",
+        "client-component",
+        "persistence",
+        "local-storage"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "SSR hydration mismatch를 피하기 위해 초기값을 비우고 useEffect에서 localStorage를 읽어 hydrated 플래그로 보호하는 패턴."
+    },
+    {
+      "id": "function:src/hooks/use-contact-storage.ts:useContactStorage",
+      "type": "function",
+      "name": "useContactStorage",
+      "filePath": "src/hooks/use-contact-storage.ts",
+      "lineRange": [
+        50,
+        70
+      ],
+      "summary": "stored 상태와 hydrated 플래그를 노출하고, save·clear 콜백으로 localStorage 영속화를 추상화하는 contact 저장소 훅.",
+      "tags": [
+        "hook",
+        "persistence",
+        "local-storage",
+        "state-management"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/lib/actions/contact-send.ts",
+      "type": "file",
+      "name": "contact-send.ts",
+      "filePath": "src/lib/actions/contact-send.ts",
+      "summary": "contact 메시지 전송 Server Action. zod 검증·레이트리밋·대화 생성/조회 후 Slack 스레드로 전달하고 Redis store에 적재해 SSE로 발행합니다.",
+      "tags": [
+        "server-action",
+        "api-handler",
+        "validation",
+        "rate-limiting",
+        "contact-widget"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "'use server' Server Action이 useActionState의 (prevState, formData) 시그니처를 따르며, zod safeParse로 입력을 검증하는 Next.js 16 패턴."
+    },
+    {
+      "id": "function:src/lib/actions/contact-send.ts:sendContactMessage",
+      "type": "function",
+      "name": "sendContactMessage",
+      "filePath": "src/lib/actions/contact-send.ts",
+      "lineRange": [
+        28,
+        134
+      ],
+      "summary": "폼 입력을 검증하고 레이트리밋을 적용한 뒤 대화를 생성/조회해 Slack에 게시하고, 사용자/운영자 메시지를 store에 저장·발행하는 전송 액션.",
+      "tags": [
+        "server-action",
+        "validation",
+        "rate-limiting",
+        "slack",
+        "event-handler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:src/lib/contact/config.ts",
+      "type": "file",
+      "name": "config.ts",
+      "filePath": "src/lib/contact/config.ts",
+      "summary": "contact 기능의 상수 설정(메시지 길이 제한, 분당 레이트리밋, 대화 TTL, 접수 안내 문구)을 한곳에 모은 const 객체.",
+      "tags": [
+        "config",
+        "constants",
+        "contact-widget"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/slack/client.ts",
+      "type": "file",
+      "name": "client.ts",
+      "filePath": "src/lib/slack/client.ts",
+      "summary": "Slack Web API 래퍼. 신규 문의 스레드 생성과 스레드 답글 게시를 제공하며 mrkdwn 이스케이프·신원 정제 헬퍼를 포함합니다.",
+      "tags": [
+        "service",
+        "integration",
+        "slack",
+        "api-client"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Slack mrkdwn 인젝션 방지를 위해 &<> 이스케이프와 *_`~ 제거를 분리한 sanitization 헬퍼 패턴."
+    },
+    {
+      "id": "function:src/lib/slack/client.ts:postNewInquiryThread",
+      "type": "function",
+      "name": "postNewInquiryThread",
+      "filePath": "src/lib/slack/client.ts",
+      "lineRange": [
+        8,
+        64
+      ],
+      "summary": "신원과 첫 메시지를 정제·이스케이프해 Slack 채널에 신규 문의 메시지를 게시하고 스레드 ts를 반환하는 함수.",
+      "tags": [
+        "service",
+        "slack",
+        "integration",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/slack/client.ts:replyInThread",
+      "type": "function",
+      "name": "replyInThread",
+      "filePath": "src/lib/slack/client.ts",
+      "lineRange": [
+        77,
+        89
+      ],
+      "summary": "주어진 스레드 ts에 사용자 후속 메시지를 답글로 게시하는 Slack 헬퍼.",
+      "tags": [
+        "service",
+        "slack",
+        "integration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/types/contact.ts",
+      "type": "file",
+      "name": "contact.ts",
+      "filePath": "src/types/contact.ts",
+      "summary": "contact 기능 전반에서 공유하는 TS 타입 정의. Sender·Identity·ContactMessage·Conversation·discriminated union인 SendMessageResult를 선언합니다.",
+      "tags": [
+        "type-definition",
+        "contact-widget",
+        "shared-types"
+      ],
+      "complexity": "simple",
+      "languageNotes": "ok: true/false로 분기하는 discriminated union(SendMessageResult)으로 성공/실패 결과를 타입 안전하게 표현."
+    },
+    {
+      "id": "endpoint:src/app/api/contact/stream/route.ts",
+      "type": "endpoint",
+      "name": "contact/stream/route.ts (GET)",
+      "filePath": "src/app/api/contact/stream/route.ts",
+      "summary": "방문자 contact 위젯에 실시간 메시지를 밀어주는 SSE(Server-Sent Events) 스트리밍 엔드포인트로, Redis pub/sub 구독과 누락 메시지 백필·heartbeat·25초 수명 종료를 처리합니다.",
+      "tags": [
+        "api-handler",
+        "endpoint",
+        "sse",
+        "realtime",
+        "pub-sub"
+      ],
+      "complexity": "complex",
+      "languageNotes": "ReadableStream + TextEncoder로 SSE를 직접 구성하고, force-dynamic·nodejs 런타임과 req.signal.addEventListener로 클라이언트 연결 종료 시 cleanup을 보장합니다."
+    },
+    {
+      "id": "function:src/app/api/contact/stream/route.ts:GET",
+      "type": "function",
+      "name": "GET",
+      "filePath": "src/app/api/contact/stream/route.ts",
+      "lineRange": [
+        15,
+        129
+      ],
+      "summary": "conversationId를 검증하고 since 타임스탬프 이후의 메시지를 백필한 뒤, Redis 채널을 구독해 새 메시지를 SSE로 전달하며 heartbeat·수명 타임아웃·연결 종료 정리를 수행하는 스트리밍 핸들러입니다.",
+      "tags": [
+        "api-handler",
+        "sse",
+        "realtime",
+        "stream"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "endpoint:src/app/api/slack/events/route.ts",
+      "type": "endpoint",
+      "name": "slack/events/route.ts (POST)",
+      "filePath": "src/app/api/slack/events/route.ts",
+      "summary": "Slack Events API 웹훅 엔드포인트로, 서명 검증·url_verification 챌린지·이벤트 중복 제거를 거쳐 상담원 답글을 conversation 스토어에 적재하고 방문자에게 실시간 publish합니다.",
+      "tags": [
+        "api-handler",
+        "endpoint",
+        "webhook",
+        "slack",
+        "security"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "edge 런타임 + force-dynamic으로 동작하며 raw body로 HMAC 서명을 검증한 뒤 JSON을 파싱합니다."
+    },
+    {
+      "id": "function:src/app/api/slack/events/route.ts:POST",
+      "type": "function",
+      "name": "POST",
+      "filePath": "src/app/api/slack/events/route.ts",
+      "lineRange": [
+        35,
+        80
+      ],
+      "summary": "Slack 서명을 검증하고 url_verification 챌린지에 응답하며, event_id로 중복 처리를 막은 뒤 사람이 보낸 thread 답글만 conversation에 append하고 방문자에게 publish하는 웹훅 핸들러입니다.",
+      "tags": [
+        "api-handler",
+        "webhook",
+        "slack",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/lib/contact/realtime.ts",
+      "type": "file",
+      "name": "realtime.ts",
+      "filePath": "src/lib/contact/realtime.ts",
+      "summary": "Redis pub/sub 구독 전용 클라이언트를 생성하는 얇은 헬퍼로, SSE 스트림이 conversation 채널을 구독할 때 사용하는 subscriber 인스턴스를 제공합니다.",
+      "tags": [
+        "utility",
+        "realtime",
+        "pub-sub",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/contact/realtime.ts:createSubscriber",
+      "type": "function",
+      "name": "createSubscriber",
+      "filePath": "src/lib/contact/realtime.ts",
+      "lineRange": [
+        5,
+        7
+      ],
+      "summary": "검증된 env 자격 증명으로 Redis 구독용 클라이언트를 생성해 반환하는 factory 함수입니다.",
+      "tags": [
+        "utility",
+        "factory",
+        "pub-sub"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/contact/store.ts",
+      "type": "file",
+      "name": "store.ts",
+      "filePath": "src/lib/contact/store.ts",
+      "summary": "Redis를 백엔드로 conversation·메시지·thread 매핑·rate limit·이벤트 멱등성·pub/sub publish를 관리하는 contact 위젯의 핵심 데이터 스토어 계층입니다.",
+      "tags": [
+        "service",
+        "data-model",
+        "realtime",
+        "database",
+        "rate-limiting"
+      ],
+      "complexity": "complex",
+      "languageNotes": "redis.zadd/zrange로 메시지를 시간순 정렬 저장하고 expire로 TTL을 부여하며, key 헬퍼(convKey/msgKey/threadKey/rateKey)로 네임스페이스를 일관 관리합니다."
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:createConversation",
+      "type": "function",
+      "name": "createConversation",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        27,
+        41
+      ],
+      "summary": "nanoid로 conversation ID를 발급하고 방문자 신원과 타임스탬프를 담은 레코드를 Redis에 저장한 뒤 생성된 conversation을 반환합니다.",
+      "tags": [
+        "service",
+        "data-model",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:setThreadTs",
+      "type": "function",
+      "name": "setThreadTs",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        43,
+        58
+      ],
+      "summary": "Slack thread 타임스탬프를 conversation 레코드에 기록하고 thread→conversation 역방향 매핑을 함께 저장해 후속 Slack 답글을 올바른 대화로 라우팅할 수 있게 합니다.",
+      "tags": [
+        "service",
+        "data-model",
+        "slack"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:appendMessage",
+      "type": "function",
+      "name": "appendMessage",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        66,
+        83
+      ],
+      "summary": "새 메시지에 nanoid·타임스탬프를 부여하고 conversation의 정렬 집합(zadd)에 추가한 뒤 TTL을 갱신해 보관하는 메시지 적재 함수입니다.",
+      "tags": [
+        "service",
+        "data-model",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:getMessagesSince",
+      "type": "function",
+      "name": "getMessagesSince",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        85,
+        102
+      ],
+      "summary": "지정한 타임스탬프 이후의 메시지를 Redis 정렬 집합에서 zrange로 조회·역직렬화해 반환하며, SSE 스트림의 초기 백필에 사용됩니다.",
+      "tags": [
+        "service",
+        "data-model",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:incrRateLimit",
+      "type": "function",
+      "name": "incrRateLimit",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        104,
+        113
+      ],
+      "summary": "Redis incr·expire 윈도우로 키별 요청 횟수를 누적해 contact 제출 남용을 막는 rate limit 카운터입니다.",
+      "tags": [
+        "service",
+        "rate-limiting",
+        "security"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:markEventProcessed",
+      "type": "function",
+      "name": "markEventProcessed",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        115,
+        121
+      ],
+      "summary": "Slack event_id를 TTL과 함께 Redis에 기록해 중복 웹훅 전달에 대한 멱등 처리를 보장하는 함수입니다.",
+      "tags": [
+        "service",
+        "idempotency",
+        "slack"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:publishMessage",
+      "type": "function",
+      "name": "publishMessage",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        127,
+        132
+      ],
+      "summary": "메시지를 직렬화해 해당 conversation의 Redis pub/sub 채널로 publish하여 SSE 구독자에게 실시간 전파하는 함수입니다.",
+      "tags": [
+        "service",
+        "realtime",
+        "pub-sub"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/env.ts",
+      "type": "file",
+      "name": "env.ts",
+      "filePath": "src/lib/env.ts",
+      "summary": "zod로 Slack·Upstash Redis 등 런타임 환경 변수를 검증하고 타입 안전한 단일 env 객체로 노출하는 설정 진실 원천입니다.",
+      "tags": [
+        "config",
+        "validation",
+        "type-definition",
+        "security"
+      ],
+      "complexity": "simple",
+      "languageNotes": "AGENTS.md 규약대로 zod 스키마가 env의 단일 진실 원천이며, 검증 실패 시 부팅 단계에서 조기 차단합니다."
+    },
+    {
+      "id": "file:src/lib/slack/verify.ts",
+      "type": "file",
+      "name": "verify.ts",
+      "filePath": "src/lib/slack/verify.ts",
+      "summary": "Slack 요청 서명을 HMAC-SHA256으로 재계산해 타이밍 세이프 비교로 검증하고 replay 방지를 위한 타임스탬프 윈도우를 적용하는 보안 유틸리티입니다.",
+      "tags": [
+        "utility",
+        "security",
+        "slack",
+        "validation"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Web Crypto(crypto.subtle)로 HMAC을 계산해 edge 런타임에서도 동작하며, timingSafeEqual로 타이밍 공격을 완화합니다."
+    },
+    {
+      "id": "function:src/lib/slack/verify.ts:verifySlackSignature",
+      "type": "function",
+      "name": "verifySlackSignature",
+      "filePath": "src/lib/slack/verify.ts",
+      "lineRange": [
+        5,
+        22
+      ],
+      "summary": "타임스탬프 신선도를 확인하고 raw body로 HMAC 서명을 재계산해 Slack이 보낸 서명과 타이밍 세이프하게 비교하는 서명 검증 엔트리 함수입니다.",
+      "tags": [
+        "security",
+        "validation",
+        "slack"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/slack/verify.ts:hmacHex",
+      "type": "function",
+      "name": "hmacHex",
+      "filePath": "src/lib/slack/verify.ts",
+      "lineRange": [
+        24,
+        37
+      ],
+      "summary": "Web Crypto API로 시크릿과 메시지에 대한 HMAC-SHA256을 계산해 16진 문자열로 반환하는 헬퍼입니다.",
+      "tags": [
+        "security",
+        "utility",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/slack/verify.ts:timingSafeEqual",
+      "type": "function",
+      "name": "timingSafeEqual",
+      "filePath": "src/lib/slack/verify.ts",
+      "lineRange": [
+        39,
+        46
+      ],
+      "summary": "두 문자열을 길이에 무관하게 상수 시간으로 XOR 비교해 타이밍 사이드 채널을 차단하는 비교 함수입니다.",
+      "tags": [
+        "security",
+        "utility",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/marketing/eyebrow.tsx",
+      "type": "file",
+      "name": "eyebrow.tsx",
+      "filePath": "src/components/marketing/eyebrow.tsx",
+      "summary": "마케팅 섹션 상단에 쓰이는 작은 'eyebrow' 라벨 프리미티브로, 트래킹이 넓은 mono 캡션 스타일과 className 병합을 제공합니다.",
+      "tags": [
+        "component",
+        "utility",
+        "marketing",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/components/ui/button.tsx",
+      "type": "file",
+      "name": "button.tsx",
+      "filePath": "src/components/ui/button.tsx",
+      "summary": "CVA 기반 shadcn Button 프리미티브로, pill 형태의 primary/ghost variant와 sm/md/lg size를 정의하고 사이트 전반의 버튼 스타일 단일 진실 원천 역할을 합니다.",
+      "tags": [
+        "component",
+        "ui-primitive",
+        "factory",
+        "type-definition"
+      ],
+      "complexity": "simple",
+      "languageNotes": "class-variance-authority의 cva()로 variant 스타일을 선언하고 VariantProps로 타입을 자동 추론하는 shadcn 표준 패턴입니다."
+    },
+    {
+      "id": "file:src/components/widget/widget-fab.tsx",
+      "type": "file",
+      "name": "widget-fab.tsx",
+      "filePath": "src/components/widget/widget-fab.tsx",
+      "summary": "contact 위젯을 열고 닫는 우하단 고정 플로팅 액션 버튼으로, open 상태에 따라 아이콘을 토글하고 미확인 메시지 수를 배지로 표시합니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "widget",
+        "event-handler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "\"use client\" 디렉티브로 선언된 클라이언트 컴포넌트이며 aria-label·aria-expanded로 접근성을 보강합니다."
+    },
+    {
+      "id": "file:src/lib/utils.ts",
+      "type": "file",
+      "name": "utils.ts",
+      "filePath": "src/lib/utils.ts",
+      "summary": "clsx와 tailwind-merge를 결합한 cn() 클래스 병합 헬퍼를 제공하며, 프로젝트 전반의 컴포넌트가 조건부 Tailwind 클래스를 안전하게 합치는 데 사용하는 공용 유틸리티입니다.",
+      "tags": [
+        "utility",
+        "tailwind",
+        "class-merge"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/marketing/eyebrow.tsx:Eyebrow",
+      "type": "function",
+      "name": "Eyebrow",
+      "filePath": "src/components/marketing/eyebrow.tsx",
+      "lineRange": [
+        9,
+        20
+      ],
+      "summary": "children과 선택적 className을 받아 트래킹이 넓은 mono 스타일의 eyebrow 라벨 엘리먼트를 렌더링하는 컴포넌트입니다.",
+      "tags": [
+        "component",
+        "marketing",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/ui/button.tsx:Button",
+      "type": "function",
+      "name": "Button",
+      "filePath": "src/components/ui/button.tsx",
+      "lineRange": [
+        29,
+        36
+      ],
+      "summary": "variant·size·className을 받아 buttonVariants로 산출한 CVA 클래스를 cn()으로 병합한 뒤 네이티브 button 엘리먼트로 렌더링하는 프리미티브입니다.",
+      "tags": [
+        "component",
+        "ui-primitive",
+        "factory"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/widget/widget-fab.tsx:WidgetFab",
+      "type": "function",
+      "name": "WidgetFab",
+      "filePath": "src/components/widget/widget-fab.tsx",
+      "lineRange": [
+        11,
+        53
+      ],
+      "summary": "open·unread·onToggle props로 contact 위젯을 토글하는 고정 플로팅 버튼을 렌더링하고, 열림 상태에 따라 아이콘을 바꾸며 미확인 수를 배지로 노출합니다.",
+      "tags": [
+        "component",
+        "client-component",
+        "event-handler",
+        "widget"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/lib/utils.ts:cn",
+      "type": "function",
+      "name": "cn",
+      "filePath": "src/lib/utils.ts",
+      "lineRange": [
+        4,
+        6
+      ],
+      "summary": "가변 클래스 입력을 clsx로 정규화한 뒤 twMerge로 Tailwind 충돌을 해소해 최종 className 문자열을 반환하는 헬퍼입니다.",
+      "tags": [
+        "utility",
+        "tailwind",
+        "class-merge"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": ".env.example",
+      "summary": "런타임 환경 변수 템플릿 — 공개 사이트 URL, Slack 봇 브리지(토큰·서명 시크릿·인박스 채널), Vercel KV/Upstash Redis(REST 및 rediss:// pub/sub) 자격 증명을 정의합니다.",
+      "tags": [
+        "configuration",
+        "환경변수",
+        "security",
+        "slack",
+        "redis"
+      ],
+      "complexity": "simple",
+      "languageNotes": "KV_REST_API_*는 vercel env pull로 자동 주입되며, KV_URL의 rediss:// TCP URL은 SSE 라우트의 node-redis pub/sub subscriber 전용으로 분리되어 있습니다."
+    },
+    {
+      "id": "document:AGENTS.md",
+      "type": "document",
+      "name": "AGENTS.md",
+      "filePath": "AGENTS.md",
+      "summary": "프로젝트의 권위 있는 엔지니어링 컨벤션 문서 — 디렉터리 구조, App Router 라우팅 골격, Tailwind v4 디자인 토큰, 네이밍 규칙, 성능 목표(Lighthouse·LCP·CLS·INP), 테스팅/배포 정책을 단일 진실 원천으로 규정합니다.",
+      "tags": [
+        "documentation",
+        "engineering-conventions",
+        "design-system",
+        "routing",
+        "build-system"
+      ],
+      "complexity": "complex",
+      "languageNotes": "what·where·which를 다루는 캐논 문서로, how(코딩·API·캐시 규칙)는 senior-fullstack-engineer agent 본문에 위임하며 규칙 충돌 시 agent 본문이 우선합니다."
+    },
+    {
+      "id": "document:CLAUDE.md",
+      "type": "document",
+      "name": "CLAUDE.md",
+      "filePath": "CLAUDE.md",
+      "summary": "Claude Code 진입 문서 — `@AGENTS.md` include 디렉티브 한 줄만 담아 권위 있는 엔지니어링 컨벤션을 그대로 재참조합니다.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "include-directive"
+      ],
+      "complexity": "simple",
+      "languageNotes": "단일 라인 include 디렉티브(@AGENTS.md)로, 별도 내용 없이 AGENTS.md를 포워딩하는 얇은 진입점입니다."
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "프로젝트 개요 문서 — 미션 태그라인, 스택 요약(Next.js 16·React 19.2·TypeScript·Tailwind v4·shadcn/ui), 로컬 개발 명령을 담고 상세 컨벤션은 AGENTS.md로 안내합니다.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview",
+        "getting-started"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:components.json",
+      "type": "config",
+      "name": "components.json",
+      "filePath": "components.json",
+      "summary": "shadcn/ui CLI 설정 — new-york 스타일, RSC·TSX 활성화, tailwind CSS 소스를 src/app/globals.css로 지정하고 @/components·@/lib 등 경로 별칭과 lucide 아이콘 라이브러리를 등록합니다.",
+      "tags": [
+        "configuration",
+        "shadcn",
+        "ui",
+        "component-library",
+        "build-system"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Tailwind v4 컨벤션에 맞춰 tailwind.config 경로를 비우고 cssVariables 기반 토큰을 globals.css에서 단일 관리합니다."
+    },
+    {
+      "id": "config:package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "package.json",
+      "summary": "프로젝트 매니페스트 — Next 16/React 19.2 런타임, Slack Web API·Upstash Redis·node-redis 연동 의존성, zod·CVA·tailwind-merge 유틸과 React Compiler·Tailwind v4 빌드 도구, dev/build/start/lint 스크립트를 선언합니다.",
+      "tags": [
+        "configuration",
+        "dependencies",
+        "build-system",
+        "package-manifest"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Next 16 컨벤션대로 스크립트가 단순화(Turbopack 기본)되었고, babel-plugin-react-compiler로 React Compiler가 활성화되어 있습니다."
+    },
+    {
+      "id": "config:tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "tsconfig.json",
+      "summary": "TypeScript 컴파일러 설정 — strict 모드, bundler moduleResolution, react-jsx 변환, next 플러그인, 그리고 @/* → ./src/* 경로 별칭을 활성화하여 전체 코드베이스의 타입 검사를 지배합니다.",
+      "tags": [
+        "configuration",
+        "typescript",
+        "build-system",
+        "path-alias"
+      ],
+      "complexity": "simple",
+      "languageNotes": "noEmit + isolatedModules + incremental 조합으로 Next.js 번들러가 트랜스파일을 담당하고 tsc는 타입 검사 전용입니다."
+    },
+    {
+      "id": "document:docs/BRAND.md",
+      "type": "document",
+      "name": "BRAND.md",
+      "filePath": "docs/BRAND.md",
+      "summary": "Amiolas의 브랜드 진실 원천 문서로, 회사 개요·미션·메타포·작명 어원·비즈니스 모델과 첫 AI 제품 Specify의 정의·핵심 기능·차별점·현재 상태를 정리한다. 카피·랜딩 페이지·IR·계약서가 모두 우선 참조하는 캐논 문서다.",
+      "tags": [
+        "documentation",
+        "brand",
+        "mission",
+        "business-model",
+        "knowledge-base"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "15개 섹션의 마케팅 캐논 문서. 코드를 직접 기술하기보다 카피·보이스·제품 포지셔닝의 진실 원천 역할을 한다."
+    },
+    {
+      "id": "document:docs/CONTACT.md",
+      "type": "document",
+      "name": "CONTACT.md",
+      "filePath": "docs/CONTACT.md",
+      "summary": "Contact 위젯의 Slack 브리지 아키텍처 명세서로, 전체 데이터 흐름·컴포넌트 책임·Upstash Redis KV 저장 구조·SSE+pub/sub 실시간 전달·HMAC 검증/허니팟/rate-limit 등 보안과 운영 cheatsheet까지 35개 섹션으로 다룬다. 말미 디렉터리 맵이 실제 클라이언트·서버 코드 파일과 1:1 대응한다.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "contact-widget",
+        "realtime",
+        "security"
+      ],
+      "complexity": "complex",
+      "languageNotes": "321 비공백 라인, 35개 섹션의 기능 명세서. SSE 25s self-close·Last-Event-ID 재연결, Sorted set KV 키 설계 등 구현 결정의 근거(why)를 상세히 기록한 feature spec."
+    },
+    {
+      "id": "document:docs/DESIGN.md",
+      "type": "document",
+      "name": "DESIGN.md",
+      "filePath": "docs/DESIGN.md",
+      "summary": "Amiolas 디자인 시스템 명세서로, 색상·타이포그래피·레이아웃·엘리베이션·셰이프·컴포넌트·반응형 동작과 Do/Don't, 알려진 갭까지 42개 섹션으로 시각 캐논을 규정한다. globals.css의 @theme inline 토큰과 마케팅 컴포넌트가 이 문서를 구현 기준으로 삼는다.",
+      "tags": [
+        "documentation",
+        "design-system",
+        "design-tokens",
+        "ui",
+        "knowledge-base"
+      ],
+      "complexity": "complex",
+      "languageNotes": "288 비공백 라인, 42개 섹션의 디자인 스펙. oklch 색상 토큰·폰트 위계·spacing 시스템 등 디자인 캐논을 코드(globals.css)와 동기화하는 단일 진실 원천."
+    },
+    {
+      "id": "document:docs/PLANNING.md",
+      "type": "document",
+      "name": "PLANNING.md",
+      "filePath": "docs/PLANNING.md",
+      "summary": "Contact 위젯 구현과 SEO 강화를 Phase 0~5로 나눈 프로젝트 로드맵으로, 각 단계의 결정 사항·구현 범위·검수 체크·영향 받는 파일과 의도적 배제 항목을 정리한다. 신규/수정/삭제 대상 코드 파일 목록이 실제 위젯·SEO 코드 경로와 대응한다.",
+      "tags": [
+        "documentation",
+        "roadmap",
+        "planning",
+        "contact-widget",
+        "seo"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "156 비공백 라인의 단계별 실행 플랜. 코드 자체가 아니라 구현 순서·범위·파일 영향도를 추적하는 프로젝트 거버넌스 문서."
+    },
+    {
+      "id": "document:.claude/agents/senior-fullstack-engineer.md",
+      "type": "document",
+      "name": "senior-fullstack-engineer.md",
+      "filePath": ".claude/agents/senior-fullstack-engineer.md",
+      "summary": "senior-fullstack-engineer 서브 에이전트 정의서로, Clean Code·타입 안전성·접근성·보안 등 보편 코딩 원칙과 Next.js 16 / React 19 디시플린, 워크플로우, 영속 에이전트 메모리 정책을 단일 진실 원천으로 규정합니다.",
+      "tags": [
+        "documentation",
+        "agent-config",
+        "engineering-guidelines",
+        "workflow"
+      ],
+      "complexity": "complex",
+      "languageNotes": "15개 H2/H1 섹션으로 구성된 에이전트 프롬프트 문서. AGENTS.md가 'how' 규칙의 단일 진실 원천으로 위임하는 대상."
+    },
+    {
+      "id": "config:.claude/settings.json",
+      "type": "config",
+      "name": "settings.json",
+      "filePath": ".claude/settings.json",
+      "summary": "Claude Code 프로젝트 설정 파일로 활성화된 플러그인 목록을 지정하는 최소 구성입니다.",
+      "tags": [
+        "configuration",
+        "tooling",
+        "claude-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.understand-anything/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".understand-anything/.understandignore",
+      "summary": "understand-anything 코드 분석 도구가 지식 그래프 생성 시 무시할 파일·디렉터리 패턴을 정의하는 ignore 규칙 파일입니다.",
+      "tags": [
+        "configuration",
+        "tooling",
+        "ignore-rules"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.understand-anything/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".understand-anything/config.json",
+      "summary": "understand-anything 도구의 출력 언어(한국어) 등 분석 동작을 지정하는 구성 파일입니다.",
+      "tags": [
+        "configuration",
+        "tooling",
+        "analysis"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:eslint.config.mjs",
+      "type": "config",
+      "name": "eslint.config.mjs",
+      "filePath": "eslint.config.mjs",
+      "summary": "eslint-config-next의 core-web-vitals와 typescript 프리셋을 합성하고 빌드 산출물 디렉터리를 전역 무시하는 ESLint flat config입니다.",
+      "tags": [
+        "configuration",
+        "linting",
+        "build-system",
+        "typescript"
+      ],
+      "complexity": "simple",
+      "languageNotes": "ESLint flat config(defineConfig + globalIgnores) 방식으로 Next.js 권장 룰셋을 스프레드로 결합."
+    },
+    {
+      "id": "config:next.config.ts",
+      "type": "config",
+      "name": "next.config.ts",
+      "filePath": "next.config.ts",
+      "summary": "Next.js 16 빌드 구성으로 React Compiler(reactCompiler: true)를 활성화하는 최소 설정입니다.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "nextjs",
+        "react-compiler"
+      ],
+      "complexity": "simple",
+      "languageNotes": "React Compiler를 켜 자동 메모이제이션을 활성화. Next 16에서 Turbopack은 기본값이라 별도 명시 불필요."
+    },
+    {
+      "id": "config:postcss.config.mjs",
+      "type": "config",
+      "name": "postcss.config.mjs",
+      "filePath": "postcss.config.mjs",
+      "summary": "Tailwind v4의 @tailwindcss/postcss 플러그인을 등록하는 PostCSS 구성으로, globals.css의 @import \"tailwindcss\" 파이프라인을 구동합니다.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "tailwind",
+        "postcss"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream1.otf",
+      "type": "file",
+      "name": "SCDream1.otf",
+      "filePath": "public/fonts/SCDream1.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 100(Thin) OTF 파일로, next/font/local을 통해 --font-sc-dream 변수에 매핑됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream2.otf",
+      "type": "file",
+      "name": "SCDream2.otf",
+      "filePath": "public/fonts/SCDream2.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 200(ExtraLight) OTF 파일로, next/font/local을 통해 로드됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream3.otf",
+      "type": "file",
+      "name": "SCDream3.otf",
+      "filePath": "public/fonts/SCDream3.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 300(Light) OTF 파일로, next/font/local을 통해 로드됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream4.otf",
+      "type": "file",
+      "name": "SCDream4.otf",
+      "filePath": "public/fonts/SCDream4.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 400(Regular) OTF 파일로, 본문 한글 폴백에 사용됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream5.otf",
+      "type": "file",
+      "name": "SCDream5.otf",
+      "filePath": "public/fonts/SCDream5.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 500(Medium) OTF 파일로, next/font/local을 통해 로드됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream6.otf",
+      "type": "file",
+      "name": "SCDream6.otf",
+      "filePath": "public/fonts/SCDream6.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 600(SemiBold) OTF 파일로, next/font/local을 통해 로드됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream7.otf",
+      "type": "file",
+      "name": "SCDream7.otf",
+      "filePath": "public/fonts/SCDream7.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 700(Bold) OTF 파일로, 헤드라인 강조에 사용됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream8.otf",
+      "type": "file",
+      "name": "SCDream8.otf",
+      "filePath": "public/fonts/SCDream8.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 800(ExtraBold) OTF 파일로, next/font/local을 통해 로드됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/fonts/SCDream9.otf",
+      "type": "file",
+      "name": "SCDream9.otf",
+      "filePath": "public/fonts/SCDream9.otf",
+      "summary": "self-host되는 한글 웹폰트 SCDream 패밀리의 weight 900(Black) OTF 파일로, 가장 강한 헤드라인 무게에 사용됩니다.",
+      "tags": [
+        "font-asset",
+        "korean-webfont",
+        "binary",
+        "typography"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/googleb2384b35fb620939.html",
+      "type": "file",
+      "name": "googleb2384b35fb620939.html",
+      "filePath": "public/googleb2384b35fb620939.html",
+      "summary": "Google Search Console 사이트 소유권 확인용 정적 HTML 스텁 파일입니다.",
+      "tags": [
+        "seo",
+        "verification",
+        "static-asset",
+        "google"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:public/images/specify.webp",
+      "type": "file",
+      "name": "specify.webp",
+      "filePath": "public/images/specify.webp",
+      "summary": "마케팅 페이지에서 사용되는 Specify 제품 관련 이미지 에셋(WebP)입니다.",
+      "tags": [
+        "image-asset",
+        "marketing",
+        "binary",
+        "webp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/(legal)/privacy/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "src/app/(legal)/privacy/page.tsx",
+      "summary": "(legal) 라우트 그룹의 개인정보 처리방침 페이지로, 시행일·번호 매겨진 섹션 데이터를 정적 렌더링하고 buildMetadata로 SEO 메타데이터를 구성합니다.",
+      "tags": [
+        "page",
+        "legal",
+        "static-rendering",
+        "seo"
+      ],
+      "complexity": "complex",
+      "languageNotes": "섹션 데이터를 배열로 선언하고 map으로 렌더링하는 데이터 주도 정적 페이지. 합쇼체 한글 카피."
+    },
+    {
+      "id": "function:src/app/(legal)/privacy/page.tsx:PrivacyPage",
+      "type": "function",
+      "name": "PrivacyPage",
+      "filePath": "src/app/(legal)/privacy/page.tsx",
+      "lineRange": [
+        152,
+        216
+      ],
+      "summary": "개인정보 처리방침의 기본 export 서버 컴포넌트로, 시행일 헤더와 번호 매겨진 섹션들을 sections.map으로 렌더링합니다.",
+      "tags": [
+        "page",
+        "server-component",
+        "legal",
+        "rendering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:src/app/(legal)/privacy/page.tsx:Row",
+      "type": "function",
+      "name": "Row",
+      "filePath": "src/app/(legal)/privacy/page.tsx",
+      "lineRange": [
+        218,
+        227
+      ],
+      "summary": "용어(term)와 설명(desc) 쌍을 정의 목록 형태로 표시하는 소형 프레젠테이션 헬퍼 컴포넌트입니다.",
+      "tags": [
+        "component",
+        "presentation",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/(marketing)/loading.tsx",
+      "type": "file",
+      "name": "loading.tsx",
+      "filePath": "src/app/(marketing)/loading.tsx",
+      "summary": "(marketing) 라우트 그룹의 로딩 UI 경계 파일로, 라우트 전환 중 표시되는 최소 fallback을 제공합니다.",
+      "tags": [
+        "loading-ui",
+        "route-boundary",
+        "marketing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/apple-icon.tsx",
+      "type": "file",
+      "name": "apple-icon.tsx",
+      "filePath": "src/app/apple-icon.tsx",
+      "summary": "logo.png를 읽어 next/og ImageResponse로 180x180 Apple touch 아이콘을 동적 생성하는 메타데이터 라우트입니다.",
+      "tags": [
+        "metadata-route",
+        "icon-generation",
+        "seo",
+        "og-image"
+      ],
+      "complexity": "simple",
+      "languageNotes": "node:fs로 로고를 base64 data URL로 인코딩 후 ImageResponse로 PNG를 렌더링하는 Next.js 파일 기반 아이콘 패턴."
+    },
+    {
+      "id": "function:src/app/apple-icon.tsx:AppleIcon",
+      "type": "function",
+      "name": "AppleIcon",
+      "filePath": "src/app/apple-icon.tsx",
+      "lineRange": [
+        8,
+        32
+      ],
+      "summary": "public/logos/logo.png를 읽어 base64 data URL로 변환하고 ImageResponse로 Apple touch 아이콘 PNG를 반환합니다.",
+      "tags": [
+        "icon-generation",
+        "og-image",
+        "metadata-route"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/globals.css",
+      "type": "file",
+      "name": "globals.css",
+      "filePath": "src/app/globals.css",
+      "summary": "Tailwind v4 디자인 토큰의 단일 진실 원천으로, @theme inline 블록에 브랜드 violet(hue 295)·딥 다크 surface(hue 290)·폰트 스택·shadow·애니메이션을 정의하고, 사이버펑크 배경 레이어(bg-fx/grid/scanline/noise)·글리치·reveal-on-scroll·contact-light 패널 오버라이드 전역 클래스를 포함합니다.",
+      "tags": [
+        "design-tokens",
+        "styling",
+        "tailwind",
+        "theme",
+        "cyberpunk"
+      ],
+      "complexity": "complex",
+      "languageNotes": "tailwind.config.ts 없이 @theme inline + :root CSS 변수로 모든 토큰을 관리하는 Tailwind v4 패턴. oklch 색공간, color-mix(in oklab), mask-image 기반 아토스피어 레이어 활용. .contact-light는 토큰 캐스케이드로 다크 페이지 위 밝은 패널을 구현."
+    },
+    {
+      "id": "file:src/app/icon.tsx",
+      "type": "file",
+      "name": "icon.tsx",
+      "filePath": "src/app/icon.tsx",
+      "summary": "logo.png를 읽어 next/og ImageResponse로 64x64 favicon을 동적 생성하는 메타데이터 라우트입니다.",
+      "tags": [
+        "metadata-route",
+        "icon-generation",
+        "seo",
+        "og-image"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/app/icon.tsx:Icon",
+      "type": "function",
+      "name": "Icon",
+      "filePath": "src/app/icon.tsx",
+      "lineRange": [
+        8,
+        32
+      ],
+      "summary": "public/logos/logo.png를 읽어 base64 data URL로 변환하고 ImageResponse로 64x64 favicon PNG를 반환합니다.",
+      "tags": [
+        "icon-generation",
+        "og-image",
+        "metadata-route"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "src/app/layout.tsx",
+      "summary": "앱 루트 레이아웃으로, SCDream 한글 로컬 폰트 9종·Space Grotesk·Geist Mono·Instrument Serif를 설정하고 metadataBase·OpenGraph·robots 등 전역 메타데이터와 다크 viewport를 정의하며, JsonLd 구조화 데이터와 Vercel Analytics·Speed Insights를 주입합니다.",
+      "tags": [
+        "entry-point",
+        "root-layout",
+        "fonts",
+        "metadata",
+        "seo"
+      ],
+      "complexity": "complex",
+      "languageNotes": "next/font/local로 SCDream 9 weight를 self-host하고 next/font/google로 Latin 폰트를 로드해 CSS 변수로 노출. ko 로케일, colorScheme dark 고정의 단일 다크 테마 루트."
+    },
+    {
+      "id": "function:src/app/layout.tsx:RootLayout",
+      "type": "function",
+      "name": "RootLayout",
+      "filePath": "src/app/layout.tsx",
+      "lineRange": [
+        111,
+        129
+      ],
+      "summary": "폰트 CSS 변수를 html에 적용하고 JsonLd·children·Vercel Analytics/Speed Insights를 감싸는 루트 레이아웃 컴포넌트입니다.",
+      "tags": [
+        "root-layout",
+        "server-component",
+        "fonts",
+        "analytics"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/manifest.ts",
+      "type": "file",
+      "name": "manifest.ts",
+      "filePath": "src/app/manifest.ts",
+      "summary": "PWA 웹 매니페스트를 생성하는 메타데이터 라우트로, 앱 이름·딥 다크 테마 색(#0b0a10)·standalone 디스플레이·동적 생성 아이콘(/icon, /apple-icon)을 한국어 로케일로 정의합니다.",
+      "tags": [
+        "metadata-route",
+        "pwa",
+        "manifest",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/app/manifest.ts:manifest",
+      "type": "function",
+      "name": "manifest",
+      "filePath": "src/app/manifest.ts",
+      "lineRange": [
+        3,
+        21
+      ],
+      "summary": "Amiolas PWA의 이름·설명·테마 색·standalone 디스플레이·아이콘 세트를 담은 MetadataRoute.Manifest 객체를 반환합니다.",
+      "tags": [
+        "pwa",
+        "manifest",
+        "metadata-route"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/opengraph-image.tsx",
+      "type": "file",
+      "name": "opengraph-image.tsx",
+      "filePath": "src/app/opengraph-image.tsx",
+      "summary": "Open Graph 소셜 공유 이미지를 런타임에 생성하는 파일 기반 메타데이터 라우트. 로컬 폰트·에셋을 읽어 ImageResponse로 1200×630 다크 사이버펑크 OG 이미지를 렌더링합니다.",
+      "tags": [
+        "seo",
+        "metadata-route",
+        "og-image",
+        "image-generation",
+        "entry-point"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Next.js 16 파일 기반 메타데이터 컨벤션: default export 함수가 ImageResponse를 반환하고 size·contentType·alt를 named export로 노출합니다."
+    },
+    {
+      "id": "function:src/app/opengraph-image.tsx:OG",
+      "type": "function",
+      "name": "OG",
+      "filePath": "src/app/opengraph-image.tsx",
+      "lineRange": [
+        9,
+        167
+      ],
+      "summary": "process.cwd 기준 로컬 폰트·로고 에셋을 fs.readFile로 비동기 로드한 뒤 ImageResponse로 브랜드 OG 이미지를 합성하는 default export 핸들러.",
+      "tags": [
+        "og-image",
+        "image-generation",
+        "async-handler",
+        "rendering"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:src/app/robots.ts",
+      "type": "file",
+      "name": "robots.ts",
+      "filePath": "src/app/robots.ts",
+      "summary": "크롤러 접근 규칙과 sitemap 위치를 선언하는 파일 기반 robots 라우트. 라이브러리 없이 Next.js의 MetadataRoute.Robots를 반환합니다.",
+      "tags": [
+        "seo",
+        "metadata-route",
+        "robots",
+        "crawler",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/sitemap.ts",
+      "type": "file",
+      "name": "sitemap.ts",
+      "filePath": "src/app/sitemap.ts",
+      "summary": "마케팅·법무 라우트 URL 목록을 lastModified·changeFrequency·priority와 함께 노출하는 파일 기반 sitemap 라우트.",
+      "tags": [
+        "seo",
+        "metadata-route",
+        "sitemap",
+        "routing",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/app/twitter-image.tsx",
+      "type": "file",
+      "name": "twitter-image.tsx",
+      "filePath": "src/app/twitter-image.tsx",
+      "summary": "Twitter 카드 이미지를 opengraph-image의 default·size·contentType·alt를 그대로 재노출하는 1줄 배럴 re-export. OG와 Twitter 공유 이미지를 단일 소스로 통일합니다.",
+      "tags": [
+        "seo",
+        "metadata-route",
+        "twitter-image",
+        "barrel",
+        "re-export"
+      ],
+      "complexity": "simple",
+      "languageNotes": "단일 export-from 문으로 opengraph-image.tsx의 메타데이터 라우트 구성을 그대로 위임합니다."
+    },
+    {
+      "id": "file:src/components/seo/json-ld.tsx",
+      "type": "file",
+      "name": "json-ld.tsx",
+      "filePath": "src/components/seo/json-ld.tsx",
+      "summary": "Schema.org Organization·WebSite 구조화 데이터를 application/ld+json 스크립트로 주입하는 서버 컴포넌트. 검색엔진용 JSON-LD @graph를 직렬화해 출력합니다.",
+      "tags": [
+        "seo",
+        "structured-data",
+        "json-ld",
+        "schema-org",
+        "component"
+      ],
+      "complexity": "simple",
+      "languageNotes": "dangerouslySetInnerHTML로 JSON.stringify된 @graph를 주입하며, organization·website 객체는 as const로 고정합니다."
+    },
+    {
+      "id": "function:src/components/seo/json-ld.tsx:JsonLd",
+      "type": "function",
+      "name": "JsonLd",
+      "filePath": "src/components/seo/json-ld.tsx",
+      "lineRange": [
+        34,
+        46
+      ],
+      "summary": "Organization·WebSite 노드를 묶은 @graph를 JSON-LD script 태그로 렌더링하는 서버 컴포넌트.",
+      "tags": [
+        "structured-data",
+        "json-ld",
+        "component",
+        "seo"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:src/lib/seo.ts",
+      "type": "file",
+      "name": "seo.ts",
+      "filePath": "src/lib/seo.ts",
+      "summary": "페이지별 canonical·openGraph.url·title/description 오버라이드를 한곳에서 생성하는 buildMetadata() 헬퍼. 페이지 메타데이터의 단일 진실 원천입니다.",
+      "tags": [
+        "seo",
+        "metadata",
+        "utility",
+        "factory",
+        "type-safe"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Next.js의 Metadata 타입을 반환하며, 조건부 스프레드(...(title !== undefined && { title }))로 선택 필드를 안전하게 구성합니다."
+    },
+    {
+      "id": "function:src/lib/seo.ts:buildMetadata",
+      "type": "function",
+      "name": "buildMetadata",
+      "filePath": "src/lib/seo.ts",
+      "lineRange": [
+        17,
+        41
+      ],
+      "summary": "path로 canonical·openGraph.url을 계산하고 title/description을 alternates·openGraph·twitter에 일관되게 채워 Metadata 객체를 생성하는 헬퍼.",
+      "tags": [
+        "metadata",
+        "factory",
+        "seo",
+        "type-safe"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/components/widget/message-bubble.tsx:MessageBubble",
+      "type": "function",
+      "name": "MessageBubble",
+      "filePath": "src/components/widget/message-bubble.tsx",
+      "lineRange": [
+        4,
+        34
+      ],
+      "summary": "단일 대화 메시지를 발신자(user/operator/system)에 따라 정렬과 스타일을 달리해 렌더링하는 프레젠테이션 컴포넌트로, WidgetPanel이 메시지 목록을 그릴 때 호출합니다.",
+      "tags": [
+        "component",
+        "presentational",
+        "contact-widget",
+        "export"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:conversationChannel",
+      "type": "function",
+      "name": "conversationChannel",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        123,
+        125
+      ],
+      "summary": "conversationId로 Redis pub/sub 채널 이름(conv:<id>)을 만들어 반환하는 순수 헬퍼로, SSE 스트림 구독과 메시지 publish가 동일 채널을 가리키도록 보장합니다.",
+      "tags": [
+        "service",
+        "realtime",
+        "pub-sub",
+        "utility"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:src/lib/contact/store.ts:getConversationIdByThread",
+      "type": "function",
+      "name": "getConversationIdByThread",
+      "filePath": "src/lib/contact/store.ts",
+      "lineRange": [
+        60,
+        64
+      ],
+      "summary": "Slack thread 타임스탬프로 역방향 매핑을 조회해 해당 대화의 conversationId를 반환하는 함수로, Slack 웹훅이 상담원 답글을 올바른 대화로 라우팅할 때 사용합니다.",
+      "tags": [
+        "service",
+        "data-model",
+        "slack"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:src/app/(marketing)/_components/approach.tsx",
+      "target": "function:src/app/(marketing)/_components/approach.tsx:Approach",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/approach.tsx",
+      "target": "function:src/app/(marketing)/_components/approach.tsx:Approach",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/approach.tsx",
+      "target": "function:src/app/(marketing)/_components/approach.tsx:Pane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/approach.tsx",
+      "target": "file:src/components/marketing/reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/approach.tsx",
+      "target": "file:src/components/marketing/section-head.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/contact-section.tsx",
+      "target": "function:src/app/(marketing)/_components/contact-section.tsx:ContactSection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/contact-section.tsx",
+      "target": "function:src/app/(marketing)/_components/contact-section.tsx:ContactSection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/contact-section.tsx",
+      "target": "file:src/components/layout/contact-trigger.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/contact-section.tsx",
+      "target": "file:src/components/marketing/reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/hero-video.tsx",
+      "target": "function:src/app/(marketing)/_components/hero-video.tsx:HeroVideo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/hero-video.tsx",
+      "target": "function:src/app/(marketing)/_components/hero-video.tsx:HeroVideo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/hero.tsx",
+      "target": "function:src/app/(marketing)/_components/hero.tsx:Hero",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/hero.tsx",
+      "target": "function:src/app/(marketing)/_components/hero.tsx:Hero",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/hero.tsx",
+      "target": "file:src/app/(marketing)/_components/hero-video.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/hero.tsx",
+      "target": "file:src/components/marketing/reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "target": "function:src/app/(marketing)/_components/specify-section.tsx:SpecifySection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "target": "function:src/app/(marketing)/_components/specify-section.tsx:SpecifySection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "target": "function:src/app/(marketing)/_components/specify-section.tsx:SpecifyVisual",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "target": "function:src/app/(marketing)/_components/specify-section.tsx:Stat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "target": "function:src/app/(marketing)/_components/specify-section.tsx:CornerBrackets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "target": "file:src/components/marketing/reveal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "target": "file:src/components/marketing/section-head.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/page.tsx",
+      "target": "file:src/app/(marketing)/_components/approach.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/page.tsx",
+      "target": "file:src/app/(marketing)/_components/contact-section.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/page.tsx",
+      "target": "file:src/app/(marketing)/_components/hero.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/page.tsx",
+      "target": "file:src/app/(marketing)/_components/marquee.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/page.tsx",
+      "target": "file:src/app/(marketing)/_components/mission-bar.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/page.tsx",
+      "target": "file:src/app/(marketing)/_components/specify-section.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/marketing/reveal.tsx",
+      "target": "function:src/components/marketing/reveal.tsx:Reveal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/marketing/reveal.tsx",
+      "target": "function:src/components/marketing/reveal.tsx:Reveal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/marketing/reveal.tsx",
+      "target": "file:src/lib/utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:src/components/marketing/reveal.tsx:Reveal",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/(legal)/layout.tsx",
+      "target": "file:src/components/layout/site-shell.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(marketing)/layout.tsx",
+      "target": "file:src/components/layout/site-shell.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/layout/footer.tsx",
+      "target": "file:src/components/layout/back-to-top.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/layout/header.tsx",
+      "target": "file:src/components/layout/clock.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/layout/header.tsx",
+      "target": "file:src/components/layout/contact-trigger.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/layout/site-shell.tsx",
+      "target": "file:src/components/layout/background-fx.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/layout/site-shell.tsx",
+      "target": "file:src/components/layout/footer.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/layout/site-shell.tsx",
+      "target": "file:src/components/layout/header.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/layout/site-shell.tsx",
+      "target": "file:src/components/widget/contact-widget.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/layout/back-to-top.tsx",
+      "target": "function:src/components/layout/back-to-top.tsx:BackToTop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/layout/back-to-top.tsx",
+      "target": "function:src/components/layout/back-to-top.tsx:BackToTop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/layout/background-fx.tsx",
+      "target": "function:src/components/layout/background-fx.tsx:BackgroundFx",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/layout/background-fx.tsx",
+      "target": "function:src/components/layout/background-fx.tsx:BackgroundFx",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/layout/clock.tsx",
+      "target": "function:src/components/layout/clock.tsx:Clock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/layout/clock.tsx",
+      "target": "function:src/components/layout/clock.tsx:Clock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/layout/footer.tsx",
+      "target": "function:src/components/layout/footer.tsx:Footer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/layout/footer.tsx",
+      "target": "function:src/components/layout/footer.tsx:Footer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/layout/header.tsx",
+      "target": "function:src/components/layout/header.tsx:Header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/layout/header.tsx",
+      "target": "function:src/components/layout/header.tsx:Header",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/layout/site-shell.tsx",
+      "target": "function:src/components/layout/site-shell.tsx:SiteShell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/layout/site-shell.tsx",
+      "target": "function:src/components/layout/site-shell.tsx:SiteShell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/layout/footer.tsx:Footer",
+      "target": "function:src/components/layout/back-to-top.tsx:BackToTop",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/layout/header.tsx:Header",
+      "target": "function:src/components/layout/clock.tsx:Clock",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/layout/site-shell.tsx:SiteShell",
+      "target": "function:src/components/layout/background-fx.tsx:BackgroundFx",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/layout/site-shell.tsx:SiteShell",
+      "target": "function:src/components/layout/header.tsx:Header",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/layout/site-shell.tsx:SiteShell",
+      "target": "function:src/components/layout/footer.tsx:Footer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/widget/contact-widget.tsx",
+      "target": "function:src/components/widget/contact-widget.tsx:ContactWidget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/widget/contact-widget.tsx",
+      "target": "function:src/components/widget/contact-widget.tsx:mergeMessages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/widget/contact-widget.tsx",
+      "target": "function:src/components/widget/contact-widget.tsx:ContactWidget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/widget/contact-widget.tsx",
+      "target": "file:src/components/widget/widget-fab.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/contact-widget.tsx",
+      "target": "file:src/components/widget/widget-panel.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/contact-widget.tsx",
+      "target": "file:src/hooks/use-contact-storage.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/contact-widget.tsx",
+      "target": "file:src/lib/actions/contact-send.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/contact-widget.tsx",
+      "target": "file:src/types/contact.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:src/components/widget/contact-widget.tsx:ContactWidget",
+      "target": "function:src/hooks/use-contact-storage.ts:useContactStorage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/widget/contact-widget.tsx:ContactWidget",
+      "target": "function:src/lib/actions/contact-send.ts:sendContactMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/widget/message-bubble.tsx",
+      "target": "file:src/lib/utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/message-bubble.tsx",
+      "target": "file:src/types/contact.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/widget-panel.tsx",
+      "target": "function:src/components/widget/widget-panel.tsx:WidgetPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/widget/widget-panel.tsx",
+      "target": "function:src/components/widget/widget-panel.tsx:SubmitButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/widget/widget-panel.tsx",
+      "target": "function:src/components/widget/widget-panel.tsx:WidgetPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/widget/widget-panel.tsx",
+      "target": "file:src/components/widget/message-bubble.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/widget-panel.tsx",
+      "target": "file:src/lib/contact/config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/widget-panel.tsx",
+      "target": "file:src/lib/utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/widget-panel.tsx",
+      "target": "file:src/types/contact.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/hooks/use-contact-storage.ts",
+      "target": "function:src/hooks/use-contact-storage.ts:useContactStorage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/hooks/use-contact-storage.ts",
+      "target": "function:src/hooks/use-contact-storage.ts:useContactStorage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/hooks/use-contact-storage.ts",
+      "target": "file:src/types/contact.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/actions/contact-send.ts",
+      "target": "function:src/lib/actions/contact-send.ts:sendContactMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/actions/contact-send.ts",
+      "target": "function:src/lib/actions/contact-send.ts:sendContactMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/actions/contact-send.ts",
+      "target": "file:src/lib/contact/config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/actions/contact-send.ts",
+      "target": "file:src/lib/contact/store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/actions/contact-send.ts",
+      "target": "file:src/lib/slack/client.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/actions/contact-send.ts",
+      "target": "file:src/types/contact.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:src/lib/actions/contact-send.ts:sendContactMessage",
+      "target": "function:src/lib/slack/client.ts:postNewInquiryThread",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/lib/actions/contact-send.ts:sendContactMessage",
+      "target": "function:src/lib/slack/client.ts:replyInThread",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/slack/client.ts",
+      "target": "function:src/lib/slack/client.ts:postNewInquiryThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/slack/client.ts",
+      "target": "function:src/lib/slack/client.ts:replyInThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/slack/client.ts",
+      "target": "function:src/lib/slack/client.ts:postNewInquiryThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/slack/client.ts",
+      "target": "function:src/lib/slack/client.ts:replyInThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/slack/client.ts",
+      "target": "file:src/lib/env.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/slack/client.ts",
+      "target": "file:src/types/contact.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/contact/realtime.ts",
+      "target": "file:src/lib/env.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "file:src/lib/contact/config.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "file:src/lib/env.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "file:src/types/contact.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "endpoint:src/app/api/contact/stream/route.ts",
+      "target": "function:src/app/api/contact/stream/route.ts:GET",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "endpoint:src/app/api/contact/stream/route.ts",
+      "target": "function:src/app/api/contact/stream/route.ts:GET",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "endpoint:src/app/api/slack/events/route.ts",
+      "target": "function:src/app/api/slack/events/route.ts:POST",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "endpoint:src/app/api/slack/events/route.ts",
+      "target": "function:src/app/api/slack/events/route.ts:POST",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/realtime.ts",
+      "target": "function:src/lib/contact/realtime.ts:createSubscriber",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/realtime.ts",
+      "target": "function:src/lib/contact/realtime.ts:createSubscriber",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:createConversation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:createConversation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:setThreadTs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:setThreadTs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:appendMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:appendMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:getMessagesSince",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:getMessagesSince",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:incrRateLimit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:incrRateLimit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:markEventProcessed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:markEventProcessed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:publishMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:publishMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/slack/verify.ts",
+      "target": "function:src/lib/slack/verify.ts:verifySlackSignature",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/slack/verify.ts",
+      "target": "function:src/lib/slack/verify.ts:verifySlackSignature",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/slack/verify.ts",
+      "target": "function:src/lib/slack/verify.ts:hmacHex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/slack/verify.ts",
+      "target": "function:src/lib/slack/verify.ts:timingSafeEqual",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "function:src/lib/slack/verify.ts:verifySlackSignature",
+      "target": "function:src/lib/slack/verify.ts:hmacHex",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/lib/slack/verify.ts:verifySlackSignature",
+      "target": "function:src/lib/slack/verify.ts:timingSafeEqual",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/api/contact/stream/route.ts:GET",
+      "target": "function:src/lib/contact/store.ts:getMessagesSince",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/api/contact/stream/route.ts:GET",
+      "target": "function:src/lib/contact/realtime.ts:createSubscriber",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/api/slack/events/route.ts:POST",
+      "target": "function:src/lib/slack/verify.ts:verifySlackSignature",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/api/slack/events/route.ts:POST",
+      "target": "function:src/lib/contact/store.ts:markEventProcessed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/api/slack/events/route.ts:POST",
+      "target": "function:src/lib/contact/store.ts:appendMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/api/slack/events/route.ts:POST",
+      "target": "function:src/lib/contact/store.ts:publishMessage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/marketing/eyebrow.tsx",
+      "target": "file:src/lib/utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/ui/button.tsx",
+      "target": "file:src/lib/utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/widget/widget-fab.tsx",
+      "target": "file:src/lib/utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/components/marketing/eyebrow.tsx",
+      "target": "function:src/components/marketing/eyebrow.tsx:Eyebrow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/marketing/eyebrow.tsx",
+      "target": "function:src/components/marketing/eyebrow.tsx:Eyebrow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/ui/button.tsx",
+      "target": "function:src/components/ui/button.tsx:Button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/ui/button.tsx",
+      "target": "function:src/components/ui/button.tsx:Button",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/widget/widget-fab.tsx",
+      "target": "function:src/components/widget/widget-fab.tsx:WidgetFab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/widget/widget-fab.tsx",
+      "target": "function:src/components/widget/widget-fab.tsx:WidgetFab",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/utils.ts",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/marketing/eyebrow.tsx:Eyebrow",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/ui/button.tsx:Button",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/widget/widget-fab.tsx:WidgetFab",
+      "target": "function:src/lib/utils.ts:cn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/lib/env.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:tsconfig.json",
+      "target": "file:src/lib/utils.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:components.json",
+      "target": "file:src/lib/utils.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:components.json",
+      "target": "file:src/app/globals.css",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:package.json",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:.env.example",
+      "target": "file:src/lib/env.ts",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:AGENTS.md",
+      "target": "file:src/app/layout.tsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:AGENTS.md",
+      "target": "file:src/app/globals.css",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:CLAUDE.md",
+      "target": "document:AGENTS.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "file:src/app/layout.tsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:README.md",
+      "target": "document:AGENTS.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/components/widget/contact-widget.tsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/lib/actions/contact-send.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/lib/contact/store.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/lib/contact/realtime.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/lib/contact/config.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/lib/slack/client.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/lib/slack/verify.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/hooks/use-contact-storage.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/types/contact.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/app/(marketing)/_components/contact-section.tsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "file:src/lib/env.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/DESIGN.md",
+      "target": "file:src/app/globals.css",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/PLANNING.md",
+      "target": "file:src/lib/seo.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/PLANNING.md",
+      "target": "file:src/components/seo/json-ld.tsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/PLANNING.md",
+      "target": "file:src/lib/actions/contact-send.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/PLANNING.md",
+      "target": "file:src/types/contact.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/PLANNING.md",
+      "target": "document:docs/CONTACT.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/BRAND.md",
+      "target": "document:docs/DESIGN.md",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/(legal)/privacy/page.tsx",
+      "target": "file:src/lib/seo.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/(legal)/privacy/page.tsx",
+      "target": "function:src/app/(legal)/privacy/page.tsx:PrivacyPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/(legal)/privacy/page.tsx",
+      "target": "function:src/app/(legal)/privacy/page.tsx:PrivacyPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/(legal)/privacy/page.tsx",
+      "target": "function:src/app/(legal)/privacy/page.tsx:Row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "function:src/app/(legal)/privacy/page.tsx:PrivacyPage",
+      "target": "function:src/lib/seo.ts:buildMetadata",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:src/app/globals.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:src/components/seo/json-ld.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "function:src/app/layout.tsx:RootLayout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "function:src/app/layout.tsx:RootLayout",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:public/fonts/SCDream1.otf",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:public/fonts/SCDream4.otf",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "file:public/fonts/SCDream9.otf",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/apple-icon.tsx",
+      "target": "function:src/app/apple-icon.tsx:AppleIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/apple-icon.tsx",
+      "target": "function:src/app/apple-icon.tsx:AppleIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/icon.tsx",
+      "target": "function:src/app/icon.tsx:Icon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/icon.tsx",
+      "target": "function:src/app/icon.tsx:Icon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/manifest.ts",
+      "target": "function:src/app/manifest.ts:manifest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/manifest.ts",
+      "target": "function:src/app/manifest.ts:manifest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/manifest.ts",
+      "target": "file:src/app/icon.tsx",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/manifest.ts",
+      "target": "file:src/app/apple-icon.tsx",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:next.config.ts",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:postcss.config.mjs",
+      "target": "file:src/app/globals.css",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "config:eslint.config.mjs",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/app/globals.css",
+      "target": "file:src/app/layout.tsx",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "document:.claude/agents/senior-fullstack-engineer.md",
+      "target": "file:src/app/layout.tsx",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/opengraph-image.tsx",
+      "target": "function:src/app/opengraph-image.tsx:OG",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/app/opengraph-image.tsx",
+      "target": "function:src/app/opengraph-image.tsx:OG",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/app/twitter-image.tsx",
+      "target": "file:src/app/opengraph-image.tsx",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:src/components/seo/json-ld.tsx",
+      "target": "function:src/components/seo/json-ld.tsx:JsonLd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/seo/json-ld.tsx",
+      "target": "function:src/components/seo/json-ld.tsx:JsonLd",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/seo.ts",
+      "target": "function:src/lib/seo.ts:buildMetadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/seo.ts",
+      "target": "function:src/lib/seo.ts:buildMetadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/components/widget/message-bubble.tsx",
+      "target": "function:src/components/widget/message-bubble.tsx:MessageBubble",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/components/widget/message-bubble.tsx",
+      "target": "function:src/components/widget/message-bubble.tsx:MessageBubble",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/components/widget/widget-panel.tsx:WidgetPanel",
+      "target": "function:src/components/widget/message-bubble.tsx:MessageBubble",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:conversationChannel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:conversationChannel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:getConversationIdByThread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:src/lib/contact/store.ts",
+      "target": "function:src/lib/contact/store.ts:getConversationIdByThread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/api/contact/stream/route.ts:GET",
+      "target": "function:src/lib/contact/store.ts:conversationChannel",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:src/app/api/slack/events/route.ts:POST",
+      "target": "function:src/lib/contact/store.ts:getConversationIdByThread",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "endpoint:src/app/api/contact/stream/route.ts",
+      "target": "file:src/lib/contact/realtime.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "endpoint:src/app/api/contact/stream/route.ts",
+      "target": "file:src/lib/contact/store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "endpoint:src/app/api/contact/stream/route.ts",
+      "target": "file:src/types/contact.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "endpoint:src/app/api/slack/events/route.ts",
+      "target": "file:src/lib/contact/store.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "endpoint:src/app/api/slack/events/route.ts",
+      "target": "file:src/lib/env.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "endpoint:src/app/api/slack/events/route.ts",
+      "target": "file:src/lib/slack/verify.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "endpoint:src/app/api/contact/stream/route.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "document:docs/CONTACT.md",
+      "target": "endpoint:src/app/api/slack/events/route.ts",
+      "type": "documents",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:src/app/layout.tsx",
+      "target": "function:src/components/seo/json-ld.tsx:JsonLd",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer:ui",
+      "name": "UI · 마케팅 페이지 레이어",
+      "description": "(marketing)·(legal) 라우트 그룹의 페이지·레이아웃과 hero/specify/approach 등 랜딩 섹션, SiteShell·헤더·푸터·배경 FX 같은 공통 chrome, reveal·section-head·eyebrow·Button 등 재사용 프리미티브로 다크 사이버펑크 화면을 구성하는 프레젠테이션 레이어입니다.",
+      "nodeIds": [
+        "file:src/app/(marketing)/_components/approach.tsx",
+        "file:src/app/(marketing)/_components/contact-section.tsx",
+        "file:src/app/(marketing)/_components/hero-video.tsx",
+        "file:src/app/(marketing)/_components/hero.tsx",
+        "file:src/app/(marketing)/_components/marquee.tsx",
+        "file:src/app/(marketing)/_components/mission-bar.tsx",
+        "file:src/app/(marketing)/_components/specify-section.tsx",
+        "file:src/app/(marketing)/page.tsx",
+        "file:src/components/layout/contact-trigger.tsx",
+        "file:src/components/marketing/reveal.tsx",
+        "file:src/components/marketing/section-head.tsx",
+        "file:src/app/(legal)/layout.tsx",
+        "file:src/app/(marketing)/layout.tsx",
+        "file:src/components/layout/back-to-top.tsx",
+        "file:src/components/layout/background-fx.tsx",
+        "file:src/components/layout/clock.tsx",
+        "file:src/components/layout/footer.tsx",
+        "file:src/components/layout/header.tsx",
+        "file:src/components/layout/site-shell.tsx",
+        "file:src/components/marketing/eyebrow.tsx",
+        "file:src/components/ui/button.tsx",
+        "file:src/app/(legal)/privacy/page.tsx",
+        "file:src/app/(marketing)/loading.tsx"
+      ]
+    },
+    {
+      "id": "layer:widget",
+      "name": "Contact 위젯 · 실시간 클라이언트 레이어",
+      "description": "채팅형 contact 위젯의 클라이언트 측 컨테이너·패널·메시지 버블·FAB와 localStorage 영속화 훅으로, useActionState 기반 Server Action 전송과 SSE(EventSource) 실시간 수신을 묶는 상호작용 레이어입니다.",
+      "nodeIds": [
+        "file:src/components/widget/contact-widget.tsx",
+        "file:src/components/widget/message-bubble.tsx",
+        "file:src/components/widget/widget-panel.tsx",
+        "file:src/hooks/use-contact-storage.ts",
+        "file:src/components/widget/widget-fab.tsx"
+      ]
+    },
+    {
+      "id": "layer:api",
+      "name": "API · 서버 액션 레이어",
+      "description": "방문자에게 메시지를 밀어주는 SSE 스트리밍 라우트와 Slack Events 웹훅 라우트, 그리고 입력 검증·레이트리밋 후 Slack 전달과 store 적재를 수행하는 contact 전송 Server Action을 포함하는 서버 진입 레이어입니다.",
+      "nodeIds": [
+        "file:src/lib/actions/contact-send.ts",
+        "endpoint:src/app/api/contact/stream/route.ts",
+        "endpoint:src/app/api/slack/events/route.ts"
+      ]
+    },
+    {
+      "id": "layer:service",
+      "name": "도메인 서비스 레이어",
+      "description": "Upstash Redis 기반 conversation·메시지·rate limit·pub/sub를 다루는 contact store와 구독 클라이언트·상수 설정, 그리고 Slack Web API 래퍼와 HMAC 서명 검증으로 외부 연동과 비즈니스 로직을 담당하는 레이어입니다.",
+      "nodeIds": [
+        "file:src/lib/contact/config.ts",
+        "file:src/lib/slack/client.ts",
+        "file:src/lib/contact/realtime.ts",
+        "file:src/lib/contact/store.ts",
+        "file:src/lib/slack/verify.ts"
+      ]
+    },
+    {
+      "id": "layer:shared",
+      "name": "공유 기반 · 타입 레이어",
+      "description": "contact 기능 전반이 공유하는 TS 타입, zod 검증 env 단일 진실 원천, cn() 클래스 병합 유틸처럼 fan-in이 높은 횡단 기반 모듈을 모은 토대 레이어입니다.",
+      "nodeIds": [
+        "file:src/types/contact.ts",
+        "file:src/lib/env.ts",
+        "file:src/lib/utils.ts"
+      ]
+    },
+    {
+      "id": "layer:app-shell",
+      "name": "앱 셸 · SEO · 메타데이터 레이어",
+      "description": "루트 레이아웃·globals.css 디자인 토큰과 sitemap·robots·manifest·icon·OG/Twitter 이미지 등 파일 기반 메타데이터 라우트, JSON-LD 구조화 데이터와 buildMetadata 헬퍼로 폰트·SEO·PWA 골격을 구성하는 레이어입니다.",
+      "nodeIds": [
+        "file:src/app/apple-icon.tsx",
+        "file:src/app/globals.css",
+        "file:src/app/icon.tsx",
+        "file:src/app/layout.tsx",
+        "file:src/app/manifest.ts",
+        "file:src/app/opengraph-image.tsx",
+        "file:src/app/robots.ts",
+        "file:src/app/sitemap.ts",
+        "file:src/app/twitter-image.tsx",
+        "file:src/components/seo/json-ld.tsx",
+        "file:src/lib/seo.ts"
+      ]
+    },
+    {
+      "id": "layer:docs",
+      "name": "문서 · 엔지니어링 컨벤션 레이어",
+      "description": "AGENTS·CLAUDE·README와 BRAND·DESIGN·CONTACT·PLANNING 캐논 문서, senior-fullstack-engineer 에이전트 정의서로 디렉터리 규약·디자인 토큰·contact 아키텍처·로드맵의 진실 원천을 담는 지식 베이스 레이어입니다.",
+      "nodeIds": [
+        "document:AGENTS.md",
+        "document:CLAUDE.md",
+        "document:README.md",
+        "document:docs/BRAND.md",
+        "document:docs/CONTACT.md",
+        "document:docs/DESIGN.md",
+        "document:docs/PLANNING.md",
+        "document:.claude/agents/senior-fullstack-engineer.md"
+      ]
+    },
+    {
+      "id": "layer:config-assets",
+      "name": "빌드 설정 · 정적 에셋 레이어",
+      "description": "package.json·tsconfig·next/eslint/postcss·components.json·.env.example 등 빌드 및 도구 설정과 self-host SCDream 폰트·이미지·Search Console 검증 HTML 같은 정적 에셋을 모은 구성·자원 레이어입니다.",
+      "nodeIds": [
+        "config:.env.example",
+        "config:components.json",
+        "config:package.json",
+        "config:tsconfig.json",
+        "config:.claude/settings.json",
+        "file:.understand-anything/.understandignore",
+        "config:.understand-anything/config.json",
+        "config:eslint.config.mjs",
+        "config:next.config.ts",
+        "config:postcss.config.mjs",
+        "file:public/fonts/SCDream1.otf",
+        "file:public/fonts/SCDream2.otf",
+        "file:public/fonts/SCDream3.otf",
+        "file:public/fonts/SCDream4.otf",
+        "file:public/fonts/SCDream5.otf",
+        "file:public/fonts/SCDream6.otf",
+        "file:public/fonts/SCDream7.otf",
+        "file:public/fonts/SCDream8.otf",
+        "file:public/fonts/SCDream9.otf",
+        "file:public/googleb2384b35fb620939.html",
+        "file:public/images/specify.webp"
+      ]
+    }
+  ],
+  "tour": [
+    {
+      "order": 1,
+      "title": "프로젝트 의도와 브랜드",
+      "description": "투어는 README.md에서 시작합니다. 'Restore the continuity of meaning.'라는 미션 태그라인과 Next.js 16·React 19.2·TypeScript·Tailwind v4·shadcn/ui 스택 요약으로 이 사이트가 무엇인지 한눈에 잡아줍니다. README가 상세 컨벤션을 AGENTS.md로 위임하므로, 코드를 보기 전에 BRAND.md에서 회사 미션·메타포·비즈니스 모델과 첫 AI 제품 Specify의 포지셔닝까지 읽어 마케팅 카피의 진실 원천을 먼저 이해합니다.",
+      "nodeIds": [
+        "document:README.md",
+        "document:docs/BRAND.md"
+      ]
+    },
+    {
+      "order": 2,
+      "title": "엔지니어링 캐논",
+      "description": "1단계의 브랜드 맥락 위에, 이 코드베이스가 따르는 규칙을 AGENTS.md에서 확인합니다. 디렉터리 구조·App Router 라우팅 골격·Tailwind v4 디자인 토큰·네이밍·성능 목표(Lighthouse·LCP·CLS·INP)가 모두 여기 단일 진실 원천으로 박혀 있습니다. CLAUDE.md는 `@AGENTS.md` 한 줄 include로 같은 캐논을 재참조하는 얇은 진입점이고, 코딩·캐시·서버/클라이언트 규칙 같은 'how'는 senior-fullstack-engineer 에이전트 정의서로 위임된다는 분업 구조를 파악합니다.",
+      "nodeIds": [
+        "document:AGENTS.md",
+        "document:CLAUDE.md",
+        "document:.claude/agents/senior-fullstack-engineer.md"
+      ]
+    },
+    {
+      "order": 3,
+      "title": "앱 루트 진입점",
+      "description": "런타임의 실제 시작점인 루트 레이아웃입니다(fan-in 8로 앱 파일 중 최상위). SCDream 한글 로컬 폰트 9종과 Space Grotesk·Geist Mono를 self-host로 설정하고, metadataBase·OpenGraph·robots 같은 전역 메타데이터와 다크 viewport를 고정하며, JsonLd 구조화 데이터와 Vercel Analytics·Speed Insights를 주입합니다. 모든 라우트가 이 레이아웃 안에서 렌더링되므로 사이트 골격의 출발점입니다.",
+      "nodeIds": [
+        "file:src/app/layout.tsx"
+      ],
+      "languageLesson": "Next.js 16 App Router의 루트 layout.tsx는 서버 컴포넌트입니다. next/font/local·next/font/google이 폰트를 빌드 타임에 최적화해 CSS 변수로 노출하고, export한 metadata·viewport 객체로 라이브러리 없이 전역 SEO·테마를 선언합니다."
+    },
+    {
+      "order": 4,
+      "title": "디자인 토큰과 사이버펑크 테마",
+      "description": "3단계 레이아웃이 import하는 globals.css는 Tailwind v4 디자인 토큰의 단일 진실 원천입니다(fan-in 5). tailwind.config.ts 없이 @theme inline 블록에 브랜드 violet(hue 295)·딥 다크 surface(hue 290)·폰트 스택·shadow·애니메이션을 정의하고, bg-fx/grid/scanline/noise 배경 레이어와 글리치·reveal-on-scroll 전역 클래스로 절제된 사이버펑크 무드를 깝니다. DESIGN.md가 이 파일의 구현 기준(색상·타이포·spacing 캐논)을 42개 섹션으로 규정합니다.",
+      "nodeIds": [
+        "file:src/app/globals.css",
+        "document:docs/DESIGN.md"
+      ],
+      "languageLesson": "Tailwind v4는 JS config 대신 CSS의 @theme inline + :root 변수로 토큰을 관리합니다. oklch 색공간으로 일관된 명도를 얻고, --color-*/--shadow-*/--animate-* prefix만 붙이면 유틸리티 클래스가 자동 생성됩니다."
+    },
+    {
+      "order": 5,
+      "title": "마케팅 랜딩 페이지 조립",
+      "description": "홈 라우트(/)의 페이지 진입점으로, fan-out 6의 오케스트레이터입니다. Hero·MissionBar·Marquee·SpecifySection·Approach·ContactSection 섹션을 순서대로 조립해 한 화면의 서사를 만듭니다. Hero는 풀블리드 배경 영상(HeroVideo) 위에 글리치 H1을 얹고, SpecifySection은 후속 AI 에이전트 라인업과 핵심 지표를 보여주는 가장 큰 섹션입니다. 각 섹션은 정적 서버 렌더링을 기본으로 합니다.",
+      "nodeIds": [
+        "file:src/app/(marketing)/page.tsx",
+        "file:src/app/(marketing)/_components/hero.tsx",
+        "file:src/app/(marketing)/_components/specify-section.tsx",
+        "file:src/app/(marketing)/_components/mission-bar.tsx"
+      ]
+    },
+    {
+      "order": 6,
+      "title": "공통 셸과 재사용 프리미티브",
+      "description": "5단계 섹션들이 어디에 담기는지 보여주는 공통 chrome입니다. (marketing)·(legal) 라우트 그룹 레이아웃이 SiteShell을 import하고, SiteShell이 BackgroundFx·Header·main·Footer·ContactWidget을 한 데 묶어 전 라우트 골격을 구성합니다(fan-out 4). Reveal은 IntersectionObserver로 스크롤 등장을 처리하는 재사용 래퍼(fan-in 4), Button은 CVA 기반 shadcn 프리미티브로 사이트 전반 버튼 스타일의 단일 진실 원천입니다.",
+      "nodeIds": [
+        "file:src/app/(marketing)/layout.tsx",
+        "file:src/components/layout/site-shell.tsx",
+        "file:src/components/marketing/reveal.tsx",
+        "file:src/components/ui/button.tsx"
+      ],
+      "languageLesson": "Next.js 16의 route group `(marketing)`은 URL 경로에 영향을 주지 않으면서 그룹별 공통 레이아웃을 공유합니다. Reveal은 'use client' 컴포넌트로, useEffect에서 IntersectionObserver를 만들고 cleanup에서 disconnect하는 표준 클라이언트 애니메이션 패턴을 씁니다."
+    },
+    {
+      "order": 7,
+      "title": "Contact 위젯 아키텍처 개요",
+      "description": "이 사이트의 핵심 기능인 실시간 contact 위젯을 본격적으로 들어가기 전에, CONTACT.md로 전체 데이터 흐름을 먼저 조망합니다(fan-out 13으로 그래프에서 가장 넓은 노드). 브라우저 → Server Action → Slack 스레드 → Redis → SSE로 되돌아오는 양방향 흐름, Upstash Redis KV 저장 구조, SSE+pub/sub 실시간 전달, HMAC 검증·허니팟·rate-limit 보안까지 35개 섹션으로 정리되어 있고, 말미 디렉터리 맵이 다음 단계들의 실제 코드 파일과 1:1 대응합니다.",
+      "nodeIds": [
+        "document:docs/CONTACT.md"
+      ]
+    },
+    {
+      "order": 8,
+      "title": "위젯 클라이언트 — 상태와 실시간 수신",
+      "description": "7단계 흐름의 출발점인 클라이언트 측입니다. ContactWidget이 최상위 컨테이너로, use-contact-storage 훅으로 대화 상태를 localStorage에 영속화하고, useActionState로 Server Action 전송을 관리하며, EventSource로 SSE 스트림을 구독해 운영자 답글을 실시간 수신합니다. WidgetPanel은 메시지 목록·신원 입력·전송 버튼을 담은 채팅 패널이고, MessageBubble이 발신자(user/operator/system)별로 메시지를 그립니다. 이 다섯 파일은 서로 밀결합된 클러스터(상호 엣지 7개)입니다.",
+      "nodeIds": [
+        "file:src/components/widget/contact-widget.tsx",
+        "file:src/components/widget/widget-panel.tsx",
+        "file:src/components/widget/message-bubble.tsx",
+        "file:src/hooks/use-contact-storage.ts"
+      ],
+      "languageLesson": "React 19의 useActionState(action, initial)는 Server Action을 폼 상태 머신에 연결하고, useFormStatus는 자식에서 전송 진행(pending)을 읽어 버튼을 제어합니다. use-contact-storage는 SSR hydration mismatch를 피하려 초기값을 비우고 useEffect에서 localStorage를 읽어 hydrated 플래그로 보호합니다."
+    },
+    {
+      "order": 9,
+      "title": "공유 타입과 기반 모듈",
+      "description": "8단계 위젯과 이후 서버 코드가 모두 의존하는 횡단 토대입니다. types/contact.ts는 fan-in 10으로 그래프 전체 최상위 — Sender·Identity·ContactMessage·Conversation과 discriminated union인 SendMessageResult를 선언해 클라이언트·서버가 같은 어휘를 공유합니다. env.ts는 zod로 Slack·Redis 환경 변수를 검증하는 단일 진실 원천(fan-in 7)이고, utils.ts의 cn()은 모든 컴포넌트가 쓰는 클래스 병합 헬퍼(fan-in 8)입니다.",
+      "nodeIds": [
+        "file:src/types/contact.ts",
+        "file:src/lib/env.ts",
+        "file:src/lib/utils.ts",
+        "config:.env.example"
+      ],
+      "languageLesson": "discriminated union(SendMessageResult)은 `ok: true | false` 같은 공통 리터럴 필드로 분기해, 컴파일러가 성공/실패 분기마다 접근 가능한 필드를 좁혀줍니다(타입 안전한 결과 표현). env.ts의 zod 스키마는 부팅 시 검증 실패를 조기 차단합니다."
+    },
+    {
+      "order": 10,
+      "title": "전송 Server Action과 도메인 서비스",
+      "description": "8단계 위젯의 폼이 호출하는 서버 진입점입니다. 'use server'로 선언된 sendContactMessage가 zod 검증·레이트리밋·대화 생성/조회를 거쳐, slack/client.ts로 Slack 스레드에 게시하고 contact/store.ts(Redis, fan-in 4)에 메시지를 적재한 뒤 pub/sub로 발행합니다. store는 conversation·메시지·thread 매핑·rate limit·멱등성·publish를 모두 다루는 데이터 계층이고, config.ts는 길이 제한·TTL 같은 상수의 단일 출처입니다.",
+      "nodeIds": [
+        "file:src/lib/actions/contact-send.ts",
+        "file:src/lib/slack/client.ts",
+        "file:src/lib/contact/store.ts",
+        "file:src/lib/contact/config.ts"
+      ],
+      "languageLesson": "Server Action은 useActionState의 (prevState, formData) 시그니처를 따릅니다. store.ts는 redis.zadd/zrange로 메시지를 시간순 정렬 저장하고 expire로 TTL을 부여하며, convKey/msgKey/threadKey/rateKey 헬퍼로 Redis 키 네임스페이스를 일관 관리합니다."
+    },
+    {
+      "order": 11,
+      "title": "실시간 양방향 — SSE 스트림과 Slack 웹훅",
+      "description": "흐름을 닫는 마지막 고리입니다. contact/stream(GET)은 SSE 엔드포인트로, Redis pub/sub 채널을 구독해 새 메시지를 방문자 브라우저로 밀어주고 백필·heartbeat·25초 수명 종료를 처리합니다. slack/events(POST)는 Slack 웹훅으로, verify.ts의 HMAC 서명 검증과 event_id 멱등 처리를 거쳐 상담원 답글을 store에 적재하고 다시 방문자에게 publish합니다. realtime.ts가 구독 전용 Redis 클라이언트를 제공해 두 라우트를 잇습니다.",
+      "nodeIds": [
+        "endpoint:src/app/api/contact/stream/route.ts",
+        "endpoint:src/app/api/slack/events/route.ts",
+        "file:src/lib/slack/verify.ts",
+        "file:src/lib/contact/realtime.ts"
+      ],
+      "languageLesson": "SSE는 ReadableStream + TextEncoder로 직접 구성하고 force-dynamic·nodejs 런타임에서 동작하며, req.signal로 연결 종료 시 cleanup을 보장합니다. 웹훅 검증은 raw body에 대해 Web Crypto(crypto.subtle) HMAC을 재계산하고 timingSafeEqual로 비교해 edge 런타임에서도 타이밍 공격을 완화합니다."
+    },
+    {
+      "order": 12,
+      "title": "SEO·메타데이터와 빌드 설정",
+      "description": "마지막으로 사이트를 검색·공유·배포 가능하게 만드는 외곽 레이어를 봅니다. lib/seo.ts의 buildMetadata()가 페이지별 canonical·OG를 생성하고, json-ld.tsx가 Schema.org 구조화 데이터를 주입하며, sitemap.ts·opengraph-image.tsx가 파일 기반 메타데이터 라우트로 크롤러와 소셜 카드를 채웁니다. package.json은 Next 16·React 19.2 런타임과 Slack·Redis 의존성, React Compiler·Tailwind v4 빌드 도구를 선언하는 매니페스트입니다.",
+      "nodeIds": [
+        "file:src/lib/seo.ts",
+        "file:src/components/seo/json-ld.tsx",
+        "file:src/app/sitemap.ts",
+        "file:src/app/opengraph-image.tsx",
+        "config:package.json"
+      ],
+      "languageLesson": "Next.js 16의 파일 기반 메타데이터 컨벤션: opengraph-image.tsx는 default export가 next/og ImageResponse를 반환하고 size·contentType·alt를 named export로 노출합니다. sitemap.ts·robots.ts는 라이브러리 없이 MetadataRoute 타입을 반환하는 것만으로 라우트가 됩니다."
+    }
+  ]
+}
