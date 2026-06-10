@@ -41,6 +41,7 @@ export function WidgetPanel({
       role="dialog"
       aria-label="Contact"
       aria-hidden={!open}
+      inert={!open}
       className={cn(
         "contact-light fixed bottom-0 right-0 z-40 flex flex-col overflow-hidden bg-surface-raised text-foreground shadow-[0_1px_1px_oklch(0_0_0/0.5),0_18px_50px_-12px_oklch(0_0_0/0.65),0_44px_100px_-36px_oklch(0.55_0.22_295/0.45)] transition-all duration-200 ease-[cubic-bezier(0.2,0.6,0.2,1)]",
         "inset-0 sm:inset-auto sm:bottom-24 sm:right-7 sm:h-[min(620px,calc(100vh-7rem))] sm:w-[384px] sm:rounded-[20px]",
@@ -108,7 +109,7 @@ export function WidgetPanel({
         className="m-0 flex flex-1 list-none flex-col gap-3 overflow-y-auto px-5 pb-5 pt-1"
       >
         {messages.length === 0 && (
-          <li className="max-w-[88%] self-start rounded-2xl rounded-bl-md bg-surface-soft px-4 py-3 text-[13px] leading-[1.6] text-fg-muted shadow-[0_1px_2px_oklch(0_0_0/0.05)]">
+          <li className="max-w-[88%] self-start rounded-2xl rounded-bl-md bg-surface-soft px-4 py-3 text-body-sm text-fg-muted shadow-[0_1px_2px_oklch(0_0_0/0.05)]">
             메시지를 보내주시면 영업일 기준 1일 이내에 회신드립니다.
           </li>
         )}
@@ -145,26 +146,26 @@ export function WidgetPanel({
               placeholder="이름"
               required
               maxLength={CONTACT_CONFIG.maxNameLen}
-              className="h-10 rounded-xl bg-surface-soft px-3.5 text-[13px] text-foreground placeholder:text-fg-dim outline-none ring-1 ring-transparent transition focus:bg-background focus:ring-brand/40"
+              className="h-10 rounded-xl bg-surface-soft px-3.5 text-body-sm text-foreground placeholder:text-fg-dim outline-none ring-1 ring-input transition focus:bg-background focus:ring-brand"
             />
             <input
               type="email"
               name="email"
               placeholder="이메일"
               required
-              className="h-10 rounded-xl bg-surface-soft px-3.5 text-[13px] text-foreground placeholder:text-fg-dim outline-none ring-1 ring-transparent transition focus:bg-background focus:ring-brand/40"
+              className="h-10 rounded-xl bg-surface-soft px-3.5 text-body-sm text-foreground placeholder:text-fg-dim outline-none ring-1 ring-input transition focus:bg-background focus:ring-brand"
             />
           </div>
         )}
 
-        <div className="flex items-stretch gap-2 rounded-2xl bg-surface-soft p-2 ring-1 ring-transparent transition focus-within:bg-background focus-within:ring-brand/40">
+        <div className="flex items-stretch gap-2 rounded-2xl bg-surface-soft p-2 ring-1 ring-input transition focus-within:bg-background focus-within:ring-brand">
           <textarea
             name="text"
             placeholder="메시지를 보내주세요"
             required
             rows={2}
             maxLength={CONTACT_CONFIG.maxMessageLen}
-            className="min-h-[40px] flex-1 resize-none bg-transparent px-2 py-1.5 text-[13.5px] leading-[1.5] text-foreground placeholder:text-fg-dim outline-none"
+            className="min-h-[40px] flex-1 resize-none bg-transparent px-2 py-1.5 text-body-sm text-foreground placeholder:text-fg-dim outline-none"
           />
           <SubmitButton />
         </div>
@@ -172,7 +173,7 @@ export function WidgetPanel({
         {errorMessage && (
           <p
             role="alert"
-            className="m-0 mt-0.5 px-1 text-[12px] leading-[1.4] text-destructive"
+            className="m-0 mt-0.5 px-1 text-xs leading-[1.4] text-destructive"
           >
             {errorMessage}
           </p>
@@ -189,7 +190,7 @@ function SubmitButton() {
       type="submit"
       disabled={pending}
       aria-label="Send message"
-      className="flex aspect-square shrink-0 self-stretch items-center justify-center rounded-xl bg-brand text-white shadow-[0_6px_18px_-6px_color-mix(in_oklab,var(--color-brand)_60%,transparent)] transition hover:-translate-y-px hover:bg-brand-light hover:shadow-[0_12px_28px_-8px_color-mix(in_oklab,var(--color-brand)_70%,transparent)] disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
+      className="flex aspect-square shrink-0 self-stretch items-center justify-center rounded-xl bg-brand text-white shadow-glow-sm transition hover:-translate-y-px hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none"
     >
       {pending ? (
         <svg

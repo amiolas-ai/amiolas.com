@@ -124,6 +124,16 @@ export function ContactWidget() {
     }
   }, [open, messages, lastReadTs, stored, save]);
 
+  // Close on Escape
+  useEffect(() => {
+    if (!open) return;
+    const handler = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [open]);
+
   // Global toggle event (fired from header Contact button)
   useEffect(() => {
     const handler = () => setOpen((o) => !o);
