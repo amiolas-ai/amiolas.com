@@ -11,7 +11,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative border-t border-dashed border-border py-[clamp(80px,12vw,160px)]"
+      className="relative border-t border-dashed border-border py-section-lg"
       style={{
         background:
           "radial-gradient(ellipse 60% 80% at 20% 50%, oklch(0.55 0.22 295 / 0.16) 0%, transparent 60%)," +
@@ -31,18 +31,18 @@ export function ContactSection() {
         <Reveal>
           <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[1.2fr_1fr] md:gap-14">
             <div>
-              <div className="mb-5 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-fg-muted">
+              <div className="mb-5 flex items-center gap-2.5 font-mono text-label uppercase text-fg-muted">
                 <span className="status-dot" aria-hidden />
                 Contact · Inquiry Open
               </div>
-              <h2 className="m-0 mb-6 max-w-[18ch] text-balance break-keep text-[clamp(28px,3.4vw,48px)] font-bold leading-[1.2] tracking-[-0.025em]">
+              <h2 className="m-0 mb-6 max-w-[18ch] text-balance break-keep text-title">
                 의미가 끊어진 자리,{" "}
                 <em className="font-bold italic text-accent-soft">
                   함께
                 </em>{" "}
                 들여다봅시다.
               </h2>
-              <p className="m-0 mb-8 max-w-[50ch] break-keep text-[15px] leading-[1.75] text-fg-muted">
+              <p className="m-0 mb-8 max-w-[50ch] break-keep text-body text-fg-muted">
                 AI 에이전트 도입, 시스템 구축 의뢰, 협업과 미디어 문의 모두
                 메시지 한 통으로 시작합니다.
               </p>
@@ -63,13 +63,13 @@ export function ContactSection() {
                   />
                 </svg>
               </ContactTrigger>
-              <div className="mt-3.5 font-mono text-[10.5px] uppercase tracking-[0.14em] text-fg-dim">
+              <div className="mt-3.5 font-mono text-label-sm uppercase text-fg-dim">
                 영업일 기준 1일 이내 회신 · KST
               </div>
             </div>
 
             <div className="border-l border-dashed border-border pl-9">
-              <dl className="text-sm text-fg-muted">
+              <dl className="text-body-sm text-fg-muted">
                 {list.map((row, i) => (
                   <div
                     key={row.dt}
@@ -77,7 +77,7 @@ export function ContactSection() {
                       i === 0 ? "border-t" : ""
                     }`}
                   >
-                    <dt className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-fg-dim">
+                    <dt className="font-mono text-label-sm uppercase text-fg-dim">
                       {row.dt}
                     </dt>
                     <dd
@@ -90,7 +90,7 @@ export function ContactSection() {
                   </div>
                 ))}
               </dl>
-              <div className="mt-4.5 flex justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-fg-dim">
+              <div className="mt-4.5 flex justify-between font-mono text-label-sm uppercase text-fg-dim">
                 <span>Fig · 002</span>
                 <span>Contact Block</span>
               </div>

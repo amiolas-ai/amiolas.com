@@ -11,7 +11,7 @@ const lineup = [
 
 export function SpecifySection() {
   return (
-    <section id="specify" className="relative py-[clamp(56px,8vw,100px)]">
+    <section id="specify" className="relative py-section">
       <div className="mx-auto max-w-[1440px] px-[var(--pad)]">
         <Reveal>
           <SectionHead
@@ -39,14 +39,14 @@ export function SpecifySection() {
             }}
           >
             <CornerBrackets />
-            <div className="absolute -top-2.5 left-6 bg-background px-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-brand-light">
+            <div className="absolute -top-2.5 left-6 bg-background px-2.5 font-mono text-label-sm uppercase tracking-[0.22em] text-brand-light">
               ▍ Featured · Now Shipping
             </div>
 
             <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
               <div className="flex flex-col gap-10">
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[11px] uppercase tracking-[0.16em] text-fg-dim">
-                  <span className="font-mono text-[9.5px] rounded-sm border border-border px-2 py-0.5">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-label uppercase text-fg-dim">
+                  <span className="rounded-sm border border-border px-2 py-0.5 font-mono text-label-sm">
                     01 / 01
                   </span>
                   <span className="inline-flex items-center gap-1.5 text-accent-soft">
@@ -67,16 +67,16 @@ export function SpecifySection() {
                 </div>
 
                 <div className="flex flex-col gap-5">
-                  <h3 className="m-0 text-[clamp(44px,5.6vw,76px)] font-semibold uppercase leading-[1] tracking-[-0.02em]">
+                  <h3 className="m-0 text-wordmark uppercase">
                     Specify
                   </h3>
-                  <p className="m-0 max-w-[32ch] break-keep text-[clamp(17px,1.4vw,20px)] leading-[1.5] text-foreground">
+                  <p className="m-0 max-w-[32ch] break-keep text-lede text-foreground">
                     흩어진 사내 지식을 하나의 지식 그래프로 엮는, 기업용 AI
                     두뇌.
                   </p>
                 </div>
 
-                <p className="m-0 max-w-[54ch] break-keep text-[15px] leading-[1.75] text-fg-muted">
+                <p className="m-0 max-w-[54ch] break-keep text-body text-fg-muted">
                   필요한 자료가 어디 있는지 아무도 모르는 순간이 회사마다
                   반복됩니다. Specify는 GitHub, Notion, Google Docs, 코드에
                   흩어진 데이터를 관계로 묶어 하나의 지식망으로 만듭니다.
@@ -94,7 +94,7 @@ export function SpecifySection() {
                 </dl>
 
                 <a
-                  className="group mt-2 inline-flex w-fit items-baseline gap-2 text-[15px] font-medium text-foreground transition-colors hover:text-brand-light"
+                  className="group mt-2 inline-flex w-fit items-baseline gap-2 text-body font-medium text-foreground transition-colors hover:text-brand-light"
                   href="https://specify.app"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -128,7 +128,7 @@ export function SpecifySection() {
         {/* NEXT IN THE LINEUP — coming-next ghost cards */}
         <Reveal>
           <div className="mt-10">
-            <div className="flex items-center justify-between gap-4 px-1 pb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-fg-dim">
+            <div className="flex items-center justify-between gap-4 px-1 pb-4 font-mono text-label uppercase text-fg-dim">
               <span>↓ Next in the lineup</span>
               <span className="hidden sm:inline">
                 도메인 검토 단계 · 일정은 변동될 수 있습니다
@@ -141,20 +141,20 @@ export function SpecifySection() {
                   className="relative rounded-[6px] border border-dashed border-border p-[22px]"
                 >
                   <div className="mb-2.5 flex items-baseline justify-between">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-fg-dim">
+                    <span className="font-mono text-label-sm uppercase text-fg-dim">
                       {`0${p.id.length} / ${p.id}`}
                     </span>
-                    <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.18em] text-fg-dim">
+                    <span className="rounded-full border border-border px-2 py-0.5 font-mono text-label-sm uppercase text-fg-dim">
                       {p.stage}
                     </span>
                   </div>
                   <div className="text-[24px] font-semibold tracking-[-0.01em]">
                     {p.name}
                   </div>
-                  <div className="mt-1.5 font-mono text-[11px] tracking-[0.06em] text-fg-dim">
+                  <div className="mt-1.5 font-mono text-label text-fg-dim">
                     {p.domain}
                   </div>
-                  <div className="mt-4 flex items-center justify-between border-t border-dashed border-border pt-3 font-mono text-[10px] tracking-[0.14em] text-fg-dim">
+                  <div className="mt-4 flex items-center justify-between border-t border-dashed border-border pt-3 font-mono text-label-sm text-fg-dim">
                     <span>ETA · {p.eta}</span>
                     <span aria-hidden>—</span>
                   </div>
@@ -163,7 +163,7 @@ export function SpecifySection() {
               {/* open-ended "+" slot — the lineup is not fixed */}
               <li className="flex min-h-[150px] flex-col items-center justify-center rounded-[6px] border border-dashed border-line-soft p-[22px]">
                 <div className="text-[42px] leading-none text-brand-light">+</div>
-                <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-dim">
+                <div className="mt-2 font-mono text-label-sm uppercase text-fg-dim">
                   Future Agent
                 </div>
               </li>
@@ -191,10 +191,10 @@ function CornerBrackets() {
 function Stat({ dt, dd }: { dt: string; dd: React.ReactNode }) {
   return (
     <div>
-      <dt className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-fg-dim">
+      <dt className="mb-2 font-mono text-label-sm uppercase text-fg-dim">
         {dt}
       </dt>
-      <dd className="m-0 text-[19px] font-semibold tracking-[-0.012em]">
+      <dd className="m-0 text-subheading tabular-nums">
         {dd}
       </dd>
     </div>
@@ -236,7 +236,7 @@ function SpecifyVisual() {
         </div>
       </div>
 
-      <figcaption className="mt-3 flex items-center justify-between font-mono text-[10.5px] uppercase tracking-[0.18em] text-fg-dim">
+      <figcaption className="mt-3 flex items-center justify-between font-mono text-label-sm uppercase text-fg-dim">
         <span className="text-brand-light">▣ Specify · Live Product UI</span>
         <span>specify.app</span>
       </figcaption>

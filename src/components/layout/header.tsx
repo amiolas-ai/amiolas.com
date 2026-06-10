@@ -26,7 +26,7 @@ export function Header() {
           <span className="status-dot" aria-hidden />
           <Clock />
           <span className="opacity-40">·</span>
-          <span className="font-mono uppercase tracking-[0.14em]">
+          <span className="font-mono uppercase tracking-eyebrow">
             Seoul / AI Studio
           </span>
         </div>

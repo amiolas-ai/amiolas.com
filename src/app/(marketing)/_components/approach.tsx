@@ -17,7 +17,7 @@ const trackB: Item[] = [
 
 export function Approach() {
   return (
-    <section className="relative py-[clamp(60px,8vw,120px)]">
+    <section className="relative py-section">
       <div className="mx-auto max-w-[1440px] px-[var(--pad)]">
         <Reveal>
           <SectionHead
@@ -61,24 +61,24 @@ function Pane({
 }) {
   return (
     <div className="bg-background px-8 py-9">
-      <div className="mb-7 font-mono text-[11px] uppercase tracking-[0.16em] text-fg-dim">
+      <div className="mb-6 font-mono text-label uppercase text-fg-dim">
         {sub}
       </div>
-      <h3 className="m-0 mb-2 text-[22px] font-semibold tracking-[-0.015em]">
+      <h3 className="m-0 mb-2 text-subheading">
         {title}
       </h3>
-      <p className="m-0 mb-6 max-w-[50ch] break-keep text-sm leading-[1.75] text-fg-muted">
+      <p className="m-0 mb-5 max-w-[50ch] break-keep text-body-sm text-fg-muted">
         {body}
       </p>
       <ul className="m-0 grid list-none gap-px border-t border-line-soft bg-line-soft p-0">
         {items.map((item) => (
           <li
             key={item.v}
-            className="grid grid-cols-[20px_1fr_auto] items-center gap-2.5 bg-background py-3.5 text-[13px] sm:grid-cols-[28px_1fr_auto] sm:gap-3.5 sm:text-[13.5px]"
+            className="grid grid-cols-[20px_1fr_auto] items-center gap-3 bg-background py-3 text-body-sm sm:grid-cols-[28px_1fr_auto] sm:gap-4"
           >
-            <span className="font-mono text-[10.5px] text-fg-dim">{item.k}</span>
+            <span className="font-mono text-label-sm text-fg-dim">{item.k}</span>
             <span className="break-keep text-foreground">{item.v}</span>
-            <span className="font-mono text-[10.5px] text-fg-dim">
+            <span className="font-mono text-label-sm text-fg-dim tabular-nums">
               {item.meta}
             </span>
           </li>
