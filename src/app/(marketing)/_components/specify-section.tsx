@@ -18,9 +18,9 @@ export function SpecifySection() {
             label="AI Agents · Lineup"
             title={
               <>
-                첫 제품 Specify를 시작으로,{" "}
+                첫&nbsp;제품 Specify를 시작으로,{" "}
                 <em className="font-bold italic text-accent-soft">
-                  분야별 AI 에이전트를 하나씩
+                  분야별&nbsp;AI&nbsp;에이전트를 하나씩
                 </em>{" "}
                 늘려갑니다.
               </>

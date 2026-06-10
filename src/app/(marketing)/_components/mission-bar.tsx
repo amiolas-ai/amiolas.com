@@ -23,10 +23,16 @@ export function MissionBar() {
           <span aria-hidden className="hidden opacity-60 sm:inline">·</span>
           <span>R. Scott Bakker / The Second Apocalypse</span>
         </div>
-        <p className="m-0 mx-auto mt-7 max-w-[44ch] break-keep text-body text-fg-muted">
-          회사명 Amiolas는 이 통찰로 만들어진 소설 속 마법 투구에서 왔습니다.
-          서로 다른 언어를 잇는 투구처럼, Amiolas는 흩어진 데이터의 &ldquo;서로
-          다른 언어&rdquo;를 잇습니다.
+        {/* 문장마다 행을 나누고 text-balance로 줄 길이를 고르게 — 중앙 정렬 단락의 래기드 방지 */}
+        <p className="m-0 mx-auto mt-7 max-w-[52ch] break-keep text-balance text-body text-fg-muted">
+          <span className="block">
+            회사명 Amiolas는 이 통찰로 만들어진 소설 속 마법 투구에서
+            왔습니다.
+          </span>
+          <span className="block">
+            서로 다른 언어를 잇는 투구처럼, Amiolas는 흩어진 데이터의
+            &ldquo;서로 다른 언어&rdquo;를 잇습니다.
+          </span>
         </p>
       </div>
     </section>

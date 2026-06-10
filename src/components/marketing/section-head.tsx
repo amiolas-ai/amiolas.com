@@ -12,7 +12,7 @@ export function SectionHead({ label, title, aside }: Props) {
       <div className="font-mono text-label uppercase text-fg-dim">
         {label}
       </div>
-      <h2 className="m-0 max-w-[28ch] text-balance break-keep text-heading">
+      <h2 className="m-0 max-w-[36ch] text-balance break-keep text-heading">
         {title}
       </h2>
       {aside ? (

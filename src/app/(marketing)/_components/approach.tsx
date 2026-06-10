@@ -22,7 +22,16 @@ export function Approach() {
         <Reveal>
           <SectionHead
             label="Practice"
-            title="AI 에이전트 개발과 기업 시스템 구축. 두 사업은 자원과 의사결정을 나눠 독립적으로 운영합니다."
+            title={
+              <>
+                <span className="block">
+                  AI&nbsp;에이전트 개발과 기업 시스템&nbsp;구축.
+                </span>
+                <span className="block">
+                  두 사업은 자원과 의사결정을 나눠 독립적으로 운영합니다.
+                </span>
+              </>
+            }
             aside="2-track operation"
           />
         </Reveal>
