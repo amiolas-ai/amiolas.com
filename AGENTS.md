@@ -154,7 +154,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
   /* Motion */
   --animate-aura-pulse: aura-pulse 8s ease-in-out infinite (brand glow 전용)
   --animate-marquee:    marquee-scroll 50s linear infinite (키워드 스트립)
-  /* reduced-motion: marquee·aura 일시정지, status-dot·reveal(.rv) 비활성. glitch 계열만 제외 */
+  /* reduced-motion: aura 일시정지, status-dot·reveal(.rv) 비활성. glitch·marquee는 제외(항상 동작 — 디자인 의도) */
 
   /* Glitch (절제된 사이버펑크 · globals.css 전역 클래스) */
   .glitch / .glitch-base / .glitch-soft + @keyframes glitch-x/-y/-flicker/-soft

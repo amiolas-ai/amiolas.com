@@ -59,7 +59,7 @@ Hero(풀블리드 비디오) → Marquee(키워드 스트립) → SpecifySection
 
 ## 6. Motion & Accessibility
 
-- `prefers-reduced-motion: reduce`에서 marquee·aura는 일시정지, status-dot·reveal(`.rv`)은 비활성(콘텐츠 즉시 표시). **글리치 계열만 예외** — "항상 동작"이 디자인 캐논입니다. JS 측은 back-to-top(즉시 점프)·hero 비디오(정지)가 각자 가드합니다.
+- `prefers-reduced-motion: reduce`에서 aura는 일시정지, status-dot·reveal(`.rv`)은 비활성(콘텐츠 즉시 표시). **글리치·marquee는 예외** — "항상 동작"이 디자인 캐논입니다. JS 측은 back-to-top(즉시 점프)·hero 비디오(정지)가 각자 가드합니다.
 - 키보드 포커스: base 레이어 전역 `:focus-visible`(outline 2px ring) — 링크·트리거가 자동 커버되고, Button·FAB의 ring 유틸리티가 이를 덮습니다.
 - Contact 위젯: 닫힌 패널은 `inert`(Tab 진입 차단), Escape로 닫힘.
 - 히어로 비디오는 `preload="metadata"` — LCP 경합 방지.

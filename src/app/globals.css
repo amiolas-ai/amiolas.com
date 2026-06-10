@@ -525,11 +525,10 @@ body {
   }
 }
 
-/* ===== Reduced motion — glitch 계열은 캐논(항상 동작)이라 제외 ===== */
+/* ===== Reduced motion — glitch·marquee는 캐논(항상 동작)이라 제외 ===== */
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
   .animate-aura-pulse {
-    animation-play-state: paused; /* 정지된 트랙은 그대로 노출 */
+    animation-play-state: paused;
   }
   .status-dot {
     animation: none;
