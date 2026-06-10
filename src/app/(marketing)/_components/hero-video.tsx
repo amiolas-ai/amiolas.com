@@ -14,6 +14,10 @@ export function HeroVideo() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      video.pause(); // 정지 프레임이 배경 역할을 대신한다
+      return;
+    }
     void video.play().catch(() => {
       /* autoplay may be blocked — overlays still carry the mood */
     });
@@ -28,7 +32,7 @@ export function HeroVideo() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         className="absolute inset-0 h-full w-full object-cover"
         style={{
           filter:

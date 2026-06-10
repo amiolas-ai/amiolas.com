@@ -9,6 +9,10 @@ export function BackToTop() {
     e.preventDefault();
     const startY = window.scrollY;
     if (startY <= 0) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo(0, 0);
+      return;
+    }
     const duration = Math.min(900, Math.max(450, startY * 0.45));
     const start = performance.now();
     const step = (now: number) => {
