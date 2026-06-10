@@ -28,6 +28,8 @@ export function HeroVideo() {
       <video
         ref={videoRef}
         src="/videos/hero.mp4"
+        /* LCP는 비디오 첫 프레임이 아니라 이 poster로 잡힌다 (62KB · blur 처리라 저화질 무방) */
+        poster="/videos/hero-poster.jpg"
         autoPlay
         muted
         loop

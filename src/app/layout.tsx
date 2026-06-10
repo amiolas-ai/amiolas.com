@@ -7,19 +7,16 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { SITE_DESCRIPTION } from "@/lib/seo";
 import "./globals.css";
 
+// 사이트가 실제 사용하는 4개 weight만 로드 — 9종 전부 선언하면 ~3MB가 preload되어
+// 슬로우 네트워크에서 H1 폰트 스왑이 LCP를 끌어내린다. (OG 이미지는 fs로 직접 읽어 무관)
 const scDream = localFont({
   variable: "--font-sc-dream",
   display: "swap",
   src: [
-    { path: "../../public/fonts/SCDream1.otf", weight: "100", style: "normal" },
-    { path: "../../public/fonts/SCDream2.otf", weight: "200", style: "normal" },
-    { path: "../../public/fonts/SCDream3.otf", weight: "300", style: "normal" },
     { path: "../../public/fonts/SCDream4.otf", weight: "400", style: "normal" },
     { path: "../../public/fonts/SCDream5.otf", weight: "500", style: "normal" },
     { path: "../../public/fonts/SCDream6.otf", weight: "600", style: "normal" },
     { path: "../../public/fonts/SCDream7.otf", weight: "700", style: "normal" },
-    { path: "../../public/fonts/SCDream8.otf", weight: "800", style: "normal" },
-    { path: "../../public/fonts/SCDream9.otf", weight: "900", style: "normal" },
   ],
 });
 

@@ -172,7 +172,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
 - **Primitive**: `src/components/ui/` 안의 shadcn 패턴만 (`Button` CVA primary/ghost pill 이미 존재). 새 primitive 필요 시 `/add-shadcn` 또는 동일 패턴으로
 - **마케팅 섹션**: hand-built (`src/components/marketing/`). primitive를 조합해 제작, 새 primitive 함부로 만들지 말 것
 - **테마**: 다크 단일 — `:root` 토큰만 사용 (딥 다크 + 네온 violet). `next-themes` · 라이트 모드 미운영
-- **폰트**: 한글은 `next/font/local` SCDream 9 weights self-host (`public/fonts/SCDream{1..9}.otf`). **Latin은 Space Grotesk**(`next/font/google`) — `--font-sans` 스택 1순위에 두고 한글은 SCDream으로 폴백. Geist Mono는 mono(코드·라벨), Instrument Serif는 일부 이탤릭 인용(mission-bar)에 사용. ※ 디자인 와이어프레임의 손글씨 폰트(Caveat·Patrick Hand)는 lo-fi placeholder — 프로덕션엔 사용 안 함
+- **폰트**: 한글은 `next/font/local` SCDream self-host — 파일은 9 weights(`public/fonts/SCDream{1..9}.otf`)를 보관하되 **선언·preload는 실사용 4종(400/500/600/700)만** (전부 선언 시 ~3MB preload로 LCP 회귀. OG 이미지는 fs로 4·8을 직접 읽음). **Latin은 Space Grotesk**(`next/font/google`) — `--font-sans` 스택 1순위에 두고 한글은 SCDream으로 폴백. Geist Mono는 mono(코드·라벨), Instrument Serif는 일부 이탤릭 인용(mission-bar)에 사용. ※ 디자인 와이어프레임의 손글씨 폰트(Caveat·Patrick Hand)는 lo-fi placeholder — 프로덕션엔 사용 안 함
 - **로고/이미지**: `public/logos/logo.png` (투명 배경 단일 로고), `public/images/` (specify.webp), `public/videos/hero.mp4` (히어로 풀블리드 배경 영상)
 - **Aura/Glow 사용**: hero · CTA · mission bar 한정. `--color-brand-glow` + `blur(40px)` + `animate-aura-pulse`, 또는 violet radial-gradient. 그 외 영역에서 남용 금지
 - **대비 규칙**: 소형 텍스트(24px 미만)에 `text-brand` 금지(bg 대비 3.7:1) — 소형 액센트는 `text-brand-light`(5.1:1)만. 텍스트 위에 `opacity-*` 수정자를 겹치지 말 것(토큰 색으로 직접 표현 — fg-muted·fg-dim 사용)
