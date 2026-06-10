@@ -42,9 +42,9 @@ export function Hero() {
 
         <Reveal>
           <p className="m-0 mt-6 max-w-[58ch] break-keep text-[clamp(15px,1.3vw,18px)] leading-[1.7] text-fg-muted [text-shadow:0_2px_16px_rgba(0,0,0,0.5)]">
-            Amiolas는 자체 AI 에이전트와 엔터프라이즈 엔지니어링을 병행하는 AI
-            Studio입니다. 사내 데이터, 협업의 흐름, 시스템과 시스템 사이. 의미가
-            끊어지는 모든 자리에서, 우리는 연속성을 복원합니다.
+            회사의 지식은 문서, 코드, 메신저에 흩어진 채 잊힙니다. Amiolas는 그
+            조각을 AI로 연결해 다시 쓸 수 있게 만드는 AI Studio입니다. 자체 AI
+            에이전트 개발과 기업 시스템 구축, 두 갈래로 일합니다.
           </p>
         </Reveal>
       </div>

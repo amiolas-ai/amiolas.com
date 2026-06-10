@@ -43,11 +43,11 @@ export function ContactSection() {
                 들여다봅시다.
               </h2>
               <p className="m-0 mb-8 max-w-[50ch] break-keep text-[15px] leading-[1.75] text-fg-muted">
-                AI 에이전트 도입, 엔터프라이즈 시스템 의뢰, 협업 제안, 미디어 문의.
-                한 통의 메시지로 시작합니다.
+                AI 에이전트 도입, 시스템 구축 의뢰, 협업과 미디어 문의 모두
+                메시지 한 통으로 시작합니다.
               </p>
               <ContactTrigger className="inline-flex items-center gap-3.5 rounded-full bg-brand px-6 py-4 text-sm font-medium text-white shadow-[0_0_0_0_color-mix(in_oklab,var(--color-brand)_40%,transparent),8px_8px_0_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-brand-light hover:shadow-[0_18px_60px_-10px_color-mix(in_oklab,var(--color-brand-light)_60%,transparent)]">
-                <span>Start an Inquiry</span>
+                <span>문의 시작하기</span>
                 <svg
                   width="14"
                   height="14"
@@ -64,7 +64,7 @@ export function ContactSection() {
                 </svg>
               </ContactTrigger>
               <div className="mt-3.5 font-mono text-[10.5px] uppercase tracking-[0.14em] text-fg-dim">
-                평균 회신 1영업일 이내 · KST
+                영업일 기준 1일 이내 회신 · KST
               </div>
             </div>
 

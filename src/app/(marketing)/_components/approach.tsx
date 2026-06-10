@@ -22,7 +22,7 @@ export function Approach() {
         <Reveal>
           <SectionHead
             label="Practice"
-            title="두 갈래는 서로의 자원과 의사결정 흐름을 분리해 독립적으로 운영합니다."
+            title="AI 에이전트 개발과 기업 시스템 구축. 두 사업은 자원과 의사결정을 나눠 독립적으로 운영합니다."
             aside="2-track operation"
           />
         </Reveal>
@@ -32,13 +32,13 @@ export function Approach() {
             <Pane
               sub="▌ Track A / Agent Line"
               title="AI Agents"
-              body="장기 성장 동력. Specify를 시작으로 영역을 넓혀가며 도메인별 전문 AI 에이전트를 순차 확장하는, AI 에이전트 개발 전문 기업으로 성장합니다."
+              body="장기 성장을 맡는 축입니다. 첫 제품 Specify가 Open Beta로 운영 중이고, 다음 에이전트들은 도메인 검토 단계에 있습니다."
               items={trackA}
             />
             <Pane
               sub="▌ Track B / Service Line"
               title="Enterprise Engineering"
-              body="단기 자금 + 캐시플로. 클라이언트 의뢰 기반의 맞춤형 IT 시스템 설계·구축·운영. AI 에이전트 라인과 분리 운영합니다."
+              body="오늘의 운영 자금을 안정시키는 축입니다. 기업 의뢰를 받아 IT 시스템을 설계부터 운영까지 맡습니다. AI 에이전트 개발과 인력·의사결정을 나눠, 서로의 속도를 해치지 않습니다."
               items={trackB}
             />
           </div>

@@ -18,11 +18,11 @@ export function SpecifySection() {
             label="AI Agents · Lineup"
             title={
               <>
-                파편화된 정보를 꿰는 AI 에이전트로.{" "}
+                첫 제품 Specify를 시작으로,{" "}
                 <em className="font-bold italic text-accent-soft">
-                  영역을 넓혀 라인업을 확장
-                </em>
-                합니다.
+                  분야별 AI 에이전트를 하나씩
+                </em>{" "}
+                늘려갑니다.
               </>
             }
             aside="01 Shipped · 02 In-Research"
@@ -71,16 +71,17 @@ export function SpecifySection() {
                     Specify
                   </h3>
                   <p className="m-0 max-w-[32ch] break-keep text-[clamp(17px,1.4vw,20px)] leading-[1.5] text-foreground">
-                    파편화된 사내 지식을 그래프 기반 온톨로지로 구조화하는,
-                    기업용 AI 두뇌.
+                    흩어진 사내 지식을 하나의 지식 그래프로 엮는, 기업용 AI
+                    두뇌.
                   </p>
                 </div>
 
                 <p className="m-0 max-w-[54ch] break-keep text-[15px] leading-[1.75] text-fg-muted">
-                  GitHub, Notion, Google Docs, 코드. 서로 다른
-                  &ldquo;언어&rdquo;로 흩어진 사내 데이터를 통합 해독합니다. 단순
-                  저장·검색을 넘어 AI의 자율 추론으로 인사이트를 역제안하며, 정보
-                  탐색 시간을 평균 40% 단축합니다.
+                  필요한 자료가 어디 있는지 아무도 모르는 순간이 회사마다
+                  반복됩니다. Specify는 GitHub, Notion, Google Docs, 코드에
+                  흩어진 데이터를 관계로 묶어 하나의 지식망으로 만듭니다.
+                  질문하면 흩어진 문서를 가로질러 답하고, 관련 자료를 먼저
+                  제안합니다. 정보 찾는 시간은 평균 40% 줄어듭니다.
                 </p>
 
                 <dl className="grid max-w-[520px] grid-cols-3 gap-8 border-t border-line-soft pt-7">
@@ -99,7 +100,7 @@ export function SpecifySection() {
                   rel="noopener noreferrer"
                 >
                   <span className="border-b border-foreground/40 pb-1 transition-colors group-hover:border-brand-light">
-                    Visit specify.app
+                    specify.app 둘러보기
                   </span>
                   <svg
                     width="12"
@@ -217,7 +218,7 @@ function SpecifyVisual() {
         <div className="relative overflow-hidden rounded-[8px]">
           <Image
             src="/images/specify.webp"
-            alt="Specify 제품 화면 — AI로 지식을 연결하는 스마트 문서 플랫폼"
+            alt="Specify 제품 화면 — 사내 지식을 그래프로 연결하는 기업용 AI 두뇌"
             width={1920}
             height={1059}
             sizes="(max-width: 1024px) 100vw, 720px"
