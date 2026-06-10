@@ -4,6 +4,7 @@ import { Geist_Mono, Instrument_Serif, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { JsonLd } from "@/components/seo/json-ld";
+import { SITE_DESCRIPTION } from "@/lib/seo";
 import "./globals.css";
 
 const scDream = localFont({
@@ -49,8 +50,7 @@ export const metadata: Metadata = {
     default: "Amiolas",
     template: "%s — Amiolas",
   },
-  description:
-    "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 에이전트와 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
+  description: SITE_DESCRIPTION,
   applicationName: "Amiolas",
   authors: [{ name: "Amiolas" }],
   creator: "Amiolas",
@@ -62,6 +62,8 @@ export const metadata: Metadata = {
     "온톨로지",
     "엔터프라이즈 AI",
     "지식 그래프",
+    "사내 지식 검색",
+    "기업용 AI",
     "Specify",
   ],
   alternates: {
@@ -90,14 +92,12 @@ export const metadata: Metadata = {
     url: "https://amiolas.com",
     siteName: "Amiolas",
     title: "Amiolas — 의미의 연속성을 회복합니다",
-    description:
-      "단절된 곳에 의미의 연속성을 회복합니다. 자체 AI 에이전트와 엔터프라이즈 엔지니어링을 병행하는 AI Studio.",
+    description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
     title: "Amiolas — 의미의 연속성을 회복합니다",
-    description:
-      "단절된 곳에 의미의 연속성을 회복합니다.",
+    description: "흩어진 회사 지식을 AI로 다시 잇습니다.",
   },
 };
 

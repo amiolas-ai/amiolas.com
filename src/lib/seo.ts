@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 
 const SITE_URL = "https://amiolas.com";
 
+/** 사이트 공통 소개 문장 — layout·manifest·json-ld·OG 이미지가 모두 이 상수를 참조 (표류 방지) */
+export const SITE_DESCRIPTION =
+  "흩어진 회사 지식을 AI로 다시 잇습니다. 자체 AI 에이전트 개발과 기업 시스템 구축을 병행하는 AI Studio, Amiolas.";
+
 type BuildMetadataArgs = {
   title?: string;
   description?: string;

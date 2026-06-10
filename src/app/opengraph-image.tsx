@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { SITE_DESCRIPTION } from "@/lib/seo";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -140,7 +141,7 @@ export default async function OG() {
                 color: "#a59fb8",
               }}
             >
-              자체 AI 에이전트와 엔터프라이즈 엔지니어링을 병행하는 AI Studio.
+              {SITE_DESCRIPTION}
             </div>
           </div>
           <div
