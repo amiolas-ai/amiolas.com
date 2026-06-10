@@ -7,7 +7,10 @@ export function Hero() {
       <HeroVideo />
 
       {/* corner marker */}
-      <span className="glitch-soft pointer-events-none absolute bottom-4 right-[var(--pad)] z-[2] font-mono text-label-sm uppercase text-brand-light opacity-70">
+      <span
+        aria-hidden
+        className="glitch-soft pointer-events-none absolute bottom-4 right-[var(--pad)] z-[2] font-mono text-label-sm uppercase text-brand-light opacity-70"
+      >
         Scroll ↓
       </span>
 
@@ -24,9 +27,8 @@ export function Hero() {
 
         <Reveal>
           <h1 className="m-0 max-w-[18ch] text-balance break-keep text-display [text-shadow:0_4px_30px_rgba(0,0,0,0.5)]">
-            <span className="glitch glitch-base" data-text="끊어진 의미를">
-              끊어진 의미를
-            </span>
+            {/* 1행은 플리커만 — 풀 글리치는 2행 한 곳으로 수렴해 시선 집중 */}
+            <span className="glitch-base">끊어진 의미를</span>
             <br />
             <span
               className="glitch glitch-base"

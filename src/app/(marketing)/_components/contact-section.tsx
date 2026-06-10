@@ -1,5 +1,7 @@
 import { Reveal } from "@/components/marketing/reveal";
 import { ContactTrigger } from "@/components/layout/contact-trigger";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const list = [
   { dt: "General", dd: "support@amiolas.com" },
@@ -14,8 +16,8 @@ export function ContactSection() {
       className="relative border-t border-dashed border-border py-section-lg"
       style={{
         background:
-          "radial-gradient(ellipse 60% 80% at 20% 50%, oklch(0.55 0.22 295 / 0.16) 0%, transparent 60%)," +
-          "radial-gradient(ellipse 50% 70% at 95% 30%, oklch(0.55 0.22 295 / 0.1) 0%, transparent 55%)",
+          "radial-gradient(ellipse 60% 80% at 20% 50%, oklch(0.55 0.22 295 / 0.12) 0%, transparent 60%)," +
+          "radial-gradient(ellipse 50% 70% at 95% 30%, oklch(0.55 0.22 295 / 0.06) 0%, transparent 55%)",
       }}
     >
       {/* scanline rule at the top edge */}
@@ -46,7 +48,12 @@ export function ContactSection() {
                 AI 에이전트 도입, 시스템 구축 의뢰, 협업과 미디어 문의 모두
                 메시지 한 통으로 시작합니다.
               </p>
-              <ContactTrigger className="inline-flex items-center gap-3.5 rounded-full bg-brand px-6 py-4 text-sm font-medium text-white shadow-[0_0_0_0_color-mix(in_oklab,var(--color-brand)_40%,transparent),8px_8px_0_rgba(0,0,0,0.18)] transition hover:-translate-y-0.5 hover:bg-brand-light hover:shadow-[0_18px_60px_-10px_color-mix(in_oklab,var(--color-brand-light)_60%,transparent)]">
+              <ContactTrigger
+                className={cn(
+                  buttonVariants({ variant: "primary", size: "lg" }),
+                  "gap-3 px-7 hover:-translate-y-0.5 hover:shadow-glow-lg",
+                )}
+              >
                 <span>문의 시작하기</span>
                 <svg
                   width="14"
@@ -68,7 +75,7 @@ export function ContactSection() {
               </div>
             </div>
 
-            <div className="border-l border-dashed border-border pl-9">
+            <div className="border-t border-dashed border-border pt-8 md:border-l md:border-t-0 md:pl-9 md:pt-0">
               <dl className="text-body-sm text-fg-muted">
                 {list.map((row, i) => (
                   <div

@@ -9,9 +9,9 @@ const items = [
 
 function Track() {
   return (
-    <div className="flex shrink-0 items-center gap-14 pr-14 font-mono text-xs uppercase tracking-[0.22em]">
+    <div className="flex shrink-0 items-center gap-12 pr-12 font-mono text-xs uppercase tracking-[0.22em]">
       {items.map((item) => (
-        <div key={item} className="flex shrink-0 items-center gap-14">
+        <div key={item} className="flex shrink-0 items-center gap-12">
           <span>{item}</span>
           <span className="text-accent-soft">◆</span>
         </div>
@@ -24,7 +24,7 @@ export function Marquee() {
   return (
     <div
       aria-hidden
-      className="relative overflow-hidden border-y border-dashed border-border py-5 text-fg-dim"
+      className="relative overflow-hidden border-y border-dashed border-border py-5 text-fg-dim [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]"
     >
       <div className="flex w-max animate-marquee">
         <Track />
