@@ -26,13 +26,59 @@
 
   /* Foreground tiers */
   --color-fg-muted: var(--muted-foreground);
-  --color-fg-subtle: oklch(0.62 0.012 290);
   --color-fg-dim: var(--fg-dim);
+
+  /* Type scale — 한글(SCDream)·Space Grotesk 혼용: 본문 tracking 0, 한글 헤드라인 자간 -0.02em 상한 */
+  --text-display: clamp(2.5rem, 6.4vw, 4.75rem); /* 40→76 · hero H1 */
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 700;
+  --text-wordmark: clamp(2.5rem, 5vw, 4rem); /* 40→64 · 제품 워드마크 (Latin 전용) */
+  --text-wordmark--line-height: 1;
+  --text-wordmark--letter-spacing: -0.028em;
+  --text-wordmark--font-weight: 600;
+  --text-title: clamp(1.75rem, 3.2vw, 2.75rem); /* 28→44 · contact H2 */
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.022em;
+  --text-title--font-weight: 700;
+  --text-heading: clamp(1.375rem, 2.2vw, 1.875rem); /* 22→30 · SectionHead H2 */
+  --text-heading--line-height: 1.3;
+  --text-heading--letter-spacing: -0.016em;
+  --text-heading--font-weight: 600;
+  --text-subheading: 1.25rem; /* 20 · pane H3 · 라인업 카드 타이틀 */
+  --text-subheading--line-height: 1.4;
+  --text-subheading--letter-spacing: -0.012em;
+  --text-subheading--font-weight: 600;
+  --text-lede: clamp(1.0625rem, 1.4vw, 1.25rem); /* 17→20 · 제품 리드 */
+  --text-lede--line-height: 1.55;
+  --text-body-lg: clamp(0.9375rem, 1.3vw, 1.125rem); /* 15→18 · hero 문단 */
+  --text-body-lg--line-height: 1.7;
+  --text-body: 0.9375rem; /* 15 · 표준 본문 */
+  --text-body--line-height: 1.75;
+  --text-body-sm: 0.84375rem; /* 13.5 · 리스트 행·위젯 본문 */
+  --text-body-sm--line-height: 1.6;
+  --text-label: 0.6875rem; /* 11 · eyebrow·dt·메타 (mono) */
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.16em;
+  --text-label-sm: 0.625rem; /* 10 · fig 번호·badge (mono) */
+  --text-label-sm--line-height: 1.4;
+  --text-label-sm--letter-spacing: 0.18em;
+
+  /* Section vertical rhythm */
+  --spacing-section-sm: clamp(3.5rem, 8vw, 6rem); /* 56→96 · mission-bar */
+  --spacing-section: clamp(4.5rem, 9vw, 7.5rem); /* 72→120 · specify·approach */
+  --spacing-section-lg: clamp(5.5rem, 11vw, 10rem); /* 88→160 · contact */
 
   /* Tracking · shadow · motion */
   --tracking-eyebrow: 0.16em;
   --shadow-hairline: inset 0 0 0 1px oklch(0 0 0 / 0.04);
   --shadow-inner-sheen: inset 0 1px 0 0 oklch(1 0 0 / 0.6);
+  --shadow-glow-sm:
+    0 0 0 1px oklch(0.55 0.22 295 / 0.4),
+    0 8px 24px -6px oklch(0.55 0.22 295 / 0.5); /* 버튼·FAB violet 글로우 */
+  --shadow-glow-lg:
+    0 30px 80px -30px oklch(0.55 0.22 295 / 0.4),
+    0 0 0 1px oklch(0.55 0.22 295 / 0.1); /* 카드·비주얼 프레임 글로우 */
 
   --animate-aura-pulse: aura-pulse 8s ease-in-out infinite;
   @keyframes aura-pulse {
@@ -147,6 +193,14 @@
 
 * {
   border-color: var(--color-border);
+}
+
+/* 키보드 포커스 기본값 — 컴포넌트의 focus-visible 유틸리티(ring 등)가 우선하도록 base 레이어에 둔다 */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+  }
 }
 
 body {
@@ -466,6 +520,23 @@ body {
   98% {
     opacity: 1;
     transform: translate(-1px, 1px);
+  }
+}
+
+/* ===== Reduced motion — glitch 계열은 캐논(항상 동작)이라 제외 ===== */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-aura-pulse {
+    animation-play-state: paused; /* 정지된 트랙은 그대로 노출 */
+  }
+  .status-dot {
+    animation: none;
+  }
+  .rv {
+    /* 콘텐츠 은닉 방지 — 스크롤 reveal 없이 즉시 표시 */
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

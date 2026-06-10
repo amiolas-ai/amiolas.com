@@ -10,7 +10,7 @@ export function Eyebrow({ children, className }: Props) {
   return (
     <span
       className={cn(
-        "font-mono text-[11px] uppercase tracking-eyebrow text-fg-subtle",
+        "font-mono text-label uppercase text-fg-dim",
         className,
       )}
     >

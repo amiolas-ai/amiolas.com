@@ -115,29 +115,52 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
   --color-background · --color-foreground · --color-card · --color-popover
   --color-primary · --color-secondary · --color-muted · --color-accent
   --color-destructive · --color-border · --color-input · --color-ring
-  /* :root surfaces (deep dark, hue 290) — bg 0.13 → surface-soft 0.16 → surface-card 0.18 → muted/secondary 0.22 → accent 0.24 → line-soft 0.26 → border 0.30. fg 0.92 / muted-fg 0.70 / fg-dim 0.58. primary-foreground #0b0a10 (violet 버튼 위 텍스트) */
+  /* :root surfaces (deep dark, hue 290) — bg 0.13 → surface-soft 0.16 → surface-card 0.18 → muted/secondary 0.22 → accent 0.24 → raised 0.23/0.28 → line-soft 0.36 → border 0.42. fg 0.92 / muted-fg 0.70 / fg-dim 0.62. primary-foreground #0b0a10 (violet 버튼 위 텍스트) */
 
   /* Surface 확장 */
-  --color-border-strong: oklch(0.40 0.014 290);
+  --color-border-strong: oklch(0.52 0.016 290);
   --color-fg-muted: var(--muted-foreground);
-  --color-fg-subtle: oklch(0.62 0.012 290);
+
+  /* Type scale (text-* 유틸리티 — size·leading·tracking·weight 내장) */
+  --text-display:    clamp(40→76px) /1.08 /-0.02em /700   — hero H1
+  --text-wordmark:   clamp(40→64px) /1    /-0.028em /600  — 제품 워드마크 (Latin 전용)
+  --text-title:      clamp(28→44px) /1.2  /-0.022em /700  — contact H2
+  --text-heading:    clamp(22→30px) /1.3  /-0.016em /600  — SectionHead H2
+  --text-subheading: 20px           /1.4  /-0.012em /600  — pane H3·카드 타이틀
+  --text-lede:       clamp(17→20px) /1.55                 — 제품 리드
+  --text-body-lg:    clamp(15→18px) /1.7                  — hero 문단
+  --text-body:       15px           /1.75                 — 표준 본문
+  --text-body-sm:    13.5px         /1.6                  — 리스트 행·위젯
+  --text-label:      11px mono      /1.4  /0.16em         — eyebrow·dt·메타
+  --text-label-sm:   10px mono      /1.4  /0.18em         — fig 번호·badge
+  /* 한글 원칙: 본문 tracking 0(음수 금지), 한글 헤드라인 자간 -0.02em 상한, break-keep */
+
+  /* Section vertical rhythm (py-section* 유틸리티) */
+  --spacing-section-sm: clamp(56→96px)   — mission-bar
+  --spacing-section:    clamp(72→120px)  — specify·approach
+  --spacing-section-lg: clamp(88→160px)  — contact
 
   /* Type */
   --font-sans:  var(--font-space-grotesk), var(--font-sc-dream);  /* Latin: Space Grotesk · KR: SCDream 폴백 */
   --font-mono:  var(--font-geist-mono);
-  --tracking-eyebrow: 0.16em;
+  --tracking-eyebrow: 0.16em  /* mono 라벨 기본. 디스플레이 모노(marquee·Featured 태그)만 0.22em */
 
   /* Shadow */
   --shadow-hairline:    inset 0 0 0 1px oklch(0 0 0 / 0.04)   /* 카드 미세 윤곽 */
   --shadow-inner-sheen: inset 0 1px 0 0 oklch(1 0 0 / 0.6)    /* 상단 highlight */
+  --shadow-glow-sm:     violet ring + 24px drop (버튼·FAB 글로우)
+  --shadow-glow-lg:     violet 80px halo + hairline ring (카드·비주얼 프레임)
 
   /* Motion */
   --animate-aura-pulse: aura-pulse 8s ease-in-out infinite (brand glow 전용)
   --animate-marquee:    marquee-scroll 50s linear infinite (키워드 스트립)
+  /* reduced-motion: marquee·aura 일시정지, status-dot·reveal(.rv) 비활성. glitch 계열만 제외 */
 
   /* Glitch (절제된 사이버펑크 · globals.css 전역 클래스) */
   .glitch / .glitch-base / .glitch-soft + @keyframes glitch-x/-y/-flicker/-soft
-  /* ~5.6s 사이클 중 4~6%만 트리거. hero H1·라벨 한정. 항상 동작(reduced-motion 미가드 — 디자인 의도) */
+  /* 3.6s 사이클(H1)·7s(soft) 중 4~6%만 트리거. hero H1·라벨 한정. 항상 동작(reduced-motion 미가드 — 디자인 의도) */
+
+  /* Focus — base 레이어 전역 :focus-visible (outline 2px ring) · 컴포넌트 ring 유틸리티가 우선 */
 
   /* Background atmospheres (globals.css 전역) */
   .bg-fx (violet radial glow) · .bg-grid (40px) · .bg-scanline (3px) · .bg-noise
