@@ -152,8 +152,8 @@
   --popover-foreground: var(--foreground);
 
   --primary: oklch(0.55 0.22 295);
-  /* violet 버튼 위 텍스트는 딥 다크 */
-  --primary-foreground: #0b0a10;
+  /* violet 버튼 위 텍스트 — near-white. 딥 다크(#0b0a10)는 brand 대비 3.74:1로 AA 미달 */
+  --primary-foreground: oklch(0.985 0 0);
 
   --secondary: oklch(0.22 0.013 290);
   --secondary-foreground: var(--foreground);
@@ -176,19 +176,21 @@
    above the dark page. Token overrides cascade to every semantic utility used
    inside the panel (text-foreground, bg-surface-raised, border-border, …). */
 .contact-light {
-  --background: oklch(0.99 0.004 85);
-  --surface-soft: oklch(0.965 0.006 85);
-  --surface-card: oklch(0.975 0.005 85);
-  --surface-raised: oklch(0.995 0.003 85);
-  --surface-raised-soft: oklch(0.95 0.008 85);
+  /* 쿨 뉴트럴(hue 290) — 다크 페이지(hue 290/295)와 색온도 정합. 웜 크림(hue 85)은 충돌 */
+  --background: oklch(0.98 0.005 290);
+  --surface-soft: oklch(0.945 0.007 290);
+  --surface-card: oklch(0.96 0.006 290);
+  --surface-raised: oklch(0.985 0.004 290);
+  --surface-raised-soft: oklch(0.93 0.008 290);
   --foreground: oklch(0.18 0.012 290);
-  --muted-foreground: oklch(0.42 0.014 285);
-  --fg-dim: oklch(0.52 0.012 285);
-  --border: oklch(0.86 0.008 85);
-  --line-soft: oklch(0.92 0.006 85);
-  --input: oklch(0.86 0.008 85);
+  --muted-foreground: oklch(0.42 0.014 290);
+  --fg-dim: oklch(0.48 0.012 290);
+  --border: oklch(0.8 0.01 290);
+  --line-soft: oklch(0.9 0.008 290);
+  /* input 경계는 패널 대비 ~3:1 (WCAG 1.4.11 비텍스트 대비) */
+  --input: oklch(0.66 0.012 290);
   --card: var(--surface-card);
-  --color-border-strong: oklch(0.8 0.008 85);
+  --color-border-strong: oklch(0.7 0.012 290);
 }
 
 * {

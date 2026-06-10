@@ -129,7 +129,7 @@ export function SpecifySection() {
           <div className="mt-10">
             <div className="flex items-center justify-between gap-4 px-1 pb-4 font-mono text-[11px] uppercase tracking-[0.18em] text-fg-dim">
               <span>↓ Next in the lineup</span>
-              <span className="hidden opacity-70 sm:inline">
+              <span className="hidden sm:inline">
                 도메인 검토 단계 · 일정은 변동될 수 있습니다
               </span>
             </div>
@@ -137,10 +137,10 @@ export function SpecifySection() {
               {lineup.map((p) => (
                 <li
                   key={p.id}
-                  className="relative rounded-[6px] border border-dashed border-border p-[22px] opacity-90"
+                  className="relative rounded-[6px] border border-dashed border-border p-[22px]"
                 >
                   <div className="mb-2.5 flex items-baseline justify-between">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-fg-dim opacity-70">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-fg-dim">
                       {`0${p.id.length} / ${p.id}`}
                     </span>
                     <span className="rounded-full border border-border px-2 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.18em] text-fg-dim">
@@ -160,7 +160,7 @@ export function SpecifySection() {
                 </li>
               ))}
               {/* open-ended "+" slot — the lineup is not fixed */}
-              <li className="flex min-h-[150px] flex-col items-center justify-center rounded-[6px] border border-dashed border-border p-[22px] opacity-60">
+              <li className="flex min-h-[150px] flex-col items-center justify-center rounded-[6px] border border-dashed border-line-soft p-[22px]">
                 <div className="text-[42px] leading-none text-brand-light">+</div>
                 <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-dim">
                   Future Agent
@@ -237,7 +237,7 @@ function SpecifyVisual() {
 
       <figcaption className="mt-3 flex items-center justify-between font-mono text-[10.5px] uppercase tracking-[0.18em] text-fg-dim">
         <span className="text-brand-light">▣ Specify · Live Product UI</span>
-        <span className="opacity-70">specify.app</span>
+        <span>specify.app</span>
       </figcaption>
     </figure>
   );

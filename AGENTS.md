@@ -115,7 +115,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
   --color-background · --color-foreground · --color-card · --color-popover
   --color-primary · --color-secondary · --color-muted · --color-accent
   --color-destructive · --color-border · --color-input · --color-ring
-  /* :root surfaces (deep dark, hue 290) — bg 0.13 → surface-soft 0.16 → surface-card 0.18 → muted/secondary 0.22 → accent 0.24 → raised 0.23/0.28 → line-soft 0.36 → border 0.42. fg 0.92 / muted-fg 0.70 / fg-dim 0.62. primary-foreground #0b0a10 (violet 버튼 위 텍스트) */
+  /* :root surfaces (deep dark, hue 290) — bg 0.13 → surface-soft 0.16 → surface-card 0.18 → muted/secondary 0.22 → accent 0.24 → raised 0.23/0.28 → line-soft 0.36 → border 0.42. fg 0.92 / muted-fg 0.70 / fg-dim 0.62. primary-foreground near-white 0.985 (violet 버튼 위 텍스트 — 5.4:1 AA) */
 
   /* Surface 확장 */
   --color-border-strong: oklch(0.52 0.016 290);
@@ -175,6 +175,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
 - **폰트**: 한글은 `next/font/local` SCDream 9 weights self-host (`public/fonts/SCDream{1..9}.otf`). **Latin은 Space Grotesk**(`next/font/google`) — `--font-sans` 스택 1순위에 두고 한글은 SCDream으로 폴백. Geist Mono는 mono(코드·라벨), Instrument Serif는 일부 이탤릭 인용(mission-bar)에 사용. ※ 디자인 와이어프레임의 손글씨 폰트(Caveat·Patrick Hand)는 lo-fi placeholder — 프로덕션엔 사용 안 함
 - **로고/이미지**: `public/logos/logo.png` (투명 배경 단일 로고), `public/images/` (specify.webp), `public/videos/hero.mp4` (히어로 풀블리드 배경 영상)
 - **Aura/Glow 사용**: hero · CTA · mission bar 한정. `--color-brand-glow` + `blur(40px)` + `animate-aura-pulse`, 또는 violet radial-gradient. 그 외 영역에서 남용 금지
+- **대비 규칙**: 소형 텍스트(24px 미만)에 `text-brand` 금지(bg 대비 3.7:1) — 소형 액센트는 `text-brand-light`(5.1:1)만. 텍스트 위에 `opacity-*` 수정자를 겹치지 말 것(토큰 색으로 직접 표현 — fg-muted·fg-dim 사용)
 - **보더**: 블루프린트 무드의 dashed 보더(`border-dashed border-border`)를 섹션 구분에 사용. 글리치는 hero H1·라벨에만 절제 적용
 
 ### 디자인 토큰 변경 시
