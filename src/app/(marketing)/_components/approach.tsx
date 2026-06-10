@@ -28,7 +28,7 @@ export function Approach() {
         </Reveal>
 
         <Reveal>
-          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[18px] border border-dashed border-border bg-line-soft md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-dashed border-border bg-line-soft md:grid-cols-2">
             <Pane
               sub="▌ Track A / Agent Line"
               title="AI Agents"
@@ -60,7 +60,7 @@ function Pane({
   items: Item[];
 }) {
   return (
-    <div className="bg-background px-8 py-9">
+    <div className="bg-background p-[clamp(28px,3vw,44px)]">
       <div className="mb-6 font-mono text-label uppercase text-fg-dim">
         {sub}
       </div>

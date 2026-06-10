@@ -32,10 +32,10 @@ export function SpecifySection() {
         {/* FEATURED — Specify */}
         <Reveal>
           <article
-            className="relative rounded-[10px] border border-border p-[clamp(24px,3.4vw,40px)]"
+            className="relative rounded-xl border border-border p-[clamp(24px,3.4vw,40px)]"
             style={{
               background:
-                "radial-gradient(ellipse at 80% 30%, oklch(0.55 0.22 295 / 0.1) 0%, transparent 60%)",
+                "radial-gradient(ellipse at 80% 30%, color-mix(in oklab, var(--color-brand) 8%, transparent) 0%, transparent 60%)",
             }}
           >
             <CornerBrackets />
@@ -43,8 +43,8 @@ export function SpecifySection() {
               ▍ Featured · Now Shipping
             </div>
 
-            <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
-              <div className="flex flex-col gap-10">
+            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-14">
+              <div className="flex flex-col gap-8">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-label uppercase text-fg-dim">
                   <span className="rounded-sm border border-border px-2 py-0.5 font-mono text-label-sm">
                     01 / 01
@@ -138,7 +138,7 @@ export function SpecifySection() {
               {lineup.map((p) => (
                 <li
                   key={p.id}
-                  className="relative rounded-[6px] border border-dashed border-border p-[22px]"
+                  className="relative rounded-lg border border-dashed border-line-soft p-6"
                 >
                   <div className="mb-2.5 flex items-baseline justify-between">
                     <span className="font-mono text-label-sm uppercase text-fg-dim">
@@ -148,20 +148,20 @@ export function SpecifySection() {
                       {p.stage}
                     </span>
                   </div>
-                  <div className="text-[24px] font-semibold tracking-[-0.01em]">
+                  <div className="text-subheading text-fg-muted">
                     {p.name}
                   </div>
                   <div className="mt-1.5 font-mono text-label text-fg-dim">
                     {p.domain}
                   </div>
-                  <div className="mt-4 flex items-center justify-between border-t border-dashed border-border pt-3 font-mono text-label-sm text-fg-dim">
+                  <div className="mt-4 flex items-center justify-between border-t border-dashed border-line-soft pt-3 font-mono text-label-sm text-fg-dim">
                     <span>ETA · {p.eta}</span>
                     <span aria-hidden>—</span>
                   </div>
                 </li>
               ))}
               {/* open-ended "+" slot — the lineup is not fixed */}
-              <li className="flex min-h-[150px] flex-col items-center justify-center rounded-[6px] border border-dashed border-line-soft p-[22px]">
+              <li className="flex min-h-[150px] flex-col items-center justify-center rounded-lg border border-dashed border-line-soft p-6">
                 <div className="text-[42px] leading-none text-brand-light">+</div>
                 <div className="mt-2 font-mono text-label-sm uppercase text-fg-dim">
                   Future Agent
@@ -213,9 +213,9 @@ function SpecifyVisual() {
         }}
       />
 
-      <div className="relative rounded-[12px] border border-border bg-surface-card p-1.5 shadow-[0_30px_80px_-30px_oklch(0.55_0.22_295_/_0.4),0_0_0_1px_oklch(0.55_0.22_295_/_0.1)]">
+      <div className="relative rounded-xl border border-border bg-surface-card p-1.5 shadow-glow-lg">
         <CornerBrackets />
-        <div className="relative overflow-hidden rounded-[8px]">
+        <div className="relative overflow-hidden rounded-lg">
           <Image
             src="/images/specify.webp"
             alt="Specify 제품 화면 — 사내 지식을 그래프로 연결하는 기업용 AI 두뇌"
