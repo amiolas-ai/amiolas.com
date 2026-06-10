@@ -11,8 +11,8 @@ export default function HomePage() {
       <Hero />
       <Marquee />
       <SpecifySection />
-      <MissionBar />
       <Approach />
+      <MissionBar />
       <ContactSection />
     </>
   );
