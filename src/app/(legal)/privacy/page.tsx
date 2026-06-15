@@ -94,14 +94,8 @@ const sections: Section[] = [
       <>
         <p className="m-0 text-pretty leading-[1.7] text-fg-muted">
           정보주체는 언제든지 본인의 개인정보에 대해 열람·정정·삭제·처리 정지를
-          요청할 수 있습니다. 요청은{" "}
-          <a
-            href="mailto:support@amiolas.com"
-            className="border-b border-foreground/40 pb-px text-foreground transition-colors hover:border-brand-light hover:text-brand-light"
-          >
-            support@amiolas.com
-          </a>
-          으로 보내주시면 영업일 기준 1일 이내에 회신드립니다.
+          요청할 수 있습니다. 요청은 사이트 우하단 Contact 위젯으로 보내주시면
+          영업일 기준 1일 이내에 회신드립니다.
         </p>
         <p className="mt-4 text-pretty leading-[1.7] text-fg-muted">
           브라우저 localStorage에 저장된 conversationId·이름·이메일은 사용자가
@@ -196,19 +190,12 @@ export default function PrivacyPage() {
           Contact
         </span>
         <p className="mt-3 text-pretty leading-[1.7] text-fg-muted">
-          본 처리방침에 대한 문의는{" "}
-          <a
-            href="mailto:support@amiolas.com"
-            className="border-b border-foreground/40 pb-px text-foreground transition-colors hover:border-brand-light hover:text-brand-light"
-          >
-            support@amiolas.com
-          </a>
-          으로 보내주세요.
+          본 처리방침에 대한 문의는 사이트 우하단 Contact 위젯으로 보내주세요.
         </p>
         <dl className="mt-6 divide-y divide-line-soft">
           <Row term="회사명" desc="Amiolas (아미올라스)" />
           <Row term="소재지" desc="Seoul, KR" />
-          <Row term="이메일" desc="support@amiolas.com" />
+          <Row term="이메일" desc="준비 중" />
         </dl>
       </section>
     </article>

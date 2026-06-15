@@ -15,7 +15,6 @@ const organization = {
   logo: `${SITE_URL}/logos/logo.png`,
   description: SITE_DESCRIPTION,
   foundingDate: "2025",
-  email: "support@amiolas.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Seoul",

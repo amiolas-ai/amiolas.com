@@ -4,7 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const list = [
-  { dt: "General", dd: "support@amiolas.com", blur: true },
+  { dt: "General", dd: "준비 중" },
   { dt: "Studio", dd: "Seoul, KR" },
   { dt: "Office Hours", dd: "Mon–Fri · 10:00 – 19:00 KST", mono: true },
 ] as const;
@@ -92,16 +92,7 @@ export function ContactSection() {
                         "mono" in row && row.mono ? "font-mono" : ""
                       }`}
                     >
-                      {"blur" in row && row.blur ? (
-                        <>
-                          <span aria-hidden className="select-none blur-[5px]">
-                            {row.dd}
-                          </span>
-                          <span className="sr-only">준비 중</span>
-                        </>
-                      ) : (
-                        row.dd
-                      )}
+                      {row.dd}
                     </dd>
                   </div>
                 ))}

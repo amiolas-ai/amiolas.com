@@ -19,12 +19,7 @@ export function Footer() {
             </Link>
           </div>
           <div className="mt-1.5">
-            <a
-              href="mailto:support@amiolas.com"
-              className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
-            >
-              support@amiolas.com
-            </a>
+            준비 중
             <span className="mx-2 opacity-50" aria-hidden>
               ·
             </span>
