@@ -18,6 +18,14 @@ type Props = {
   formKey: number;
 };
 
+// 위젯 폼 입력 필드 공통 스타일 — 화이트 필드 + 옅은 소프트 엣지 + 리프트 섀도(경계는 또렷, 딱딱한 보더는 회피), 포커스 시 violet 링+글로우
+const fieldClass =
+  "h-11 rounded-xl bg-white px-3.5 text-body-sm text-foreground placeholder:text-fg-dim outline-none " +
+  "shadow-[0_0_0_1px_oklch(0.45_0.015_290/0.12),0_1px_2px_oklch(0.3_0.02_290/0.06),0_4px_12px_-3px_oklch(0.3_0.02_290/0.10)] " +
+  "transition-shadow duration-200 " +
+  "hover:shadow-[0_0_0_1px_oklch(0.45_0.015_290/0.18),0_2px_5px_oklch(0.3_0.02_290/0.08),0_6px_16px_-3px_oklch(0.3_0.02_290/0.14)] " +
+  "focus:shadow-[0_0_0_1.5px_var(--color-brand),0_0_0_4px_var(--color-brand-glow)]";
+
 export function WidgetPanel({
   open,
   onClose,
@@ -146,19 +154,19 @@ export function WidgetPanel({
               placeholder="이름"
               required
               maxLength={CONTACT_CONFIG.maxNameLen}
-              className="h-10 rounded-xl bg-surface-soft px-3.5 text-body-sm text-foreground placeholder:text-fg-dim outline-none ring-1 ring-input transition focus:bg-background focus:ring-brand"
+              className={fieldClass}
             />
             <input
               type="email"
               name="email"
               placeholder="이메일"
               required
-              className="h-10 rounded-xl bg-surface-soft px-3.5 text-body-sm text-foreground placeholder:text-fg-dim outline-none ring-1 ring-input transition focus:bg-background focus:ring-brand"
+              className={fieldClass}
             />
           </div>
         )}
 
-        <div className="flex items-stretch gap-2 rounded-2xl bg-surface-soft p-2 ring-1 ring-input transition focus-within:bg-background focus-within:ring-brand">
+        <div className="flex items-stretch gap-2 rounded-2xl bg-white p-2 shadow-[0_0_0_1px_oklch(0.45_0.015_290/0.12),0_1px_2px_oklch(0.3_0.02_290/0.06),0_4px_12px_-3px_oklch(0.3_0.02_290/0.10)] transition-shadow duration-200 hover:shadow-[0_0_0_1px_oklch(0.45_0.015_290/0.18),0_2px_5px_oklch(0.3_0.02_290/0.08),0_6px_16px_-3px_oklch(0.3_0.02_290/0.14)] focus-within:shadow-[0_0_0_1.5px_var(--color-brand),0_0_0_4px_var(--color-brand-glow)]">
           <textarea
             name="text"
             placeholder="메시지를 보내주세요"
