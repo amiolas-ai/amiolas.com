@@ -10,7 +10,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · Vercel
 
-**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), deep dark bg `oklch(0.13 0.012 290)` (≈ `#0b0a10` · hue 290), **다크 단일 테마** (절제된 사이버펑크: 네온 violet + 미세 그리드/스캔라인 + dashed 블루프린트 보더 + 절제된 글리치). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 `**docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), deep dark bg `oklch(0.165 0.012 290)` (hue 290), **다크 단일 테마** (절제된 사이버펑크: 네온 violet + 미세 그리드/스캔라인 + dashed 블루프린트 보더 + 절제된 글리치). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 `**docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
 
 **한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치. 쉬운 한국어 5원칙(전문 용어 첫 등장 시 풀어쓰기 · 한 문장 한 정보 · 영문은 장식 라벨·고유명사만)은 `docs/BRAND.md` §4 참조.
 
@@ -115,7 +115,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
   --color-background · --color-foreground · --color-card · --color-popover
   --color-primary · --color-secondary · --color-muted · --color-accent
   --color-destructive · --color-border · --color-input · --color-ring
-  /* :root surfaces (deep dark, hue 290) — bg 0.13 → surface-soft 0.16 → surface-card 0.18 → muted/secondary 0.22 → accent 0.24 → raised 0.23/0.28 → line-soft 0.36 → border 0.42. fg 0.92 / muted-fg 0.70 / fg-dim 0.62. primary-foreground near-white 0.985 (violet 버튼 위 텍스트 — 5.4:1 AA) */
+  /* :root surfaces (deep dark, hue 290) — bg 0.165 → surface-soft 0.195 → surface-card 0.215 → muted/secondary 0.255 → accent 0.275 → raised 0.265/0.315 → line-soft 0.36 → border 0.42. fg 0.92 / muted-fg 0.70 / fg-dim 0.62. primary-foreground near-white 0.985 (violet 버튼 위 텍스트 — 5.4:1 AA) */
 
   /* Surface 확장 */
   --color-border-strong: oklch(0.52 0.016 290);
