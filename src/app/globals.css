@@ -172,10 +172,12 @@
   --ring: oklch(0.55 0.22 295);
 }
 
-/* Contact widget runs a LIGHT surface so it reads as a bright floating panel
-   above the dark page. Token overrides cascade to every semantic utility used
-   inside the panel (text-foreground, bg-surface-raised, border-border, …). */
-.contact-light {
+/* LIGHT surface — token overrides cascade to every semantic utility used inside
+   (text-foreground, bg-surface-card, border-border, …). Used by the contact
+   widget (bright floating panel) and by the /careers route, which is an
+   intentional light page — the one exception to the dark single theme. */
+.contact-light,
+.surface-light {
   /* 쿨 뉴트럴(hue 290) — 다크 페이지(hue 290/295)와 색온도 정합. 웜 크림(hue 85)은 충돌 */
   --background: oklch(0.98 0.005 290);
   --surface-soft: oklch(0.945 0.007 290);
@@ -191,6 +193,14 @@
   --input: oklch(0.66 0.012 290);
   --card: var(--surface-card);
   --color-border-strong: oklch(0.7 0.012 290);
+}
+
+/* careers(라이트 서피스)에서는 다크 전용 배경 아틀라스를 끈다 */
+.surface-light .bg-fx,
+.surface-light .bg-grid,
+.surface-light .bg-scanline,
+.surface-light .bg-noise {
+  display: none;
 }
 
 * {

@@ -31,7 +31,13 @@ export function Header() {
           </span>
         </div>
 
-        <nav className="flex items-center justify-end">
+        <nav className="flex items-center justify-end gap-4 sm:gap-5">
+          <Link
+            href="/careers"
+            className="text-sm font-medium text-foreground transition-colors hover:text-brand-light"
+          >
+            영입
+          </Link>
           <ContactTrigger className="group inline-flex items-center gap-2 rounded-full border border-border px-3.5 py-2 text-xs text-foreground transition hover:border-foreground hover:bg-foreground hover:text-background">
             <span
               aria-hidden
