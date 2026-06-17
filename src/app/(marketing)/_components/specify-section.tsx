@@ -5,8 +5,8 @@ import { SectionHead } from "@/components/marketing/section-head";
 // Future product slots — scalable lineup. When a new product ships, promote it
 // into the FEATURED slot above.
 const lineup = [
-  { id: "II", name: "Agent II", domain: "도메인 검토 단계", stage: "TBA", eta: "2026 H2" },
-  { id: "III", name: "Agent III", domain: "도메인 검토 단계", stage: "TBA", eta: "2027" },
+  { id: "II", name: "세무 AI 에이전트", domain: "", stage: "In Dev", eta: "2026 H2", active: true },
+  { id: "III", name: "Agent III", domain: "도메인 검토 단계", stage: "TBA", eta: "2027", active: false },
 ] as const;
 
 export function SpecifySection() {
@@ -25,14 +25,14 @@ export function SpecifySection() {
                 늘려갑니다.
               </>
             }
-            aside="01 Shipped · 02 In-Research"
+            aside="01 Shipped · 01 In-Dev · 01 In-Research"
           />
         </Reveal>
 
         {/* FEATURED — Specify */}
         <Reveal>
           <article
-            className="relative rounded-xl border border-border p-[clamp(24px,3.4vw,40px)]"
+            className="relative rounded-xl border border-brand-light/30 p-[clamp(24px,3.4vw,40px)]"
             style={{
               background:
                 "radial-gradient(ellipse at 80% 30%, color-mix(in oklab, var(--color-brand) 8%, transparent) 0%, transparent 60%)",
@@ -67,9 +67,18 @@ export function SpecifySection() {
                 </div>
 
                 <div className="flex flex-col gap-5">
-                  <h3 className="m-0 text-wordmark uppercase">
-                    Specify
-                  </h3>
+                  <div className="flex items-center gap-3.5">
+                    <Image
+                      src="/logos/specify.png"
+                      alt=""
+                      width={256}
+                      height={256}
+                      className="size-12 shrink-0 lg:size-14"
+                    />
+                    <h3 className="m-0 text-wordmark uppercase">
+                      Specify
+                    </h3>
+                  </div>
                   <p className="m-0 max-w-[32ch] break-keep text-lede text-foreground">
                     흩어진 사내 지식을 하나의 지식 그래프로 엮는, 기업용 AI
                     두뇌.
@@ -131,30 +140,58 @@ export function SpecifySection() {
             <div className="flex items-center justify-between gap-4 px-1 pb-4 font-mono text-label uppercase text-fg-dim">
               <span>↓ Next in the lineup</span>
               <span className="hidden sm:inline">
-                도메인 검토 단계 · 일정은 변동될 수 있습니다
+                개발·검토 단계 · 일정은 변동될 수 있습니다
               </span>
             </div>
             <ul className="m-0 grid list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
               {lineup.map((p) => (
                 <li
                   key={p.id}
-                  className="relative rounded-lg border border-dashed border-line-soft p-6"
+                  className={`relative rounded-lg border p-6 ${
+                    p.active
+                      ? "border-brand-light/35 bg-brand-glow-soft"
+                      : "border-dashed border-line-soft"
+                  }`}
                 >
                   <div className="mb-2.5 flex items-baseline justify-between">
                     <span className="font-mono text-label-sm uppercase text-fg-dim">
                       {`0${p.id.length} / ${p.id}`}
                     </span>
-                    <span className="rounded-full border border-border px-2 py-0.5 font-mono text-label-sm uppercase text-fg-dim">
+                    <span
+                      className={`inline-flex items-center gap-1.5 rounded-full border px-2 py-0.5 font-mono text-label-sm uppercase ${
+                        p.active
+                          ? "border-brand-light/40 text-brand-light"
+                          : "border-border text-fg-dim"
+                      }`}
+                    >
+                      {p.active ? (
+                        <span
+                          aria-hidden
+                          className="size-1.5 rounded-full bg-brand-light"
+                        />
+                      ) : null}
                       {p.stage}
                     </span>
                   </div>
-                  <div className="text-subheading text-fg-muted">
+                  <div
+                    className={`text-subheading ${
+                      p.active ? "text-foreground" : "text-fg-muted"
+                    }`}
+                  >
                     {p.name}
                   </div>
-                  <div className="mt-1.5 font-mono text-label text-fg-dim">
-                    {p.domain}
-                  </div>
-                  <div className="mt-4 flex items-center justify-between border-t border-dashed border-line-soft pt-3 font-mono text-label-sm text-fg-dim">
+                  {p.domain ? (
+                    <div className="mt-1.5 font-mono text-label text-fg-dim">
+                      {p.domain}
+                    </div>
+                  ) : null}
+                  <div
+                    className={`mt-4 flex items-center justify-between border-t pt-3 font-mono text-label-sm text-fg-dim ${
+                      p.active
+                        ? "border-line-soft"
+                        : "border-dashed border-line-soft"
+                    }`}
+                  >
                     <span>ETA · {p.eta}</span>
                     <span aria-hidden>—</span>
                   </div>
