@@ -115,7 +115,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
   --color-background · --color-foreground · --color-card · --color-popover
   --color-primary · --color-secondary · --color-muted · --color-accent
   --color-destructive · --color-border · --color-input · --color-ring
-  /* :root surfaces (deep dark, hue 290) — bg 0.165 → surface-soft 0.195 → surface-card 0.215 → muted/secondary 0.255 → accent 0.275 → raised 0.265/0.315 → line-soft 0.36 → border 0.42. fg 0.92 / muted-fg 0.70 / fg-dim 0.62. primary-foreground near-white 0.985 (violet 버튼 위 텍스트 — 5.4:1 AA) */
+  /* :root surfaces (deep dark, hue 290) — bg 0.165 → surface-soft 0.195 → surface-card 0.215 → muted/secondary 0.255 → accent 0.275 → raised 0.265/0.315 → line-soft 0.36 → border 0.42. fg 0.92 / muted-fg 0.70 / fg-dim 0.69. primary-foreground near-white 0.985 (violet 버튼 위 텍스트 — 5.4:1 AA) */
 
   /* Surface 확장 */
   --color-border-strong: oklch(0.52 0.016 290);
