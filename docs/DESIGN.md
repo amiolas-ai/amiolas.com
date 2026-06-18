@@ -71,7 +71,7 @@ Hero(풀블리드 비디오) → Marquee(키워드 스트립) → SpecifySection
 ## 8. Copy 연계 규칙 (디자인에 영향을 주는 것만)
 
 - 헤드라인 `max-w-[18ch]`(hero·contact), SectionHead `max-w-[36ch]`, 리드 `max-w-[32ch]`, 본문 `max-w-[54ch]` — 카피 교체 시 이 폭 안에서 줄수를 확인합니다.
-- 이해가 필요한 텍스트(헤드라인·본문·CTA)는 한글, mono 장식 라벨·고유명사는 영문 (`docs/BRAND.md` §4).
+- 이해가 필요한 텍스트(헤드라인·본문·CTA)는 한글, mono 장식 라벨·고유명사는 영문 (노션 브랜드 문서 §4 — 카피 보이스).
 - 사이트 공통 소개 문장은 `src/lib/seo.ts`의 `SITE_DESCRIPTION` 상수 한 곳에서만 수정합니다 (layout·manifest·json-ld·OG 이미지가 모두 참조).
 
 ## 9. Primitives

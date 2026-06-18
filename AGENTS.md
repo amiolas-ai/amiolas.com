@@ -20,9 +20,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · Vercel
 
-**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), deep dark bg `oklch(0.165 0.012 290)` (hue 290), **다크 단일 테마** (절제된 사이버펑크: 네온 violet + 미세 그리드/스캔라인 + dashed 블루프린트 보더 + 절제된 글리치). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), deep dark bg `oklch(0.165 0.012 290)` (hue 290), **다크 단일 테마** (절제된 사이버펑크: 네온 violet + 미세 그리드/스캔라인 + dashed 블루프린트 보더 + 절제된 글리치). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천(SSoT)은 **노션 문서 허브의 브랜드 문서**입니다 (https://app.notion.com/p/383900d0598281c3a4c9ceb25c1ef9e0) — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수. 저장소 `docs/BRAND.md`는 그 미러입니다.
 
-**한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치. 쉬운 한국어 5원칙(전문 용어 첫 등장 시 풀어쓰기 · 한 문장 한 정보 · 영문은 장식 라벨·고유명사만)은 `docs/BRAND.md` §4 참조.
+**한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치. 쉬운 한국어 5원칙(전문 용어 첫 등장 시 풀어쓰기 · 한 문장 한 정보 · 영문은 장식 라벨·고유명사만)은 노션 브랜드 문서 §4(카피 보이스) 참조.
 
 **비공개 가드레일**: **Agent II는 세무 AI 에이전트로 공개**(개발 진행중). 단 제품 브랜드명(**택스바이옴 / TaxBiome**)은 공식 발표 전까지 외부 비공개. 그 외 후속 에이전트(**Agent III** 이후)의 도메인명은 외부 비공개로, 라인업 카드에 `Agent III · 도메인 검토 단계` 형태로 익명 유지합니다. 미공개 브랜드명·도메인은 공식 발표 전까지 어떤 외부 노출물(마케팅 카피·메타데이터·라인업 카드)에도 등장하지 않습니다.
 
@@ -36,9 +36,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 | --- | --- |
 | **`AGENTS.md`** (여기) | Codex의 단일 프로젝트 지침 — 디렉터리 구조·라우팅 골격·디자인 토큰·네이밍·성능 목표·테스팅/배포 정책. *what·where·which.* |
 | **`CLAUDE.md`** | Claude Code 호환용 얇은 포인터. 새 규칙은 여기에 쓰지 않습니다. |
-| **`docs/BRAND.md`** | 미션·메타포·보이스·비즈니스 모델 등 브랜드 진실 원천. |
+| **노션 브랜드 문서** (SSoT) | 미션·메타포·보이스·비즈니스 모델 등 브랜드 진실 원천. |
+| **`docs/BRAND.md`** | 위 노션 브랜드 문서의 저장소 미러 (카피 보이스 제외). |
 
-Codex는 별도 서브 에이전트를 사용하지 않습니다. 비-trivial 구현·리뷰도 이 파일과 `node_modules/next/dist/docs/`의 관련 가이드를 기준으로 직접 수행합니다. 브랜드·카피 판단은 `docs/BRAND.md`를 우선합니다.
+Codex는 별도 서브 에이전트를 사용하지 않습니다. 비-trivial 구현·리뷰도 이 파일과 `node_modules/next/dist/docs/`의 관련 가이드를 기준으로 직접 수행합니다. 브랜드·카피 판단은 노션 브랜드 문서(SSoT)를 우선하며, 저장소 미러는 `docs/BRAND.md`입니다.
 
 ---
 
