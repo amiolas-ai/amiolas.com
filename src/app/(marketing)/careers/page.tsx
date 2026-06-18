@@ -9,7 +9,7 @@ import { JobRow } from "./_components/job-row";
 export const metadata: Metadata = buildMetadata({
   title: "영입",
   description:
-    "Amiolas는 자체 AI 제품과 엔터프라이즈 엔지니어링을 함께 운영하는 AI Studio입니다. 의미를 함께 만들 동료를 찾습니다.",
+    "Amiolas는 AI 에이전트 소프트웨어 개발을 주력으로, 자체 AI 제품과 엔터프라이즈 엔지니어링을 함께 만드는 AI Studio입니다. 의미를 함께 만들 동료를 찾습니다.",
   path: "/careers",
 });
 

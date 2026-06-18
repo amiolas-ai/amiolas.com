@@ -1,0 +1,1 @@
+- [Route typegen + dev 404 quirk](project_route_typegen.md) — Run `npx next typegen` before tsc for new dynamic routes; dev 404s return HTTP 200 with not-found UI
