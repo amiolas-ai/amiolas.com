@@ -4,13 +4,23 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ---
 
+## Codex 최소 행동 규칙
+
+- 사용자에게 보내는 모든 텍스트 응답은 한국어로 작성합니다. 코드, 파일명, 명령어, 식별자는 원문을 유지합니다.
+- 한국어 문장은 `:`로 끝내지 않습니다. 문장 끝은 `.`, `?`, `!`를 사용합니다.
+- 변경은 요청 범위에 맞춰 작게 적용하고, 무관한 리팩터링·포맷팅·삭제는 하지 않습니다.
+- 코드 변경 시 완료 전 `npm run lint`와 필요한 빌드·테스트를 실행합니다.
+- 한 논리 변경 단위로 검증 후 커밋하고, 사용자나 다른 도구가 만든 무관한 변경은 스테이징하지 않습니다.
+
+---
+
 # Amiolas Website — Engineering Conventions
 
 회사 마케팅 사이트 (`amiolas.com`) 개발 가이드라인. 모든 PR·커밋·코드는 이 문서를 우선 참조합니다.
 
 **스택**: Next.js **16+** App Router · React 19.2 · TypeScript strict · **Tailwind v4** · shadcn/ui · Vercel
 
-**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), deep dark bg `oklch(0.165 0.012 290)` (hue 290), **다크 단일 테마** (절제된 사이버펑크: 네온 violet + 미세 그리드/스캔라인 + dashed 블루프린트 보더 + 절제된 글리치). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 `**docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
+**브랜드 / 디자인 캐논**: violet `oklch(0.55 0.22 295)` (디자인 시안 primary, hue 295), deep dark bg `oklch(0.165 0.012 290)` (hue 290), **다크 단일 테마** (절제된 사이버펑크: 네온 violet + 미세 그리드/스캔라인 + dashed 블루프린트 보더 + 절제된 글리치). 미션·메타포·보이스·비즈니스 모델 등 모든 브랜드 진실 원천은 **`docs/BRAND.md`** — 카피 작성·랜딩 페이지·IR·계약서 모두 우선 참조 필수.
 
 **한글 카피 보이스**: 합쇼체(`~합니다 / ~입니다`) 기본. 명사형 헤드라인은 그대로 두고, 문헌 인용은 원문 어조 보존(`~한다` 가능). no emoji · no exclamation · 3인칭 진술 · 구체 수치. 쉬운 한국어 5원칙(전문 용어 첫 등장 시 풀어쓰기 · 한 문장 한 정보 · 영문은 장식 라벨·고유명사만)은 `docs/BRAND.md` §4 참조.
 
@@ -91,7 +101,7 @@ proxy.ts               # (선택) 라우트 가로채기. ※ middleware.ts 아�
 
 ## 3. 스타일링 (Tailwind v4) & 디자인 시스템
 
-`**tailwind.config.ts` 없음**. 모든 토큰은 `src/app/globals.css`의 `@theme inline` 블록이 단일 진실 원천. 새 토큰 추가 시 그곳에서.
+**`tailwind.config.ts` 없음**. 모든 토큰은 `src/app/globals.css`의 `@theme inline` 블록이 단일 진실 원천. 새 토큰 추가 시 그곳에서.
 
 ### 등록된 토큰 (확장 포함)
 
