@@ -6,7 +6,7 @@
 
 ## 1. Overview
 
-Amiolas는 **다크 단일 테마**의 절제된 사이버펑크 마케팅 사이트입니다. 딥 다크 배경(`oklch(0.13 0.012 290)` ≈ `#0b0a10`, hue 290) 위에 네온 violet(hue 295) 한 가지만을 액센트로 사용하고, 미세 그리드·스캔라인·노이즈·dashed 블루프린트 보더·절제된 글리치가 무드를 만듭니다. `next-themes` 미사용, 라이트 모드 미운영 — 유일한 예외는 Contact 위젯의 라이트 패널(§7)입니다.
+Amiolas는 **다크 단일 테마**의 절제된 사이버펑크 마케팅 사이트입니다. 딥 다크 배경(`oklch(0.165 0.012 290)`, hue 290) 위에 네온 violet(hue 295) 한 가지만을 액센트로 사용하고, 미세 그리드·스캔라인·노이즈·dashed 블루프린트 보더·절제된 글리치가 무드를 만듭니다. `next-themes` 미사용, 라이트 모드 미운영 — 예외는 두 곳입니다. Contact 위젯의 라이트 패널(`.contact-light`)과 `/careers` 라우트 전체(`.surface-light`)이며, 두 클래스는 같은 토큰 오버라이드 블록을 공유합니다(§7).
 
 홈(`/`)은 6개 섹션의 수직 합성입니다.
 
@@ -64,13 +64,13 @@ Hero(풀블리드 비디오) → Marquee(키워드 스트립) → SpecifySection
 - Contact 위젯: 닫힌 패널은 `inert`(Tab 진입 차단), Escape로 닫힘.
 - 히어로 비디오는 `preload="metadata"` — LCP 경합 방지.
 
-## 7. Contact Widget (라이트 패널 예외)
+## 7. 라이트 서피스 예외 (Contact 위젯 · /careers)
 
-`.contact-light` 클래스가 `:root` 시맨틱 토큰을 라이트 값으로 재정의해, 다크 페이지 위에 밝은 플로팅 패널로 읽히게 합니다. **색온도는 페이지와 같은 hue 290 쿨 뉴트럴** — 웜 톤(hue 85 등)으로 되돌리면 페이지와 충돌합니다. `:root`에 시맨틱 변수를 새로 추가하면 `.contact-light`에 대응 라이트 값을 반드시 함께 추가하세요. input 경계는 `ring-input`(패널 대비 ~3:1, WCAG 1.4.11)을 유지합니다.
+`.contact-light`와 `.surface-light`는 `globals.css`에서 동일한 토큰 오버라이드 블록을 공유합니다. Contact 위젯은 다크 페이지 위에 밝은 플로팅 패널로 읽히게 하고, `/careers`는 라우트 전체(헤더·푸터 포함)를 라이트 페이지로 반전시킵니다. `/careers`는 `RouteThemeShell`(SiteShell 내부)이 pathname을 감지해 `.surface-light`를 적용하며, 이때 다크 전용 배경 아틀라스(`.bg-fx`·`.bg-grid`·`.bg-scanline`·`.bg-noise`)는 `display: none`으로 끕니다. **색온도는 두 경우 모두 페이지와 같은 hue 290 쿨 뉴트럴** — 웜 톤(hue 85 등)으로 되돌리면 페이지와 충돌합니다. `:root`에 시맨틱 변수를 새로 추가하면 이 블록에 대응 라이트 값을 반드시 함께 추가합니다. input 경계는 `ring-input`(패널 대비 ~3:1, WCAG 1.4.11)을 유지합니다.
 
 ## 8. Copy 연계 규칙 (디자인에 영향을 주는 것만)
 
-- 헤드라인 `max-w-[18ch]`(hero·contact), SectionHead `max-w-[28ch]`, 리드 `max-w-[32ch]`, 본문 `max-w-[54ch]` — 카피 교체 시 이 폭 안에서 줄수를 확인합니다.
+- 헤드라인 `max-w-[18ch]`(hero·contact), SectionHead `max-w-[36ch]`, 리드 `max-w-[32ch]`, 본문 `max-w-[54ch]` — 카피 교체 시 이 폭 안에서 줄수를 확인합니다.
 - 이해가 필요한 텍스트(헤드라인·본문·CTA)는 한글, mono 장식 라벨·고유명사는 영문 (`docs/BRAND.md` §4).
 - 사이트 공통 소개 문장은 `src/lib/seo.ts`의 `SITE_DESCRIPTION` 상수 한 곳에서만 수정합니다 (layout·manifest·json-ld·OG 이미지가 모두 참조).
 

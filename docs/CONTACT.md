@@ -71,10 +71,10 @@
 
 **C. 실시간 전달 (SSE)**
 
-1. 위젯이 마운트 + `conversationId` 존재 시 `EventSource('/api/contact/stream?conversationId=…&since=0')` 생성
-2. SSE 라우트(Node runtime)가 KV에서 since 이후 메시지 일괄 replay → 클라가 history 복원
+1. 위젯이 마운트 + `conversationId` 존재 시 `EventSource('/api/contact/stream?conversationId=…&since=0')` 생성 — URL의 since는 항상 0 고정이라 매 연결마다 전체 history를 replay하고, 재연결 시 갭 보정은 브라우저가 자동 부착하는 `Last-Event-ID` 헤더가 담당 (step 6–7)
+2. SSE 라우트(Node runtime)가 연결 직후 `{ type: "open" }`을 1회 전송 → KV에서 since 이후 메시지 일괄 replay → 클라가 history 복원
 3. 라우트가 node-redis로 `conv:<id>` 채널 SUBSCRIBE
-4. PUBLISH 도착마다 SSE `data: { type: "message", payload }`로 푸시
+4. PUBLISH 도착마다 SSE `data: { type: "message", payload }`로 푸시 — 메시지가 없어도 15초마다 `{ type: "ping", t }` 하트비트로 연결 유지
 5. 25초 후 라우트 self-close (Vercel function 30s 한도 회피)
 6. 브라우저 EventSource가 자동 재연결 — `Last-Event-ID` 헤더에 마지막으로 받은 메시지 timestamp 자동 포함
 7. 서버는 헤더의 `Last-Event-ID`를 since cursor로 우선 사용 → 끊긴 사이 누락된 메시지 보정
@@ -92,7 +92,7 @@
 | `components/widget/widget-fab.tsx`      | 우하단 floating action button. unread badge 표시                                 |
 | `components/widget/widget-panel.tsx`    | 패널 UI (헤더·메시지 리스트·composer 폼). useFormStatus로 pending 처리                    |
 | `components/widget/message-bubble.tsx`  | 메시지 1건 렌더. sender별 스타일 분기                                                   |
-| `components/layout/contact-trigger.tsx` | 헤더·CTA 버튼이 위젯을 열기 위한 트리거. window CustomEvent `amiolas:contact:toggle` 발행    |
+| `components/layout/contact-trigger.tsx` | 헤더·CTA 버튼이 위젯을 열기 위한 트리거. window Event `amiolas:contact:toggle` 발행 (toggle 신호만, 페이로드 없음)    |
 | `hooks/use-contact-storage.ts`          | localStorage 영속화 훅. `{ conversationId, identity, lastReadTs }` 읽기/쓰기        |
 
 
@@ -109,7 +109,7 @@
 | `app/api/contact/stream/route.ts` | SSE 엔드포인트. Node runtime, 25s 수명, Last-Event-ID 재연결                                          |
 | `app/api/slack/events/route.ts`   | Slack Events 웹훅. Edge runtime, 서명 검증·dedupe·publish                                         |
 | `lib/env.ts`                      | zod로 검증된 env 단일 진실 원천                                                                       |
-| `lib/contact/config.ts`           | 상수 (rate-limit, 메시지 길이 한도, TTL, ACK 텍스트)                                                    |
+| `lib/contact/config.ts`           | 상수 (rate-limit 6/60s, 메시지 길이 한도 1~2000, 이름 길이 한도 64, conversation TTL 30일, ACK 텍스트)            |
 
 
 ---
@@ -260,7 +260,7 @@ NX + EX 옵션이 *atomic*이라 동시 요청도 정확히 하나만 처리.
 
 ```ts
 if (honeypot.length > 0) {
-  return { ok: true, conversationId: "honey", messages: [] };
+  return { ok: true, conversationId: conversationId || "honey", messages: [] };
 }
 ```
 
@@ -370,7 +370,7 @@ src/
     (marketing)/
       _components/
         contact-section.tsx         # 홈 §6 contact 섹션 — CTA가 위젯 토글
-      layout.tsx                    # <ContactWidget /> 1회 삽입
+      layout.tsx                    # <SiteShell> 래핑 (위젯은 SiteShell 내부에서 삽입)
     api/
       contact/
         stream/route.ts             # SSE (Node, 25s)
@@ -378,6 +378,7 @@ src/
         events/route.ts             # Slack Events 웹훅 (Edge)
   components/
     layout/
+      site-shell.tsx                # <ContactWidget /> 1회 삽입 (전 페이지 chrome)
       contact-trigger.tsx           # 위젯 토글 버튼 (헤더·CTA 공용)
       header.tsx                    # 헤더에서 트리거 사용
     widget/
@@ -434,5 +435,5 @@ src/
 - `/api/slack/events` 401: 서명 검증 실패 → `SLACK_SIGNING_SECRET` 확인
 - `/api/contact/stream` 502/timeout: node-redis 연결 실패 → `KV_URL` (`rediss://`) 확인
 - Slack `not_in_channel` 에러: 봇이 채널에 미초대 상태 → `/invite @Amiolas Inbox`
-- 위젯이 안 보임: 마케팅 layout에 `<ContactWidget />` 삽입 확인
+- 위젯이 안 보임: SiteShell(`site-shell.tsx`)에 `<ContactWidget />` 삽입 확인
 
